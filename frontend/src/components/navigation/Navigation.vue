@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import {ref} from "vue";
 import {scrollToTarget} from "@/lib/utils";
+import {useUserStore} from "@/stores/user-store";
 
 const displayMenu = ref<boolean>(false)
+const user = useUserStore()
 
 const toggleMenu = () => {
   displayMenu.value = !displayMenu.value
@@ -76,6 +78,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <router-link to="/#section-references">Reference</router-link>
         <router-link to="/#section-blog">Blog</router-link>
         <router-link to="/#section-contact">Kokontakt</router-link>
+        <router-link v-if="user.id" :to="'/user/' + user.id">Profil</router-link>
       </div>
 
       <a class="navigation__icon" :onclick="toggleMenu" v-if="!displayMenu"><MenuIcon :size="32"/></a>
@@ -181,6 +184,7 @@ document.addEventListener('DOMContentLoaded', function () {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
+      line-height: normal;
 
       > span:nth-child(1) {
         font-size: 0.9rem;

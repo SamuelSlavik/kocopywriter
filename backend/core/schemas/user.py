@@ -4,24 +4,18 @@ from uuid import UUID
 from datetime import datetime
 
 
+class Token(BaseModel):
+    access_token: str
+    token_type: str
+
+
 class User(BaseModel):
-    id: UUID
+    id: int
     email: str
     password: str
-    trusted: bool
 
     class Config:
-        orm_mode = True
-
-
-class UserInDB(User):
-    hashed_password: str
-    reset_password_token: Optional[str] = None
-    created_at: datetime
-    last_change: datetime
-
-    class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class CreateUser(BaseModel):

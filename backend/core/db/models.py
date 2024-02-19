@@ -1,11 +1,10 @@
-from database import Base
+from .databases import Base
 from sqlalchemy import Column, String, Integer, TIMESTAMP, Boolean, UUID
 
 
 class User(Base):
     __tablename__ = "users"
 
-    id = Column(UUID, primary_key=True, nullable=False)
-    email = Column(String(50), unique=True, nullable=False)
-    password = Column(String(50), nullable=False)
-    trusted = Column(Boolean, nullable=False)
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    email = Column(String(255), unique=True, nullable=False)
+    password = Column(String(255), nullable=False)

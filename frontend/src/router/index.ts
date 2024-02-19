@@ -1,6 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Homepage from "@/pages/sections/Homepage.vue";
 import OnePage from "@/pages/OnePage.vue";
+import Login from "@/pages/admin/Login.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -19,9 +20,9 @@ const router = createRouter({
       component: OnePage
     },
     {
-      path: '/about',
-      name: 'about',
-      component: Homepage
+      path: '/login',
+      name: 'login',
+      component: Login
     }
   ]
 })

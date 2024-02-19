@@ -1,24 +1,17 @@
 from fastapi import FastAPI, Depends, HTTPException, status
-from sqlalchemy.orm import Session
-from db.databases import get_session
+from fastapi.middleware.cors import CORSMiddleware
 
-from schemas.user import CreateUser
-import db.models
+from .config import config
+from .db.databases import get_session, engine
+from .db.models import *
+from .routes.user import user_route
+
+# Create tables inside database
+Base.metadata.create_all(engine)
 
 app = FastAPI()
 
-
-@app.post("/api/register")
-async def register(user: CreateUser, session: Session = Depends(get_session())):
-    # Search database with email, if it returns any user, raise exception
-    existing_user = session.query(db.models.User).filter_by(email=user.email).first()
-    if existing_user:
-        raise HTTPException(status_code=400, detail="User already exists")
-
-
-
-
-    print("a")
+app.include_router(user_route, prefix="/api/user")
 
 
 @app.get("/")
@@ -29,3 +22,12 @@ async def root():
 @app.get("/hello/{name}")
 async def say_hello(name: str):
     return {"message": f"Hello {name}"}
+
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=[config.FRONTEND_URL],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)

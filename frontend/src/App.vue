@@ -1,5 +1,36 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
+import {inject, onMounted, ref} from "vue";
+import {useUserStore} from "@/stores/user-store";
+import axios from "axios";
+import type {User} from "@/lib/models";
+import {Endpoints} from "@/lib/endpoints";
+
+const loading = ref<boolean>(false)
+const user = useUserStore()
+const notificationStore: any = inject('notificationStore')
+
+const checkUser = async () => {
+  try {
+    loading.value = true
+
+    const response = await axios.get<User>(
+        Endpoints.retrieveCurrentUser,
+        {headers: {Authorization: `Bearer ${localStorage.getItem("token") || ""}`}}
+    )
+    if (response.status === 200) {
+      user.setUserData(response.data)
+    }
+  } catch (error) {
+    console.log(error)
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(() => {
+  checkUser()
+})
 
 document.addEventListener('DOMContentLoaded', function () {
   const navigationLinks = document.querySelectorAll('.navigation a');
@@ -35,12 +66,15 @@ document.addEventListener('DOMContentLoaded', function () {
   window.addEventListener('scroll', toggleActiveLink);
   toggleActiveLink(); // Initial check on page load
 });
+
 </script>
 
 <template>
   <Navigation/>
   <RouterView />
   <Footer />
+
+  <Notifications />
 </template>
 
 <style>
