@@ -11,6 +11,7 @@ import Container from "@/components/Container.vue";
 import Navigation from "@/components/navigation/Navigation.vue";
 import Footer from "@/components/footer/Footer.vue";
 import Loader from "@/components/loader/Loader.vue";
+import Heading from "@/components/Heading.vue";
 
 // ICONS
 // @ts-ignore
@@ -30,6 +31,7 @@ app.use(Notifications)
 
 app.component("Loader", Loader)
 
+app.component("Heading", Heading)
 app.component("Container", Container)
 app.component("Navigation", Navigation)
 app.component("Footer", Footer)

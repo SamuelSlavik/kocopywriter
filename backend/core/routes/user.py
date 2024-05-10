@@ -6,8 +6,11 @@ from jose import JWTError, jwt
 from passlib.context import CryptContext
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
+
+from ..config import config
 from ..db.databases import get_session
-from ..schemas.user import CreateUser, Token
+from ..db.user import db_update_user_email
+from ..schemas.user import CreateUser, Token, UserEmail, UserPassword
 from ..db.models import User
 from dotenv import load_dotenv
 import os
@@ -43,7 +46,8 @@ def authenticate_user(username: str, password: str, session):
 
 
 def create_access_token(email: str, id: int):
-    encode = {"sub": email, "id": id}
+    expire = datetime.utcnow() + timedelta(minutes=config.TOKEN_EXPIRATION)
+    encode = {"sub": email, "id": id, "exp": expire}
     return jwt.encode(encode, SECRET_KEY, algorithm=ALGORITHM)
 
 
@@ -52,6 +56,9 @@ async def get_current_user(token: Annotated[str, Depends(oauth2_scheme)]):
         payload = jwt.decode(token, SECRET_KEY, algorithms=[ALGORITHM])
         email: str = payload.get("sub")
         id: int = payload.get("id")
+        expiration_time = payload.get("exp")
+        if datetime.utcnow() >= datetime.fromtimestamp(expiration_time):
+            raise HTTPException(status_code=401, detail="Token has expired")
         if email is None or id is None:
             raise HTTPException(status_code=401, detail="Invalid credentials")
         user = User(id=id, email=email)
@@ -94,4 +101,28 @@ async def get_user(user: User = Depends(get_current_user), session: Session = De
     if user is None:
         raise HTTPException(status_code=401, detail="Unauthorized")
     return {"id": user.id, "email": user.email}
+
+
+@user_route.put("/update/email")
+async def update_email(email: UserEmail, user: User = Depends(get_current_user), session: Session = Depends(get_session)):
+    if user is None:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+    new_email = db_update_user_email(user.id, email.email, session)
+
+    if not new_email:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    return new_email
+
+
+@user_route.put("/update/password")
+async def update_email(password: UserPassword, user: User = Depends(get_current_user), session: Session = Depends(get_session)):
+    if user is None:
+        raise HTTPException(status_code=401, detail="Unauthorized")
+
+    new_email = db_update_user_email(user.id, password.password, session)
+
+    if not new_email:
+        raise HTTPException(status_code=401, detail="Invalid credentials")
+    return new_email
 

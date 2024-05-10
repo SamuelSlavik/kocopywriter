@@ -21,3 +21,11 @@ class User(BaseModel):
 class CreateUser(BaseModel):
     email: str
     password: str
+
+
+class UserEmail(BaseModel):
+    email: str
+
+
+class UserPassword(BaseModel):
+    password: str

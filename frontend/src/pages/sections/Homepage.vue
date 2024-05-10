@@ -2,6 +2,32 @@
 
 import Container from "@/components/Container.vue";
 import {scrollToTarget} from "@/lib/utils.js";
+import {useUserStore} from "@/stores/user-store";
+import {headlineApi} from "@/lib/apiHelpers";
+import {inject, onMounted, ref} from "vue";
+import type {Headline} from "@/lib/models";
+
+const user = useUserStore()
+const loading = ref<boolean>(false)
+const notificationStore: any = inject('notificationStore')
+
+const headline = ref<Headline>()
+
+const loadHeadline = async () => {
+  try {
+    loading.value = true
+    const response = await headlineApi.getHeadline()
+    headline.value = response.data
+  } catch (error: any) {
+    notificationStore.addNotification({type: "error", message: "Failed to get headline: " + error.message})
+  } finally {
+    loading.value = false
+  }
+}
+
+onMounted(() => {
+  loadHeadline()
+})
 
 </script>
 
@@ -12,7 +38,10 @@ import {scrollToTarget} from "@/lib/utils.js";
     </div>
     <div class="homepage-header">
       <div>
-        <h1>Mluvit moc neumím, přesto vaši cílovou skupinu zaručeně oslovím</h1>
+        <Loader v-if="loading"/>
+        <h1 v-else >
+          {{headline?.text || "Mluvit moc neumím, přesto vaši cílovou skupinu zaručeně oslovím"}}
+        </h1>
         <a @click="() => scrollToTarget('section-contact', 0)" class="button">Dávej, Beru!</a>
       </div>
     </div>

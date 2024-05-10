@@ -42,8 +42,6 @@ document.addEventListener('DOMContentLoaded', function () {
       const targetId = link.getAttribute('href')?.substring(2); // Remove the '#' from the href
       const targetElement = document.getElementById(targetId || '')
 
-      console.log(targetId);
-
       if (
           targetElement &&
           scrollPosition >= targetElement.offsetTop - window.innerHeight / 2 &&
@@ -86,6 +84,7 @@ document.addEventListener('DOMContentLoaded', function () {
   --background: rgb(255, 255, 255);
   --secondary-background: rgb(0, 0, 0);
   --breakpoint: 1200px;
+  --editable: rgba(0, 153, 153, 1);
 }
 
 *,
@@ -132,6 +131,10 @@ svg, i {
     box-shadow: -5px -5px 0px 0px rgba(0,0,0,0.08);
   }
 }
+.button-group {
+  display: flex;
+  gap: 1rem;
+}
 h2 {
   font-family: "Times New Roman ", serif;
   font-size: 2rem;
@@ -145,4 +148,20 @@ h3 {
 p {
   color: var(--secondary);
 }
+ul {
+  list-style: none;
+  li {
+    margin: 0  1rem;
+    color: var(--secondary);
+  }
+}
+.hr {
+  background-color: var(--tertiary);
+  height: 1px;
+  width: 100%;
+  margin: 2rem 0;
+}
+
+
+
 </style>

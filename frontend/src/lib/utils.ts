@@ -1,3 +1,6 @@
+
+
+
 export const scrollToTarget = function(targetId: string, offset = 0) {
   const targetElement = document.getElementById(targetId);
 
@@ -10,3 +13,8 @@ export const scrollToTarget = function(targetId: string, offset = 0) {
     });
   }
 };
+
+export const formatDate = (date: string) => {
+  const [year, month, day] = date.split('-');
+  return `${day}.${month}.${year}`;
+}

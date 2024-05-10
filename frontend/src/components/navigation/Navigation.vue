@@ -2,13 +2,10 @@
 import {ref} from "vue";
 import {scrollToTarget} from "@/lib/utils";
 import {useUserStore} from "@/stores/user-store";
+import {useRouter} from "vue-router";
 
 const displayMenu = ref<boolean>(false)
 const user = useUserStore()
-
-const toggleMenu = () => {
-  displayMenu.value = !displayMenu.value
-}
 
 document.addEventListener('DOMContentLoaded', function () {
   const navigationContainer = document.querySelector('.navigation-container');
@@ -58,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <template>
   <div class="navigation-container">
-    <div class="navigation-wrapper">
+    <nav class="navigation-wrapper">
       <div class="logo">
         <router-link to="/#section-homepage" class="logo">
           <div>
@@ -78,12 +75,12 @@ document.addEventListener('DOMContentLoaded', function () {
         <router-link to="/#section-references">Reference</router-link>
         <router-link to="/#section-blog">Blog</router-link>
         <router-link to="/#section-contact">Kokontakt</router-link>
-        <router-link v-if="user.id" :to="'/user/' + user.id">Profil</router-link>
+        <router-link v-if="user.id" to="/admin">Profil</router-link>
       </div>
 
       <a class="navigation__icon" :onclick="toggleMenu" v-if="!displayMenu"><MenuIcon :size="32"/></a>
       <a class="navigation__icon" :onclick="toggleMenu" v-if="displayMenu"><Close :size="32"/></a>
-    </div>
+    </nav>
 
     <div v-if="displayMenu" class="menu">
       <router-link to="/" :onclick="toggleMenu">Homepage</router-link>

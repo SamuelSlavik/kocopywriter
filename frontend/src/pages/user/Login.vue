@@ -2,10 +2,8 @@
 import {ref} from "vue";
 import {useRouter} from "vue-router";
 import { inject } from 'vue'
-import axios from "axios";
-import {Endpoints} from "@/lib/endpoints";
-import type {User} from "@/lib/models";
 import {useUserStore} from "@/stores/user-store";
+import {userApi} from "@/lib/apiHelpers";
 
 
 const router = useRouter()
@@ -18,19 +16,12 @@ const password = ref<string>("")
 
 const login = async () => {
   try {
-    const response = await axios.post(
-      Endpoints.login,
-      {email: email.value, password: password.value}
-    )
+    const response: any = await userApi.login({email: email.value, password: password.value})
     localStorage.setItem("token", response.data.access_token)
 
     if (response.status === 200) {
       try {
-        const response = await axios.get<User>(
-          Endpoints.retrieveCurrentUser,
-          {headers: {Authorization: `Bearer ${localStorage.getItem("token") || ""}`}}
-        )
-        console.log(response.data)
+        const response: any = await userApi.retrieveCurrentUser()
         user.setUserData(response.data)
         if (response.status === 200) {
           await router.push('/');
@@ -75,6 +66,11 @@ const login = async () => {
 </template>
 
 <style>
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
 .section-login {
   min-height: 100vh;
   display: flex;
@@ -89,16 +85,37 @@ const login = async () => {
   max-width: 400px;
   margin: auto;
 }
-input, select, textarea {
+input, select, textarea, .tiptap {
   width: 100%;
   padding: 1rem;
   outline: none;
   border: 1px solid var(--tertiary);
+  font-size: 0.9rem;
 }
-input:invalid, select:invalid, textarea:invalid {
+input:invalid, select:invalid, textarea:invalid, .tiptap:invalid {
   border: 1px solid #ff453a;
 }
-input:hover, input:focus, select:hover, select:focus, textarea:focus, textarea:hover {
+input:hover, .tiptap:focus, .tiptap:hover input:focus, select:hover, select:focus, textarea:focus, textarea:hover {
   border: 1px solid var(--orange);
 }
+.form-block {
+  padding: 3rem 0;
+  text-align: left;
+}
+label {
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+.form-row {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+
+}
+.file-input-wrapper {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
 </style>
