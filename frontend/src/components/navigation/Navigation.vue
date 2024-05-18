@@ -6,7 +6,7 @@ import {useUserStore} from "@/stores/user-store";
 const displayMenu = ref<boolean>(false)
 const user = useUserStore()
 
-const toggleMenu = () => {
+const toggleMenu: any = () => {
   displayMenu.value = !displayMenu.value
 }
 
