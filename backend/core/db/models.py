@@ -51,7 +51,9 @@ class Brand(Base):
 class Reference(Base):
     __tablename__ = "references_table"
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    order = Column(Integer, nullable=False)
     name = Column(String(255), nullable=False)
+    position = Column(String(255), nullable=False)
     url = Column(String(255), nullable=False)
     description = Column(String, nullable=False)
     image = Column(String(255), nullable=False)

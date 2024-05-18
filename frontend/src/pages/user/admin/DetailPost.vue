@@ -9,7 +9,7 @@ import Delete from "vue-material-design-icons/Delete.vue";
 import type {Post} from "@/lib/models";
 import {postsApi} from "@/lib/apiHelpers";
 import {backend_url} from "@/lib/constants";
-import {formatDate} from "../../../lib/utils";
+import {formatDate} from "@/lib/utils";
 
 const loading = ref<boolean>(false)
 const user = useUserStore()
@@ -54,7 +54,7 @@ const deletePost = async (id: string) => {
         await router.push("/admin/posts")
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete post: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete post: " + error.response.data.detail})
     }
   }
 }
@@ -78,7 +78,7 @@ onMounted(() => {
       <div class="hr"></div>
       <p><b>Date: </b>{{formatDate(post.date)}}</p>
       <p><b>Short description: </b>{{post.short}}</p>
-      <img class="image-detail" :src="backend_url + post.image" alt="thumbnail" v-if="post.image"/>
+      <img class="image-detail" :src="post.image" alt="thumbnail" v-if="post.image"/>
       <div class="hr"></div>
       <div v-html="post.content"></div>
     </div>

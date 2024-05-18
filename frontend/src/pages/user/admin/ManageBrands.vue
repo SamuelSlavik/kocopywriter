@@ -2,9 +2,11 @@
 import {inject, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 import {useUserStore} from "@/stores/user-store";
-import { Brand } from "@/lib/models";
+import type { Brand } from "@/lib/models";
 import {brandsApi} from "@/lib/apiHelpers";
+// @ts-ignore
 import Pencil from "vue-material-design-icons/Pencil.vue";
+// @ts-ignore
 import Delete from "vue-material-design-icons/Delete.vue";
 
 const loading = ref<boolean>(false)
@@ -20,7 +22,7 @@ const loadBrands = async () => {
     const response = await brandsApi.getBrands()
     brands.value = response.data
   } catch (error: any) {
-    notificationStore.addNotification({type: 'error', message: 'Failed to load brands'})
+    notificationStore.addNotification({type: 'error', message: 'Failed to load brands: ' + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -37,7 +39,7 @@ const deleteBrand = async (id: string) => {
         await loadBrands()
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete brand: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete brand: " + error.response.data.detail})
     }
   }
 }

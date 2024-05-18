@@ -22,7 +22,7 @@ const loadHeadline = async () => {
     const response = await headlineApi.getHeadline()
     newHeadline.value = response.data
   } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to get headline: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to get headline: " + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -36,7 +36,7 @@ const updateHeadline = async () => {
       notificationStore.addNotification({type: "success", message: "Headline updated successfully"})
     }
   } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to update headline: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to update headline: " + error.response.data.detail})
   } finally {
     loading.value = false
   }

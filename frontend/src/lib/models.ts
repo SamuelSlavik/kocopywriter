@@ -20,13 +20,17 @@ export type Headline = {
 // REFERENCES ----------------------------------------------------------------------
 export type Reference = {
   id: string
+  order: number
   name: string
+  position: string
   url: string
   description: string
   image: string
 }
 export type NewReference = {
+  order: number
   name: string
+  position: string
   url: string
   description: string
   image: any

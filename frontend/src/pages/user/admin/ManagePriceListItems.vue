@@ -22,7 +22,7 @@ const loadData = async () => {
     const response = await pricingApi.getPriceListItems()
     priceListItems.value = response.data
   } catch (error: any) {
-    notificationStore.addNotification({type: 'error', message: "failed to load price list items" + error.message})
+    notificationStore.addNotification({type: 'error', message: "failed to load price list items" + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -39,7 +39,7 @@ const deleteItem = async (id: string) => {
         await loadData()
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete item: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete item: " + error.response.data.detail})
     }
   }
 }

@@ -8,7 +8,7 @@ import {imagesApi, pricingApi} from "@/lib/apiHelpers";
 import Pencil from "vue-material-design-icons/Pencil.vue";
 // @ts-ignore
 import Delete from "vue-material-design-icons/Delete.vue";
-import {backend_url} from "../../../lib/constants";
+import {backend_url} from "@/lib/constants";
 
 const loading = ref<boolean>(false)
 const user = useUserStore()
@@ -27,7 +27,7 @@ const loadImages = async () => {
   } catch (error: any) {
     notificationStore.addNotification({
       type: 'error',
-      message: 'Failed to load images',
+      message: 'Failed to load images: ' + error.response.data.detail,
     })
   } finally {
     loading.value = false
@@ -45,7 +45,7 @@ const deleteImage = async (id: string) => {
         await loadImages()
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete image: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete image: " + error.response.data.detail})
     }
   }
 }

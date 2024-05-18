@@ -22,7 +22,7 @@ const loadReferences = async () => {
   } catch (error: any) {
     notificationStore.addNotification({
       type: 'error',
-      message: 'Failed to load references',
+      message: 'Failed to load references: ' + error.response.data.detail,
     })
   } finally {
     loading.value = false
@@ -40,7 +40,7 @@ const deleteReference = async (id: string) => {
         await loadReferences()
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete reference: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete reference: " + error.response.data.detail})
     }
   }
 }

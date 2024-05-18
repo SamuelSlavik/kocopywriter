@@ -225,6 +225,18 @@ export class postsApi {
       getHeaders()
     )
   }
+  static async getLatestPost(): Promise<AxiosResponse<Post, any>> {
+    return await axios.get(
+      Endpoints.getLatestPost,
+      getHeaders()
+    )
+  }
+  static async getNextToLatestPosts(): Promise<AxiosResponse<Post[], any>> {
+    return await axios.get(
+      Endpoints.getNextToLatestPosts,
+      getHeaders()
+    )
+  }
   static async getPost(id: string): Promise<AxiosResponse<Post, any>> {
     return await axios.get(
       Endpoints.getPost(id),

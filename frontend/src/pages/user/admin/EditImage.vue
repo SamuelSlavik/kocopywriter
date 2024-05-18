@@ -30,7 +30,7 @@ const loadImage = async () => {
   } catch (e) {
     notificationStore.addNotification({
       type: 'error',
-      message: 'Failed to load image',
+      message: 'Failed to load image: ' + e.response.data.detail,
     })
   } finally {
     loading.value = false
@@ -57,7 +57,7 @@ try {
     notificationStore.addNotification({ type: "error", message: `Failed to update image: ${response.statusText}` });
   }
 } catch (error: any) {
-  notificationStore.addNotification({ type: "error", message: `Failed to update image: ${error.message}` });
+  notificationStore.addNotification({ type: "error", message: `Failed to update image: ${error.response.data.detail}` });
 }
 }
 

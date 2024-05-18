@@ -2,7 +2,8 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 
 from ..db.databases import get_session
-from ..db.posts import db_get_posts, db_get_post, db_create_post, db_update_post, db_delete_post
+from ..db.posts import db_get_posts, db_get_post, db_create_post, db_update_post, db_delete_post, \
+    db_get_next_to_latest_posts, db_get_latest_post
 from ..routes.user import get_current_user
 from ..schemas.posts import Post
 from ..schemas.user import User
@@ -13,6 +14,22 @@ posts_route = APIRouter()
 @posts_route.get("/")
 async def get_posts(session: Session = Depends(get_session)):
     posts = db_get_posts(session)
+    if not posts:
+        raise HTTPException(status_code=400, detail="Could not retrieve posts")
+    return posts
+
+
+@posts_route.get("/latest")
+async def get_latest_post(session: Session = Depends(get_session)):
+    post = db_get_latest_post(session)
+    if not post:
+        raise HTTPException(status_code=400, detail="Could not retrieve post")
+    return post
+
+
+@posts_route.get("/next-to-latest")
+async def get_next_to_latest_posts(session: Session = Depends(get_session)):
+    posts = db_get_next_to_latest_posts(session)
     if not posts:
         raise HTTPException(status_code=400, detail="Could not retrieve posts")
     return posts

@@ -1,3 +1,4 @@
+from sqlalchemy import desc
 from sqlalchemy.orm import Session
 
 from ..schemas.posts import Post as PostSchema
@@ -5,10 +6,24 @@ from ..db import models
 
 
 def db_get_posts(db: Session):
-    posts = db.query(models.Post).order_by(models.Post.date).all()
+    posts = db.query(models.Post).order_by(desc(models.Post.date)).all()
     if not posts:
         return None
     return posts
+
+
+def db_get_latest_post(db: Session):
+    latest_post = db.query(models.Post).order_by(desc(models.Post.date)).first()
+    if not latest_post:
+        return None
+    return latest_post
+
+
+def db_get_next_to_latest_posts(db: Session):
+    latest_posts = db.query(models.Post).order_by(desc(models.Post.date)).limit(4).all()
+    if not latest_posts:
+        return None
+    return latest_posts[1:]
 
 
 def db_get_post(post_id: int, db: Session):

@@ -52,7 +52,7 @@ const deleteBrand = async (id: string) => {
         await router.push("/admin/brands")
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete brand: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete brand: " + error.response.data.detail})
     }
   }
 }

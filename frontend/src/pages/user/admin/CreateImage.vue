@@ -25,15 +25,12 @@ const onFileChange = (event: any) => {
 const submitAllImages = async () => {
   const formData = new FormData();
 
-  // Append each image and its name to the FormData object
     formData.append(`image`, image.value.image);
     formData.append(`name`, image.value.name);
 
   try {
-    // Send the request to the server
     const response = await imagesApi.createImage(formData);
 
-    // Check if the request was successful
     if (response.status === 200) {
       notificationStore.addNotification({ type: "success", message: "Images uploaded successfully" });
       await router.push('/admin/images');
@@ -41,9 +38,9 @@ const submitAllImages = async () => {
       notificationStore.addNotification({ type: "error", message: `Failed to upload images: ${response.statusText}` });
     }
   } catch (error: any) {
-    notificationStore.addNotification({ type: "error", message: `Failed to upload images: ${error.message}` });
+    notificationStore.addNotification({ type: "error", message: `Failed to upload images: ${error.response.data.detail}` });
   } finally {
-    loading.value = false; // Stop loading
+    loading.value = false;
   }
 }
 

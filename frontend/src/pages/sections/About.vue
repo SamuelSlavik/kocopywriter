@@ -4,6 +4,9 @@
 
 <template>
   <Container id="section-about" class="section-about">
+    <div class="about-wallpaper">
+      <img src="../../assets/images/wallpapers/w-2.jpg" alt="Logo" />
+    </div>
     <div class="section-about__content">
       <div>
         <h2>
@@ -28,35 +31,48 @@
         <p>Napište mi na <a href="mailto:ko@kocopywriter.cz">ko@kocopywriter.cz</a></p>
       </div>
     </div>
-    <div class="about-wallpaper">
-      <img src="../../assets/images/wallpapers/w-2.jpg" alt="Logo" />
-    </div>
   </Container>
 </template>
 
 <style>
 .section-about {
-  overflow-x: hidden;
-}
-.section-about__content {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  gap: 2rem;
-  width: 50%;
-  margin-left: 0;
-  text-align: center;
-  justify-content: center;
-}
-.about-wallpaper {
-  img {
-    width: 100%;
-    left: 25%;
-    height: auto;
-    position: absolute;
-    z-index: -1;
-    top: 50%;
-    transform: translateY(-50%);
+  @media (max-width: 1024px) {
+    display: flex;
+    flex-direction: column;
+    margin: 3rem 0;
+  }
+
+  .section-about__content {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    gap: 2rem;
+    width: 50%;
+    margin-left: 0;
+    text-align: center;
+    justify-content: center;
+    @media (max-width: 1024px) {
+      width: 100%;
+      min-height: auto;
+    }
+  }
+  .about-wallpaper {
+    img {
+      width: 100%;
+      left: 25%;
+      height: auto;
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      transform: translateY(-50%);
+      @media (max-width: 1024px) {
+        position: relative;
+        width: 100%;
+        left: auto;
+        top: auto;
+        transform: none;
+      }
+    }
   }
 }
 </style>

@@ -2,7 +2,7 @@
 import {inject, onMounted, ref} from "vue";
 import {useRouter} from "vue-router";
 import {useUserStore} from "@/stores/user-store";
-import type {NewReference} from "@/lib/models";
+import type {NewReference, Reference} from "@/lib/models";
 import {referencesApi} from "@/lib/apiHelpers";
 import {backend_url} from "@/lib/constants";
 
@@ -15,17 +15,24 @@ const referenceId = ref<string>(router.currentRoute.value.params.id.toString()) 
 
 const currentImageUrl = ref<string>("")
 const newReference = ref<NewReference>({
+  order: 0,
   name: '',
+  position: "",
   url: "",
   description: "",
   image: ""
 })
 
+const references = ref<Reference[]>([])
+
+
 const loadReference = async () => {
   try {
     loading.value = true
     const response = await referencesApi.getReference(referenceId.value)
+    newReference.value.order = response.data.order
     newReference.value.name = response.data.name
+    newReference.value.position = response.data.position
     newReference.value.url = response.data.url
     newReference.value.description = response.data.description
     currentImageUrl.value = response.data.image
@@ -44,7 +51,9 @@ const submitReference = async () => {
   if (newReference.value.image) {
     formData.append("image", newReference.value.image);
   }
+  formData.append("order", newReference.value.order.toString());
   formData.append("name", newReference.value.name);
+  formData.append("position", newReference.value.position);
   formData.append("url", newReference.value.url);
   formData.append("description", newReference.value.description);
 
@@ -57,12 +66,28 @@ const submitReference = async () => {
       notificationStore.addNotification({ type: "error", message: `Failed to update reference: ${response.statusText}` });
     }
   } catch (error: any) {
-    notificationStore.addNotification({ type: "error", message: `Failed to update reference: ${error.message}` });
+    notificationStore.addNotification({ type: "error", message: `Failed to update reference: ${error.response.data.detail}` });
+  }
+}
+
+const loadReferences = async () => {
+  loading.value = true
+  try {
+    const response = await referencesApi.getReferences()
+    references.value = response.data
+  } catch (error: any) {
+    notificationStore.addNotification({
+      type: 'error',
+      message: 'Failed to load references: ' + error.response.data.detail,
+    })
+  } finally {
+    loading.value = false
   }
 }
 
 onMounted(() => {
   loadReference()
+  loadReferences()
 })
 
 </script>
@@ -76,12 +101,30 @@ onMounted(() => {
     <div class="form-block" v-else>
       <form @submit.prevent="submitReference">
         <div>
+          <label>Order</label>
+          <select v-model="newReference.order" required >
+            <option v-for="(reference, index) in references" :value="index + 1">
+              {{index + 1}}.
+            </option>
+          </select>
+        </div>
+        <div>
           <label>Firstname + Surname</label>
           <input
               name="name"
               type="text"
               placeholder="Name"
               v-model="newReference.name"
+              required
+          />
+        </div>
+        <div>
+          <label>Position</label>
+          <input
+              name="position"
+              type="text"
+              placeholder="Position"
+              v-model="newReference.position"
               required
           />
         </div>

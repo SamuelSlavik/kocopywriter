@@ -31,7 +31,7 @@ const submitBrand = async () => {
       notificationStore.addNotification({ type: "error", message: `Failed to create brand: ${response.statusText}` });
    }
   } catch (error: any) {
-    notificationStore.addNotification({ type: "error", message: `Failed to create brand: ${error.message}` });
+    notificationStore.addNotification({ type: "error", message: `Failed to create brand: ${error.response.data.detail}` });
   } finally {
     loading.value = false
   }

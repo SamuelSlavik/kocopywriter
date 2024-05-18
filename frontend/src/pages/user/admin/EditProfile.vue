@@ -24,7 +24,7 @@ const loadUser = async () => {
       await router.push('/login')
     }
   } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to get user: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to get user: " + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -44,7 +44,7 @@ const submitEmail = async () => {
       notificationStore.addNotification({type: 'success', message: "Email updated"})
     }
   } catch (error: any) {
-    notificationStore.addNotification({type: 'error', message: "Failed to update email: " + error.message})
+    notificationStore.addNotification({type: 'error', message: "Failed to update email: " + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -72,7 +72,7 @@ if (newPassword.value !== newPasswordConfirm.value) {
       notificationStore.addNotification({type: 'success', message: "Password updated"})
     }
   } catch (error: any) {
-    notificationStore.addNotification({type: 'error', message: "Failed to update password: " + error.message})
+    notificationStore.addNotification({type: 'error', message: "Failed to update password: " + error.response.data.detail})
   } finally {
     loading.value = false
   }

@@ -28,7 +28,7 @@ const createPriceListItem = async () => {
     }
   }
   catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to create price list item: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to create price list item: " + error.response.data.detail})
   }
   finally {
     loading.value = false

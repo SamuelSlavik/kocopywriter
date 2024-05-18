@@ -88,7 +88,7 @@ const submitPost = async () => {
       notificationStore.addNotification({ type: "error", message: `Failed to update post: ${response.statusText}` });
     }
   } catch (error: any) {
-    notificationStore.addNotification({ type: "error", message: `Failed to update post: ${error.message}` })
+    notificationStore.addNotification({ type: "error", message: `Failed to update post: ${error.response.data.detail}` })
   }
 }
 
@@ -105,7 +105,7 @@ const loadPost = async () => {
   } catch (e: any) {
     notificationStore.addNotification({
       type: 'error',
-      message: 'Failed to load post',
+      message: 'Failed to load post: ' + e.response.data.detail,
     })
   } finally {
     loading.value = false

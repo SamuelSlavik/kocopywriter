@@ -54,6 +54,12 @@ export class Endpoints {
   static get getPosts(): string {
     return `${Endpoints.baseUrl}/posts`;
   }
+  static get getLatestPost(): string {
+    return `${Endpoints.baseUrl}/posts/latest`;
+  }
+  static get getNextToLatestPosts(): string {
+    return `${Endpoints.baseUrl}/posts/next-to-latest`;
+  }
   static getPost(id: string): string {
     return `${Endpoints.baseUrl}/posts/${id}`;
   }

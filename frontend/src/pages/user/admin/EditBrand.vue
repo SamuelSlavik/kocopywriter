@@ -30,7 +30,7 @@ const loadBrand = async () => {
   } catch (e: any) {
     notificationStore.addNotification({
       type: 'error',
-      message: 'Failed to load brand',
+      message: 'Failed to load brand: ' + e.response.data.detail,
     })
   } finally {
     loading.value = false
@@ -57,7 +57,7 @@ const submitNewBrand = async () => {
       notificationStore.addNotification({ type: "error", message: `Failed to update brand: ${response.statusText}` });
     }
   } catch (error: any) {
-    notificationStore.addNotification({ type: "error", message: `Failed to update brand: ${error.message}` });
+    notificationStore.addNotification({ type: "error", message: `Failed to update brand: ${error.response.data.detail}` });
   }
 }
 

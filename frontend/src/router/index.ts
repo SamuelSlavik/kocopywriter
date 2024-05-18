@@ -1,43 +1,47 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Homepage from "@/pages/sections/Homepage.vue";
-import OnePage from "@/pages/OnePage.vue";
-import Login from "@/pages/user/Login.vue";
-import Profile from "@/pages/user/Profile.vue";
-import {useUserStore} from "@/stores/user-store";
-import EditHeadline from "@/pages/user/admin/EditHeadline.vue";
-import Admin from "@/pages/user/Admin.vue";
-import Blog from "@/pages/blog/Blog.vue";
-import Pricing from "@/pages/pricing/Pricing.vue";
-import CreatePost from "@/pages/user/admin/CreatePost.vue";
-import CreatePriceListItem from "@/pages/user/admin/CreatePriceListItem.vue";
-import EditProfile from "@/pages/user/admin/EditProfile.vue";
-import ManageImages from "@/pages/user/admin/ManageImages.vue";
-import EditImage from "@/pages/user/admin/EditImage.vue";
-import CreateImage from "@/pages/user/admin/CreateImage.vue";
-import ManageBrands from "@/pages/user/admin/ManageBrands.vue";
-import CreateBrand from "@/pages/user/admin/CreateBrand.vue";
-import EditBrand from "@/pages/user/admin/EditBrand.vue";
-import ManagePriceListItems from "@/pages/user/admin/ManagePriceListItems.vue";
-import EditPriceListItem from "@/pages/user/admin/EditPriceListItem.vue";
-import ManageReferences from "@/pages/user/admin/ManageReferences.vue";
-import CreateReference from "@/pages/user/admin/CreateReference.vue";
-import EditReference from "@/pages/user/admin/EditReference.vue";
-import ManagePosts from "@/pages/user/admin/ManagePosts.vue";
-import EditPost from "@/pages/user/admin/EditPost.vue";
-import DetailImage from "@/pages/user/admin/DetailImage.vue";
-import DetailBrand from "@/pages/user/admin/DetailBrand.vue";
-import DetailPriceListItem from "@/pages/user/admin/DetailPriceListItem.vue";
-import DetailReference from "@/pages/user/admin/DetailReference.vue";
-import DetailPost from "@/pages/user/admin/DetailPost.vue";
+const Homepage = () => import('@/pages/sections/Homepage.vue');
+const OnePage = () => import('@/pages/OnePage.vue');
+const Login = () => import('@/pages/user/Login.vue');
+const Profile = () => import('@/pages/user/Profile.vue');
+const EditHeadline = () => import('@/pages/user/admin/EditHeadline.vue');
+const Admin = () => import('@/pages/user/Admin.vue');
+const Blog = () => import('@/pages/blog/Blog.vue');
+const Pricing = () => import('@/pages/pricing/Pricing.vue');
+const CreatePost = () => import('@/pages/user/admin/CreatePost.vue');
+const CreatePriceListItem = () => import('@/pages/user/admin/CreatePriceListItem.vue');
+const EditProfile = () => import('@/pages/user/admin/EditProfile.vue');
+const ManageImages = () => import('@/pages/user/admin/ManageImages.vue');
+const EditImage = () => import('@/pages/user/admin/EditImage.vue');
+const CreateImage = () => import('@/pages/user/admin/CreateImage.vue');
+const ManageBrands = () => import('@/pages/user/admin/ManageBrands.vue');
+const CreateBrand = () => import('@/pages/user/admin/CreateBrand.vue');
+const EditBrand = () => import('@/pages/user/admin/EditBrand.vue');
+const ManagePriceListItems = () => import('@/pages/user/admin/ManagePriceListItems.vue');
+const EditPriceListItem = () => import('@/pages/user/admin/EditPriceListItem.vue');
+const ManageReferences = () => import('@/pages/user/admin/ManageReferences.vue');
+const CreateReference = () => import('@/pages/user/admin/CreateReference.vue');
+const EditReference = () => import('@/pages/user/admin/EditReference.vue');
+const ManagePosts = () => import('@/pages/user/admin/ManagePosts.vue');
+const EditPost = () => import('@/pages/user/admin/EditPost.vue');
+const DetailImage = () => import('@/pages/user/admin/DetailImage.vue');
+const DetailBrand = () => import('@/pages/user/admin/DetailBrand.vue');
+const DetailPriceListItem = () => import('@/pages/user/admin/DetailPriceListItem.vue');
+const DetailReference = () => import('@/pages/user/admin/DetailReference.vue');
+const DetailPost = () => import('@/pages/user/admin/DetailPost.vue');
+const Post = () => import('@/pages/blog/Post.vue');
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  scrollBehavior(to, from, savedPosition) {
+  scrollBehavior(to, from, SavedPosition) {
     if (to.hash) {
-      return {
-        el: to.hash,
-        behavior: 'smooth',
+      const el = window.location.href.split("#")[1];
+      if (el.length) {
+        document.getElementById(el)?.scrollIntoView({ behavior: "smooth" });
       }
+    } else if (SavedPosition) {
+      return SavedPosition;
+    } else {
+      document.getElementById("app")?.scrollIntoView({ behavior: "smooth" });
     }
   },
   routes: [
@@ -173,6 +177,10 @@ const router = createRouter({
     {
       path: "/blog",
       component: Blog
+    },
+    {
+      path: "/blog/:id",
+      component: Post
     }
   ]
 })

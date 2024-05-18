@@ -5,7 +5,6 @@ import { inject } from 'vue'
 import {useUserStore} from "@/stores/user-store";
 import {userApi} from "@/lib/apiHelpers";
 
-
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 const loading = ref<boolean>(false)
@@ -24,15 +23,15 @@ const login = async () => {
         const response: any = await userApi.retrieveCurrentUser()
         user.setUserData(response.data)
         if (response.status === 200) {
-          await router.push('/');
+          await router.push('/admin');
         }
       } catch (error: any) {
-        notificationStore.addNotification({type: "error", message: "Failed to get user: " + error.message})
+        notificationStore.addNotification({type: "error", message: "Failed to get user: " + error.response.data.detail})
       }
     }
 
   } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to log in: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to log in: " + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -91,6 +90,7 @@ input, select, textarea, .tiptap {
   outline: none;
   border: 1px solid var(--tertiary);
   font-size: 0.9rem;
+  background-color: var(--background);
 }
 input:invalid, select:invalid, textarea:invalid, .tiptap:invalid {
   border: 1px solid #ff453a;

@@ -2,10 +2,13 @@
 import {ref} from "vue";
 import {scrollToTarget} from "@/lib/utils";
 import {useUserStore} from "@/stores/user-store";
-import {useRouter} from "vue-router";
 
 const displayMenu = ref<boolean>(false)
 const user = useUserStore()
+
+const toggleMenu = () => {
+  displayMenu.value = !displayMenu.value
+}
 
 document.addEventListener('DOMContentLoaded', function () {
   const navigationContainer = document.querySelector('.navigation-container');
@@ -26,11 +29,11 @@ document.addEventListener('DOMContentLoaded', function () {
     link.addEventListener('click', function (event) {
       event.preventDefault();
 
-      const targetId = link.getAttribute('href')?.substring(2); // Remove the '#' from the href
+      const targetId = link.getAttribute('href')?.substring(2);
       const targetElement = document.getElementById(targetId || '');
 
       if (targetElement) {
-        const offset = 120; // Set your desired offset
+        const offset = 120;
         const targetPosition = targetElement.offsetTop - offset;
 
         window.scrollTo({
@@ -44,18 +47,18 @@ document.addEventListener('DOMContentLoaded', function () {
   const handleHashChange = function () {
     const targetId = window.location.hash.substring(1);
     if (targetId) {
-      scrollToTarget(targetId, 200); // Set your desired offset
+      scrollToTarget(targetId, 200);
     }
   };
 
-  // Handle hash change on page load
   handleHashChange();
 });
+
 </script>
 
 <template>
   <div class="navigation-container">
-    <nav class="navigation-wrapper">
+    <nav class="navigation">
       <div class="logo">
         <router-link to="/#section-homepage" class="logo">
           <div>
@@ -66,10 +69,9 @@ document.addEventListener('DOMContentLoaded', function () {
             </div>
           </div>
         </router-link>
-        <!--<img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />-->
       </div>
 
-      <div class="navigation">
+      <div class="navigation__content">
         <router-link to="/#section-offer">Co nabízím</router-link>
         <router-link to="/#section-about">O mně</router-link>
         <router-link to="/#section-references">Reference</router-link>
@@ -83,7 +85,12 @@ document.addEventListener('DOMContentLoaded', function () {
     </nav>
 
     <div v-if="displayMenu" class="menu">
-      <router-link to="/" :onclick="toggleMenu">Homepage</router-link>
+      <router-link to="/#section-offer" :onclick="toggleMenu">Co nabízím</router-link>
+      <router-link to="/#section-about" :onclick="toggleMenu">O mně</router-link>
+      <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
+      <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>
+      <router-link to="/#section-contact" :onclick="toggleMenu">Kokontakt</router-link>
+      <router-link v-if="user.id" to="/admin" :onclick="toggleMenu">Profil</router-link>
     </div>
   </div>
 
@@ -95,99 +102,123 @@ document.addEventListener('DOMContentLoaded', function () {
   width: 100%;
   z-index: 10000;
   transition: all 0.3s ease;
-}
-.navigation-container.scrolled {
-  box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.11);
-  background-color: var(--background);
-}
-.navigation-wrapper {
-  width: 100%;
-  max-width: var(--breakpoint);
-  margin: auto;
-  position: relative;
-  display: flex;
-  height: auto;
-  padding: 2rem 1rem;
-  justify-content: space-between;
-}
-.navigation {
-  width: auto;
-  text-transform: uppercase;
-  display: flex;
-  gap: 2rem;
 
-  * {
-    display: block;
+  &.scrolled {
+    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.11);
+    background-color: var(--background);
+  }
+
+  nav {
+    width: 100%;
+    max-width: var(--breakpoint);
     margin: auto;
-    color: var(--secondary);
-    letter-spacing: 2px;
-  }
-  a {
     position: relative;
-    &:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -0.5rem;
-      width: 0; /* Adjust the width of the border */
-      border-bottom: 2px solid var(--primary); /* Set the border color and style */
-    }
-
-    &:hover:after {
-      width: 80%; /* Expand the border to full width on hover */
-    }
-  }
-  a:hover {
-    color: var(--primary);
-  }
-  .active {
-    color: var(--primary);
-    &:after {
-      content: "";
-      position: absolute;
-      left: 50%;
-      transform: translateX(-50%);
-      bottom: -0.5rem;
-      width: 80%; /* Adjust the width of the border */
-      border-bottom: 2px solid var(--primary); /* Set the border color and style */
-    }
-  }
-
-  @media (max-width: 1024px) {
-    display: none;
-  }
-}
-.navigation__icon {
-  display: none;
-  cursor: pointer;
-
-  @media (max-width: 1024px) {
-    display: block;
-  }
-}
-
-.logo {
-  > div {
-    height: 3rem;
     display: flex;
-    gap: 0.5rem;
+    height: auto;
+    padding: 2rem 1rem;
+    justify-content: space-between;
 
-    > img {
-      height: 100%;
+    .navigation__content {
       width: auto;
-    }
-    > div {
+      text-transform: uppercase;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      line-height: normal;
+      gap: 2rem;
 
-      > span:nth-child(1) {
-        font-size: 0.9rem;
+      * {
+        display: block;
+        margin: auto;
         color: var(--secondary);
+        letter-spacing: 2px;
+      }
+      a {
+        position: relative;
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -0.5rem;
+          width: 0;
+          border-bottom: 2px solid var(--primary);
+        }
+
+        &:hover:after {
+          width: 80%;
+        }
+      }
+      a:hover {
+        color: var(--primary);
+      }
+      .active {
+        color: var(--primary);
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -0.5rem;
+          width: 80%;
+          border-bottom: 2px solid var(--primary);
+        }
+      }
+
+      @media (max-width: 1024px) {
+        display: none;
+      }
+    }
+    .navigation__icon {
+      display: none;
+      cursor: pointer;
+
+      @media (max-width: 1024px) {
+        display: block;
       }
     }
   }
+
+  .logo {
+    > div {
+      height: 3rem;
+      display: flex;
+      gap: 0.5rem;
+
+      > img {
+        height: 100%;
+        width: auto;
+      }
+      > div {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        line-height: normal;
+
+        > span:nth-child(1) {
+          font-size: 0.9rem;
+          color: var(--secondary);
+        }
+      }
+    }
+  }
+
+  .menu {
+    width: auto;
+    position: absolute;
+    right: 1rem;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    gap: 1rem;
+    background-color: var(--background);
+    border: 1px solid rgba(60, 60, 67, 0.12);
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 12px 32px 0px, rgba(0, 0, 0, 0.08) 0px 2px 6px 0px;
+
+    a {
+      width: auto;
+      color: var(--primary);
+    }
+  }
 }
+
+
 </style>

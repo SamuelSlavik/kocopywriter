@@ -45,10 +45,19 @@
 </template>
 
 <style>
+#section-offer {
+  margin-top: 6rem;
+  margin-bottom: 3rem;
+}
+
 .section-offer {
   text-align: center;
   width: 100%;
   margin: auto;
+  margin-top: 6rem;
+  @media (max-width: 1024px) {
+    margin-top: 0;
+  }
 
   > div {
     margin-bottom: 1.5rem;

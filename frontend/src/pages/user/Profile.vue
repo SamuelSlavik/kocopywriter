@@ -24,32 +24,14 @@ const logout = () => {
     notificationStore.addNotification({type: "error", message: "Could not log out"})
   }
 }
-
-const updateEmail = async () => {
-  try {
-    loading.value = true
-    const response: any = await userApi.updateEmail(newEmail.value)
-    if (response.status === 200) {
-      user.setUserData(response.data)
-      notificationStore.addNotification({type: "success", message: "Email updated successfully"})
-    }
-  } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to update email: " + error.message})
-  } finally {
-    loading.value = false
-  }
-}
-
 </script>
 
 <template>
   <Loader v-if="loading"/>
   <div class="section-logout" v-else>
-    <h2>{{user.email}}</h2>
+    <p>Docs: <a target="_blank" href="">documentation</a></p>
     <br/>
-    <!--
-    <button @click="logout" class="button">Log Out</button>
-    -->
+    <p>Greetings from Samuel :)</p>
   </div>
   </template>
 

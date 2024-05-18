@@ -8,7 +8,7 @@ import {postsApi} from "@/lib/apiHelpers";
 import Pencil from "vue-material-design-icons/Pencil.vue";
 // @ts-ignore
 import Delete from "vue-material-design-icons/Delete.vue";
-import {formatDate} from "../../../lib/utils";
+import {formatDate} from "@/lib/utils";
 
 const loading = ref<boolean>(false)
 const user = useUserStore()
@@ -25,7 +25,7 @@ const loadPosts = async () => {
   } catch (error: any) {
     notificationStore.addNotification({
       type: 'error',
-      message: 'Failed to load posts',
+      message: 'Failed to load posts: ' + error.response.data.detail,
     })
   } finally {
     loading.value = false
@@ -48,7 +48,7 @@ const deletePost = async (id: string) => {
         await loadPosts()
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete post: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete post: " + error.response.data.detail})
     }
   }
 }

@@ -18,16 +18,16 @@ const loadPriceListItems = async () => {
     const response = await pricingApi.getPriceListItems()
     priceListItems.value = response.data
   } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to get price list items: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to get price list items: " + error.response.data.detail})
   } finally {
     loading.value = false
   }
 }
 
-
 onMounted(() => {
   loadPriceListItems()
 })
+
 </script>
 
 <template>

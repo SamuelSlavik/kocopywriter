@@ -55,7 +55,7 @@ const deleteImage = async (id: string) => {
         await router.push("/admin/images")
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete image: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete image: " + error.response.data.detail})
     }
   }
 }

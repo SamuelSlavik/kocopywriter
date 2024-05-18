@@ -61,7 +61,7 @@ async def update_brand(
         with open(file_location, "wb+") as file_object:
             file_object.write(image.file.read())
     else:
-        existing_brand = db_get_brand(user.id, session)
+        existing_brand = db_get_brand(brand_id, session)
         file_location = os.path.join(existing_brand.image)
 
     new_brand = Brand(name=name, image=file_location)

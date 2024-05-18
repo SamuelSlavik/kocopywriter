@@ -5,6 +5,10 @@ import {useUserStore} from "@/stores/user-store";
 import type {NewReference, Reference} from "@/lib/models";
 import {referencesApi} from "@/lib/apiHelpers";
 import {backend_url} from "@/lib/constants";
+// @ts-ignore
+import Delete from "vue-material-design-icons/Delete.vue";
+// @ts-ignore
+import Pencil from "vue-material-design-icons/Pencil.vue";
 
 const loading = ref<boolean>(false)
 const user = useUserStore()
@@ -15,7 +19,9 @@ const referenceId = ref<string>(router.currentRoute.value.params.id.toString()) 
 
 const reference = ref<Reference>({
   id: "",
+  order: 0,
   name: '',
+  position: "",
   url: "",
   description: "",
   image: ""
@@ -47,7 +53,7 @@ const deleteReference = async (id: string) => {
         await router.push("/admin/references")
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete reference: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete reference: " + error.response.data.detail})
     }
   }
 }
@@ -68,6 +74,8 @@ onMounted(() => {
         <a @click="deleteReference(reference.id)"><Delete :size="24" /></a>
       </div>
       <div class="hr"></div>
+      <p><b>Order: </b>{{reference.order}}</p>
+      <p><b>Position: </b>{{reference.position}}</p>
       <p><b>Url: </b><a target="_blank" :href="reference.url">{{reference.url}}</a></p>
       <p><b>Description: </b>{{reference.description}}</p>
       <img class="image-detail" :src="backend_url + reference.image" alt="Current image"/>

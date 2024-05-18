@@ -4,7 +4,9 @@ import {useRouter} from "vue-router";
 import {useUserStore} from "@/stores/user-store";
 import {pricingApi} from "@/lib/apiHelpers";
 import type {PriceListItem} from "@/lib/models";
+// @ts-ignore
 import Delete from "vue-material-design-icons/Delete.vue";
+// @ts-ignore
 import Pencil from "vue-material-design-icons/Pencil.vue";
 
 const loading = ref<boolean>(false)
@@ -28,7 +30,7 @@ const loadData = async () => {
     const response = await pricingApi.getPriceListItem(itemId)
     priceListItem.value = response.data
   } catch (error: any) {
-    notificationStore.addNotification({type: 'error', message: "failed to load price list item" + error.message})
+    notificationStore.addNotification({type: 'error', message: "failed to load price list item" + error.response.data.detail})
   } finally {
     loading.value = false
 
@@ -46,7 +48,7 @@ const deleteItem = async (id: string) => {
         await router.push("/admin/pricing")
       }
     } catch (error: any) {
-      notificationStore.addNotification({type: 'error', message: "Failed to delete item: " + error.message})
+      notificationStore.addNotification({type: 'error', message: "Failed to delete item: " + error.response.data.detail})
     }
   }
 }

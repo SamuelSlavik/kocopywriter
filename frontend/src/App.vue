@@ -32,6 +32,7 @@ onMounted(() => {
   checkUser()
 })
 
+
 document.addEventListener('DOMContentLoaded', function () {
   const navigationLinks = document.querySelectorAll('.navigation a');
 
@@ -69,7 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <template>
   <Navigation/>
-  <RouterView />
+  <RouterView></RouterView>
   <Footer />
 
   <Notifications />
@@ -84,7 +85,6 @@ document.addEventListener('DOMContentLoaded', function () {
   --background: rgb(255, 255, 255);
   --secondary-background: rgb(0, 0, 0);
   --breakpoint: 1200px;
-  --editable: rgba(0, 153, 153, 1);
 }
 
 *,
@@ -107,9 +107,6 @@ body {
 a {
   text-decoration: none;
   color: var(--orange);
-}
-.active {
-  color: var(--primary);
 }
 svg, i {
   color: var(--primary) !important;
@@ -134,6 +131,11 @@ svg, i {
 .button-group {
   display: flex;
   gap: 1rem;
+}
+h1 {
+  font-family: "Times New Roman ", serif;
+  font-size: 3rem;
+  font-weight: normal;
 }
 h2 {
   font-family: "Times New Roman ", serif;
@@ -161,7 +163,10 @@ ul {
   width: 100%;
   margin: 2rem 0;
 }
-
+img {
+  max-width: 100%;
+  height: auto;
+}
 
 
 </style>

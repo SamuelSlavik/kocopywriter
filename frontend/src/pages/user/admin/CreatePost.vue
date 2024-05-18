@@ -22,8 +22,6 @@ const user = useUserStore()
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 
-const richTextTest = ref<string>("")
-
 const editor = useEditor({
   content: '<p>Add content here...</p>',
   extensions: [
@@ -92,7 +90,7 @@ const submitPost = async () => {
       notificationStore.addNotification({ type: "error", message: `Failed to create post: ${response.statusText}` });
     }
   } catch (error: any) {
-    notificationStore.addNotification({ type: "error", message: `Failed to create post: ${error.message}` });
+    notificationStore.addNotification({ type: "error", message: `Failed to create post: ${error.response.data.detail}` });
   }
 }
 

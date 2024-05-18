@@ -30,7 +30,7 @@ const updatePriceListItem = async () => {
     }
   }
   catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to update price list item: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to update price list item: " + error.response.data.detail})
   }
   finally {
     loading.value = false
@@ -50,7 +50,7 @@ const loadData = async () => {
     const response = await pricingApi.getPriceListItem(item_id.value)
     newPriceListItem.value = response.data
   } catch (error: any) {
-    notificationStore.addNotification({type: 'error', message: "failed to load price list item" + error.message})
+    notificationStore.addNotification({type: 'error', message: "failed to load price list item" + error.response.data.detail})
   } finally {
     loading.value = false
 

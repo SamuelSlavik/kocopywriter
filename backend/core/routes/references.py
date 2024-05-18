@@ -33,7 +33,9 @@ async def get_reference(reference_id: int, session: Session = Depends(get_sessio
 
 @references_route.post("/create")
 async def create_reference(
+        order: int = Form(...),
         name: str = Form(...),
+        position: str = Form(...),
         url: str = Form(...),
         description: str = Form(...),
         image: UploadFile = File(...),
@@ -45,7 +47,9 @@ async def create_reference(
         with open(file_location, "wb+") as file_object:
             file_object.write(image.file.read())
         new_reference = Reference(
+            order=order,
             name=name,
+            position=position,
             url=url,
             description=description,
             image=file_location
@@ -60,7 +64,9 @@ async def create_reference(
 @references_route.put("/update/{reference_id}")
 async def update_reference(
         reference_id: int,
+        order: int = Form(...),
         name: str = Form(...),
+        position: str = Form(...),
         url: str = Form(...),
         description: str = Form(...),
         image: Optional[UploadFile] = File(None),
@@ -76,7 +82,9 @@ async def update_reference(
         file_location = os.path.join(existing_reference.image)
 
     new_reference = Reference(
+        order=order,
         name=name,
+        position=position,
         url=url,
         description=description,
         image=file_location

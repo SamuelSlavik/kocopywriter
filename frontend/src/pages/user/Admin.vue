@@ -17,7 +17,7 @@ onMounted(async () => {
       await router.push('/login')
     }
   } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to get user: " + error.message})
+    notificationStore.addNotification({type: "error", message: "Failed to get user: " + error.response.data.detail})
   } finally {
     loading.value = false
   }
@@ -31,7 +31,7 @@ onMounted(async () => {
     <div class="profile">
       <Loader v-if="loading"/>
       <div class="profile-content">
-        <router-view></router-view>
+        <RouterView></RouterView>
       </div>
     </div>
   </div>
