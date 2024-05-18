@@ -1,5 +1,5 @@
 export class Endpoints {
-  private static readonly baseUrl = "http://localhost:8000/api"; // Replace with your base URL
+  private static readonly baseUrl = "https://kocopywriter-backend.vercel.app/api"; // Replace with your base backend URL
 
   // USER / ADMIN --------------------------------------------------------
   static get login(): string {
