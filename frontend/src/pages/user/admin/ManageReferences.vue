@@ -4,7 +4,9 @@ import {useRouter} from "vue-router";
 import {useUserStore} from "@/stores/user-store";
 import type {Reference} from "@/lib/models";
 import {referencesApi} from "@/lib/apiHelpers";
+// @ts-ignore
 import Pencil from "vue-material-design-icons/Pencil.vue";
+// @ts-ignore
 import Delete from "vue-material-design-icons/Delete.vue";
 
 const loading = ref<boolean>(false)

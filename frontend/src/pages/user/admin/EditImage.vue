@@ -27,7 +27,7 @@ const loadImage = async () => {
     const response = await imagesApi.getImage(imageId)
     newImage.value.name = response.data.name
     imageUrl.value = response.data.url
-  } catch (e) {
+  } catch (e: any) {
     notificationStore.addNotification({
       type: 'error',
       message: 'Failed to load image: ' + e.response.data.detail,
