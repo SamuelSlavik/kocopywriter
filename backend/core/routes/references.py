@@ -38,21 +38,21 @@ async def create_reference(
         position: str = Form(...),
         url: str = Form(...),
         description: str = Form(...),
-        image: UploadFile = File(...),
+        image: str = Form(...),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):
-    file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
+    #file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
     try:
-        with open(file_location, "wb+") as file_object:
-            file_object.write(image.file.read())
+        #with open(file_location, "wb+") as file_object:
+            #file_object.write(image.file.read())
         new_reference = Reference(
             order=order,
             name=name,
             position=position,
             url=url,
             description=description,
-            image=file_location
+            image=image
         )
         uploaded_image = db_create_reference(new_reference, session)
     except Exception as e:
@@ -69,14 +69,15 @@ async def update_reference(
         position: str = Form(...),
         url: str = Form(...),
         description: str = Form(...),
-        image: Optional[UploadFile] = File(None),
+        image: Optional[str] = Form(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):
     if image is not None:
-        file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
-        with open(file_location, "wb+") as file_object:
-            file_object.write(image.file.read())
+        # file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
+        #with open(file_location, "wb+") as file_object:
+            #file_object.write(image.file.read())
+        file_location = image
     else:
         existing_reference = db_get_reference(reference_id, session)
         file_location = os.path.join(existing_reference.image)

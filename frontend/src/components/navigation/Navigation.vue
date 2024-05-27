@@ -72,7 +72,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="navigation__content">
-        <router-link to="/#section-offer">Co nabízím</router-link>
+        <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-about">O mně</router-link>
         <router-link to="/#section-references">Reference</router-link>
         <router-link to="/#section-blog">Blog</router-link>
@@ -85,7 +85,7 @@ document.addEventListener('DOMContentLoaded', function () {
     </nav>
 
     <div v-if="displayMenu" class="menu">
-      <router-link to="/#section-offer" :onclick="toggleMenu">Co nabízím</router-link>
+      <router-link to="/#section-offer" :onclick="toggleMenu">Služby</router-link>
       <router-link to="/#section-about" :onclick="toggleMenu">O mně</router-link>
       <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
       <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>

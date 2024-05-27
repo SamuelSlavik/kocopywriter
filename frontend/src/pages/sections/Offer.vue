@@ -6,7 +6,7 @@
   <Container id="section-offer">
     <div class="section-offer">
       <h2>
-        Píšu #kokotsky dobré texty
+        Píšu fakt dobré texty
       </h2>
       <br/>
 
@@ -16,7 +16,7 @@
           Zapojuji kreativitu, psychologii prodeje a emoce. Pokaždé jinak, ale vždy se stejným výsledkem – zvýšením tržeb.
           Mé texty svou rozmanitostí připomínají seriál M*A*S*H.
           Jednou jsou neodolatelně pompézní jako major Winchester, podruhé okouzlí dětskou hravostí Hawkeyho Pierce a jindy si po vzoru Margaret neberou servítky.
-          Nikdy jim ovšem nechybí jiskra, styl a lidskost plukovníka Pottera.
+          Nikdy jim ovšem nechybí lidskost plukovníka Pottera.
           A stejně jako parta z mobilní nemocnice dokážou zachránit i zdánlivě ztracené případy.
         </p>
       </div>
@@ -24,7 +24,7 @@
       <div>
         <h3>Kam?</h3>
         <p>
-          Na weby, blogy, prodejní stránky i do kreativ, e-mailů a reklamních kampaní.
+          Na weby, blogy, prodejní stránky, sítě i do kreativ, e-mailů a reklamních kampaní.
         </p>
       </div>
 

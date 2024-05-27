@@ -75,6 +75,7 @@ const submitAllImages = async () => {
       <button
           class="button"
           type="submit"
+          disabled
       >Submit new image</button>
     </form>
   </div>

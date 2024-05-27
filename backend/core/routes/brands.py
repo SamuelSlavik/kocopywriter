@@ -33,15 +33,15 @@ async def get_brand(brand_id: int, session: Session = Depends(get_session)):
 @brands_route.post("/create")
 async def create_brand(
         name: str = Form(...),
-        image: UploadFile = File(...),
+        image: str = Form(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):
-    file_location = os.path.join(config.BRANDS_IMAGES_DIR, image.filename)
+    #file_location = os.path.join(config.BRANDS_IMAGES_DIR, image.filename)
     try:
-        with open(file_location, "wb+") as file_object:
-            file_object.write(image.file.read())
-        new_brand = Brand(name=name, image=file_location)
+        #with open(file_location, "wb+") as file_object:
+           # file_object.write(image.file.read())
+        new_brand = Brand(name=name, image=image)
         uploaded_brand = db_create_brand(new_brand, session)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -52,14 +52,19 @@ async def create_brand(
 async def update_brand(
         brand_id: int,
         name: str = Form(...),
-        image: Optional[UploadFile] = File(None),
+        image: Optional[str] = Form(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):
+   # if image is not None:
+     #   file_location = os.path.join(config.BRANDS_IMAGES_DIR, image.filename)
+     #   with open(file_location, "wb+") as file_object:
+     #       file_object.write(image.file.read())
+    #else:
+      #  existing_brand = db_get_brand(brand_id, session)
+     #   file_location = os.path.join(existing_brand.image)
     if image is not None:
-        file_location = os.path.join(config.BRANDS_IMAGES_DIR, image.filename)
-        with open(file_location, "wb+") as file_object:
-            file_object.write(image.file.read())
+        file_location = image
     else:
         existing_brand = db_get_brand(brand_id, session)
         file_location = os.path.join(existing_brand.image)

@@ -16,13 +16,13 @@
         <p>
           Jsem kreativec, balbutik a člověk, který se nebere vážně.
           A postavil na tom byznys. Blbě mluvím, ale i díky tomu fakt dobře píšu.
-          Moje HLPčko najdete třeba v rozhovoru pro časopis Finmag, takže zde ho vynechám.
+          Moje HLPčko najdete třeba v <a target="_blank" href="https://www.finmag.cz/inspirace/439170-koktam-no-a-co-copywriter-si-na-nedostatku-postavil-uspesnou-karieru">rozhovoru</a> pro časopis Finmag, takže zde ho vynechám.
         </p>
         <br/>
         <p>
           Bydlím v Sudetech, fandím Slavii, čtu knížky o sériových vrazích, chodím do sauny, miluju humor
-          Rickyho Gervaise, buduju #kokotbrand na LinkedInu a od roku 2017
-          jsem svými (dů)vtipnými texty obšťastnil & obohatil už více než 100 klientů.
+          Rickyho Gervaise, buduju #kokotbrand na <a href="https://www.linkedin.com/in/vojtechhulinsky/" target="_blank">LinkedInu</a> a od roku 2017
+          jsem svými (dů)vtipnými texty obohatil už více než 100 klientů.
         </p>
         <br/>
         <h3>
