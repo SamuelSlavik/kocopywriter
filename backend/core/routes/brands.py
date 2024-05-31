@@ -41,7 +41,7 @@ async def create_brand(
 
     try:
         file_location = cloudinary.uploader.upload(image.file)
-        new_brand = Brand(name=name, image=file_location)
+        new_brand = Brand(name=name, image=file_location["secure_url"])
         uploaded_brand = db_create_brand(new_brand, session)
     except Exception as e:
         raise HTTPException(status_code=400, detail=str(e))
@@ -59,6 +59,7 @@ async def update_brand(
     if image is not None:
         try:
             file_location = cloudinary.uploader.upload(image.file)
+            file_location = file_location["secure_url"]
         except:
             raise HTTPException(status_code=400, detail="Could not upload image")
     else:
