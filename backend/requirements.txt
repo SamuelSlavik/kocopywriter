@@ -42,3 +42,4 @@ bcrypt==4.1.2
 python-jose[cryptography]
 passlib[bcrypt]
 python-multipart
+cloudinary
