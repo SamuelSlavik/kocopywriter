@@ -88,20 +88,21 @@ onMounted(() => {
         <img :src="backend_url + currentImageUrl" alt="Current image" class="image-detail"/>
         <div>
           <label>Upload new image if you want to change it</label>
+          <!--
           <input
             type="text"
             name="image"
             placeholder="Brand image"
             v-model="newBrand.image"
           />
-          <!--
+          -->
           <input
               type="file"
               name="image"
               accept="image/*"
               @change="onFileChange($event)"
           />
-          -->
+
         </div>
         <button
             class="button"

@@ -59,14 +59,15 @@ const submitBrand = async () => {
         </div>
         <div>
           <label>Brand logo</label>
+          <!--
           <input
               name="image"
               type="text"
               placeholder="Brand image"
               v-model="newBrand.image"
               required
-          />
-          <!--
+          />-->
+
           <input
               name="image"
               type="file"
@@ -75,7 +76,7 @@ const submitBrand = async () => {
               @change="(event: any) => {newBrand.image = event.target.files[0]}"
               required
           />
-          -->
+
         </div>
         <button type="submit" class="button">Submit new brand logo</button>
       </form>

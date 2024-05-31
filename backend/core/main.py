@@ -1,6 +1,7 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.middleware.cors import CORSMiddleware
 from starlette.staticfiles import StaticFiles
+import cloudinary
 
 from .config import config
 from .db.databases import get_session, engine
@@ -25,6 +26,13 @@ app.include_router(references_route, prefix="/api/references")
 
 app.mount("/images", StaticFiles(directory=config.IMAGES_DIR), name="images")
 
+import cloudinary
+
+cloudinary.config(
+    cloud_name="dmdksnv3w",
+    api_key="493924196852917",
+    api_secret="1U8ztZu5jxjDhE-vygMOhlO4v-A"
+)
 
 @app.get("/")
 async def root():
