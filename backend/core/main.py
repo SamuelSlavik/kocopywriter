@@ -38,7 +38,11 @@ async def say_hello(name: str):
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=[config.FRONTEND_URL],
+    allow_origins=[
+        config.FRONTEND_URL,
+        config.FRONTEND_URL_WWW,
+        config.FRONTEND_URL_VERCEL
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],

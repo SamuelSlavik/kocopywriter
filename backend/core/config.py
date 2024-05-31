@@ -7,6 +7,8 @@ class Config():
         self.TOKEN_EXPIRATION = 120 # minutes
         self.SQLALCHEMY_DATABASE_URL = os.getenv("DATABASE_URL", "postgresql://default:Qshx82gMEYNJ@ep-young-hill-a2xr36fw-pooler.eu-central-1.aws.neon.tech:5432/verceldb") # Change tou your db
         self.FRONTEND_URL = os.getenv("FRONTEND_URL", "https://kocopywriter.cz") # Change to your localhost
+        self.FRONTEND_URL_WWW = os.getenv("FRONTEND_URL_WWW", "https://www.kocopywriter.cz")
+        self.FRONTEND_URL_VERCEL = os.getenv("FRONTEND_URL_VERCEL", "https://kocopywriter-frontend.vercel.app")
         self.IMAGES_DIR = os.path.join("images", "")
         self.BRANDS_IMAGES_DIR = os.path.join("images", "brands")
         self.REFERENCES_IMAGES_DIR = os.path.join("images", "references")
