@@ -1,6 +1,7 @@
 import os
 from typing import Optional
 
+from cloudinary.uploader import cloudinary
 from fastapi import APIRouter, Depends, HTTPException, Form, UploadFile, File
 from sqlalchemy.orm import Session
 
@@ -38,21 +39,19 @@ async def create_reference(
         position: str = Form(...),
         url: str = Form(...),
         description: str = Form(...),
-        image: str = Form(...),
+        image: UploadFile = Form(...),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):
-    #file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
     try:
-        #with open(file_location, "wb+") as file_object:
-            #file_object.write(image.file.read())
+        file_location = cloudinary.uploader.upload(image.file)
         new_reference = Reference(
             order=order,
             name=name,
             position=position,
             url=url,
             description=description,
-            image=image
+            image=file_location["secure_url"],
         )
         uploaded_image = db_create_reference(new_reference, session)
     except Exception as e:
@@ -74,10 +73,11 @@ async def update_reference(
         user: User = Depends(get_current_user)
 ):
     if image is not None:
-        # file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
-        #with open(file_location, "wb+") as file_object:
-            #file_object.write(image.file.read())
-        file_location = image
+        try:
+            file_location = cloudinary.uploader.upload(image.file)
+            file_location = file_location["secure_url"]
+        except:
+            raise HTTPException(status_code=400, detail="Could not retrieve image")
     else:
         existing_reference = db_get_reference(reference_id, session)
         file_location = os.path.join(existing_reference.image)

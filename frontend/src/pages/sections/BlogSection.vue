@@ -86,7 +86,7 @@ onMounted(() => {
             <p>{{post.short}}</p>
           </div>
         </div>
-        <button class="button" @click="router.push('/blog')">Všechny články</button>
+        <button class="button" @click="router.push('/blog')">Kukuk na všechny</button>
       </div>
     </div>
   </Container>

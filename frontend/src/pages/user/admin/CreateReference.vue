@@ -126,6 +126,7 @@ onMounted(() => {
         </div>
         <div>
           <label>Profile image</label>
+          <!--
           <input
               name="image"
               type="text"
@@ -133,7 +134,7 @@ onMounted(() => {
               v-model="newReference.image"
               required
           />
-          <!--
+          -->
           <input
               name="image"
               type="file"
@@ -142,7 +143,6 @@ onMounted(() => {
               @change="(event: any) => {newReference.image = event.target.files[0]}"
               required
           />
-          -->
         </div>
         <button type="submit" class="button">Submit new reference</button>
       </form>

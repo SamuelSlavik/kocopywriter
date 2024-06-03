@@ -123,6 +123,7 @@ document.addEventListener('DOMContentLoaded', function () {
       text-transform: uppercase;
       display: flex;
       gap: 2rem;
+      font-size: 0.9rem;
 
       * {
         display: block;
@@ -193,8 +194,10 @@ document.addEventListener('DOMContentLoaded', function () {
         line-height: normal;
 
         > span:nth-child(1) {
-          font-size: 0.9rem;
           color: var(--secondary);
+        }
+        > span:nth-child(2) {
+          color: var(--primary);
         }
       }
     }

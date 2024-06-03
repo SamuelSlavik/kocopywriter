@@ -63,12 +63,6 @@ onMounted(() => {
           </div>
         </div>
       </Container>
-      <Loader v-if="loading"/>
-      <div class="brands" v-else>
-        <div>
-          <img v-for="brand in brands" :key="brand.id" :src="backend_url + brand.image" :alt="brand.name" />
-        </div>
-      </div>
     </div>
   </div>
 </template>
@@ -125,33 +119,6 @@ onMounted(() => {
     z-index: -1;
     top: 50%;
     transform: translateY(-50%);
-  }
-}
-
-.brands {
-  width: 100%;
-  background-color: var(--background);
-  height: 3rem;
-  position: absolute;
-  bottom: 0;
-  padding: .2rem 3rem;
-  @media (max-width: 1024px) {
-    display: none;
-  }
-
-  > div {
-    display: flex;
-    justify-content: space-between;
-    gap: 1rem;
-    width: 100%;
-    height: 100%;
-    flex-wrap: wrap;
-  }
-
-  img {
-    height: 100%;
-    width: auto;
-    filter: grayscale(100%);
   }
 }
 </style>

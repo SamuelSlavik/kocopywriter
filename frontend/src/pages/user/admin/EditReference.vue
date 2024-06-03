@@ -151,13 +151,14 @@ onMounted(() => {
         <img :src="backend_url + currentImageUrl" alt="Current image" class="image-detail"/>
         <div>
           <label>Upload new image if you want to change it</label>
+          <!--
           <input
               name="image"
               type="text"
               placeholder="Image"
               v-model="newReference.image"
             />
-          <!--
+            -->
           <input
               name="image"
               type="file"
@@ -165,7 +166,6 @@ onMounted(() => {
               accept="image/*"
               @change="(event: any) => {newReference.image = event.target.files[0]}"
           />
-          -->
         </div>
         <button type="submit" class="button">Update reference</button>
       </form>
