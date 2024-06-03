@@ -107,6 +107,7 @@ onMounted(() => {
   display: flex;
   justify-content: space-between;
   flex-wrap: wrap;
+  margin-bottom: 4rem;
 
   .latest-post-container {
     width: 40%;

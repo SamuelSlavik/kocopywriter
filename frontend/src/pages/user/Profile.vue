@@ -29,7 +29,7 @@ const logout = () => {
 <template>
   <Loader v-if="loading"/>
   <div class="section-logout" v-else>
-    <p>Docs: <a target="_blank" href="">documentation</a></p>
+    <p>Docs: <a target="_blank" href="https://github.com/SamuelSlavik/kocopywriter">documentation</a></p>
     <br/>
     <p>Greetings from Samuel :)</p>
   </div>
