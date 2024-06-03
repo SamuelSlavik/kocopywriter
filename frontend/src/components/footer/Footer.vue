@@ -13,10 +13,10 @@
         </p>
       </div>
       <br/>
-      <div>
-        <a href="https://www.linkedin.com/in/samuel-sl%C3%A1vik-93404316a/" target="blank"><LinkedIn/></a>
+      <div class="footer__reference">
         <p>
-          A vo-vo-vod koho to je? <a target="_blank" href="https://www.linkedin.com/in/samuel-sl%C3%A1vik-93404316a/">Samuel Slávik</a>
+          A vo-vo-vod koho to je?
+          <a target="_blank" href="https://www.linkedin.com/in/samuel-sl%C3%A1vik-93404316a/">Samuel Slávik</a>
         </p>
       </div>
     </footer>
@@ -34,11 +34,16 @@
     max-width: var(--breakpoint);
     margin: 0 auto;
 
-    div {
+    > div:nth-child(1) {
       width: 100%;
       display: flex;
       align-items: center;
       gap: 2rem;
+    }
+
+    .footer__reference {
+      width: 100%;
+      text-align: center;
     }
   }
 }
