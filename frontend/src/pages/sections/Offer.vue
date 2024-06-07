@@ -36,12 +36,10 @@
         </p>
       </div>
 
-      <!--
       <div>
         <h3>Chcete je?</h3>
         <p>Napište mi na <a href="mailto:ko@kocopywriter.cz">ko@kocopywriter.cz</a></p>
       </div>
-      -->
     </div>
   </Container>
 </template>
