@@ -99,7 +99,6 @@ onMounted(() => {
         <button
             class="button"
             type="submit"
-            disabled
         >Update image</button>
       </form>
     </div>
