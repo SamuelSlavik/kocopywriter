@@ -75,10 +75,10 @@ onMounted(() => {
           <div class="table--1">
             <router-link :to="'/admin/images/detail/' + image.id">{{image.id}}</router-link>
           </div>
-          <div class="table--3">
+          <div class="table--5">
             <router-link :to="'/admin/images/detail/' + image.id">{{image.name}}</router-link>
           </div>
-          <div class="table--4">
+          <div class="table--8">
             <p>{{backend_url + image.url}}</p>
           </div>
           <div class="table--1">
