@@ -36,7 +36,7 @@ onMounted(() => {
 
 <template>
   <Container :global="true">
-    <Heading>Blog</Heading>
+    <Heading>Články</Heading>
     <div class="hr"></div>
     <Loader v-if="loading"/>
     <div v-else class="blog">

@@ -29,6 +29,8 @@ import DetailPriceListItem from '@/pages/user/admin/DetailPriceListItem.vue';
 import DetailReference from '@/pages/user/admin/DetailReference.vue';
 import DetailPost from '@/pages/user/admin/DetailPost.vue';
 import Post from '@/pages/blog/Post.vue';
+import ErrorPage from '@/pages/404.vue';
+
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   scrollBehavior(to, from, SavedPosition) {
@@ -46,7 +48,7 @@ const router = createRouter({
   routes: [
     {
       path: "/:notFound",
-      component: Homepage,
+      component: ErrorPage,
     },
     {
       path: '/',

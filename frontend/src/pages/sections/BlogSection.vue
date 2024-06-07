@@ -61,7 +61,7 @@ onMounted(() => {
 <template>
   <Container id="section-blog">
     <div class="section-blog__heading">
-      <Heading>Blog</Heading>
+      <Heading>Články</Heading>
     </div>
     <div class="section-blog">
       <div class="latest-post-container">

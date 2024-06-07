@@ -4,6 +4,7 @@ import {inject, onMounted, ref} from "vue";
 import type {Headline, PriceListItem} from "@/lib/models";
 import {headlineApi, pricingApi} from "@/lib/apiHelpers";
 import {useRouter} from "vue-router";
+import {formatPrice} from "../../lib/utils";
 
 const user = useUserStore()
 const router = useRouter()
@@ -43,7 +44,7 @@ onMounted(() => {
           <div v-for="item in priceListItem.items" :key="item.name" class="item-with-price-wrapper">
             <p>{{ item.name }}</p>
             <p>&nbsp;-&nbsp;</p>
-            <p><b>{{ item.price }} Kč</b></p>
+            <p><span class="item-with-price__price">{{ formatPrice(item.price) }} Kč</span></p>
           </div>
         </div>
       </div>
@@ -61,6 +62,8 @@ onMounted(() => {
 .item-with-price-wrapper {
   display: flex;
   justify-content: center;
-
+}
+.item-with-price__price {
+  color: var(--primary);
 }
 </style>

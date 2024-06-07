@@ -15,20 +15,16 @@
         <br/>
         <p>
           Jsem kreativec, balbutik a člověk, který se nebere vážně.
-          A postavil na tom byznys. Blbě mluvím, ale i díky tomu fakt dobře píšu.
+          A postavil na tom byznys. Blbě mluvím, ale i díky tomu výborně píšu.
           Moje HLPčko najdete třeba v <a target="_blank" href="https://www.finmag.cz/inspirace/439170-koktam-no-a-co-copywriter-si-na-nedostatku-postavil-uspesnou-karieru">rozhovoru</a> pro časopis Finmag, takže zde ho vynechám.
         </p>
         <br/>
         <p>
-          Bydlím v Sudetech, fandím Slavii, čtu knížky o sériových vrazích, chodím do sauny, miluju humor
-          Rickyho Gervaise, buduju #kokotbrand na <a href="https://www.linkedin.com/in/vojtechhulinsky/" target="_blank">LinkedInu</a> a od roku 2017
-          jsem svými (dů)vtipnými texty obohatil už více než 100 klientů.
+          Miluju černobílé filmy, brakovou literaturu, čínské psy a americký fotbal. Ve volném čase provozuju smažákovou turistiku, buduju #kokotbrand na
+          <a href="https://www.linkedin.com/in/vojtechhulinsky/" target="_blank">LinkedInu</a> a vyhlížím comeback Oasis.
         </p>
         <br/>
-        <h3>
-          Chcete taky #kokotsky dobré copy?
-        </h3>
-        <p>Napište mi na <a href="mailto:ko@kocopywriter.cz">ko@kocopywriter.cz</a></p>
+        <p>Jo a od roku 2017 jsem svými (dů)vtipnými texty obohatil už více než 100 klientů. Přidejte se k nim.</p>
       </div>
     </div>
   </Container>

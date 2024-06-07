@@ -13,7 +13,7 @@
       <div>
         <h3>Jak?</h3>
         <p>
-          Zapojuji kreativitu, psychologii prodeje a emoce. Pokaždé jinak, ale vždy se stejným výsledkem – zvýšením tržeb.
+          Zapojuju kreativitu, psychologii prodeje a emoce. Pokaždé jinak, ale vždy se stejným výsledkem – zvýšením tržeb.
           Mé texty svou rozmanitostí připomínají seriál M*A*S*H.
           Jednou jsou neodolatelně pompézní jako major Winchester, podruhé okouzlí dětskou hravostí Hawkeyho Pierce a jindy si po vzoru Margaret neberou servítky.
           Nikdy jim ovšem nechybí lidskost plukovníka Pottera.
@@ -31,22 +31,24 @@
       <div>
         <h3>Za kolik?</h3>
         <p>
-          Každý projekt naceňuji individuálně na základě sazby 1515 Kč/hod.<br/>
+          Každý projekt naceňuju individuálně na základě sazby 1515 Kč/hod.<br/>
           <router-link to="/pricing">Orientační ceník</router-link>
         </p>
       </div>
 
+      <!--
       <div>
         <h3>Chcete je?</h3>
         <p>Napište mi na <a href="mailto:ko@kocopywriter.cz">ko@kocopywriter.cz</a></p>
       </div>
+      -->
     </div>
   </Container>
 </template>
 
 <style>
 #section-offer {
-  margin-top: 6rem;
+  margin-top: 1rem;
   margin-bottom: 3rem;
 }
 

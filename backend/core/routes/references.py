@@ -68,7 +68,7 @@ async def update_reference(
         position: str = Form(...),
         url: str = Form(...),
         description: str = Form(...),
-        image: Optional[str] = Form(None),
+        image: Optional[UploadFile] = Form(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):

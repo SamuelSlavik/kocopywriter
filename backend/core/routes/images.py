@@ -1,6 +1,7 @@
 import os
 from typing import Optional
 
+import cloudinary.uploader
 from fastapi import HTTPException, Form, UploadFile, File
 
 from fastapi import APIRouter, Depends
@@ -39,11 +40,9 @@ async def add_images(
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user)
 ):
-    file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
     try:
-        with open(file_location, "wb+") as file_object:
-            file_object.write(image.file.read())
-        new_image = Image(url=file_location, name=name)
+        file_location = cloudinary.uploader.upload(image.file)
+        new_image = Image(url=file_location["secure_url"], name=name)
         uploaded_image = db_create_image(new_image, session)
     except Exception as e:
         raise HTTPException(status_code=500, detail=f"Failed to upload {image.filename}: {str(e)}")
@@ -60,9 +59,11 @@ async def update_image(
         user: User = Depends(get_current_user)
 ):
     if image is not None:
-        file_location = os.path.join(config.POST_IMAGES_DIR, image.filename)
-        with open(file_location, "wb+") as file_object:
-            file_object.write(image.file.read())
+        try:
+            file_location = cloudinary.uploader.upload(image.file)
+            file_location = file_location["secure_url"]
+        except Exception as e:
+            raise HTTPException(status_code=500, detail=f"Failed to upload {image.filename}: {str(e)}")
     else:
         existing_image = db_get_image(image_id, session)
         file_location = os.path.join(existing_image.url)
