@@ -61,8 +61,7 @@ onMounted(() => {
         </div>
         <p>
           Líbil se vám článek? Sledujte mě na
-          <a target="_blank" href="https://www.linkedin.com/in/vojtechhulinsky/">LinkedInu</a>
-          , ať vám neuniknou žádné bizarní frky s banální pointou.
+          <a target="_blank" href="https://www.linkedin.com/in/vojtechhulinsky/">LinkedInu</a>, ať vám neuniknou žádné bizarní frky s banální pointou.
         </p>
       </div>
     </div>

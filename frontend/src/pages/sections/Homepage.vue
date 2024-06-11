@@ -72,10 +72,17 @@ onMounted(() => {
   width: 100%;
   height: 100vh;
   position: relative;
+  @media (max-width: 1024px) {
+    height: auto;
+  }
 }
 .homepage-content {
   position: relative;
   height: 100%;
+  @media (max-width: 1024px) {
+    padding-top: 12rem;
+    padding-bottom: 6rem;
+  }
 }
 .homepage-header {
   display: flex;
@@ -88,6 +95,13 @@ onMounted(() => {
   width: 50%;
   margin-left: 50%;
   text-align: right;
+  @media (max-width: 1024px) {
+    width: 100%;
+    transform: none;
+    margin-left: 0;
+    top: 0;
+    text-align: center;
+  }
 
   div {
     margin-top: auto;
@@ -104,9 +118,19 @@ onMounted(() => {
     font-family: "Times New Roman ", serif;
     font-weight: normal;
     line-height: 3rem;
+    @media (max-width: 1024px) {
+      font-size: 1.8rem;
+      line-height: 2rem;
+    }
   }
   .button {
     margin-top: 4rem;
+    @media (max-width: 1024px) {
+      margin-top: 2rem;
+      position: relative;
+      right: 50%;
+      transform: translateX(50%);
+    }
   }
 }
 
@@ -119,6 +143,13 @@ onMounted(() => {
     z-index: -1;
     top: 50%;
     transform: translateY(-50%);
+    @media (max-width: 1024px) {
+      position: relative;
+      bottom: 0;
+      transform: none;
+      left: 0;
+      width: 100%;
+    }
   }
 }
 </style>
