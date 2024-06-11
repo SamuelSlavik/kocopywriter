@@ -56,10 +56,12 @@ onMounted(() => {
         <div class="homepage-header">
           <div>
             <Loader v-if="loading"/>
-            <h1 v-else >
-              {{headline?.text || "Mluvit moc neumím, přesto vaši cílovou skupinu zaručeně oslovím"}}
-            </h1>
-            <a @click="() => scrollToTarget('section-contact', 0)" class="button">Dávej, Beru!</a>
+            <div v-else>
+              <h1>
+                {{headline?.text || "Mluvit moc neumím, přesto vaši cílovou skupinu zaručeně oslovím"}}
+              </h1>
+              <a @click="() => scrollToTarget('section-contact', 0)" class="button">Dávej, Beru!</a>
+            </div>
           </div>
         </div>
       </Container>

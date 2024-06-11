@@ -58,7 +58,7 @@ onMounted(() => {
 
 <style>
 .blog {
-  width: 70%;
+  width: 80%;
   margin: auto;
 
   article {
@@ -83,6 +83,10 @@ onMounted(() => {
 
     .blog-post__content {
       width: 65%;
+
+      h2 {
+        font-size: 1.5rem;
+      }
     }
   }
 }

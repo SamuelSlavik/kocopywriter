@@ -111,6 +111,7 @@ onMounted(() => {
 
   .latest-post-container {
     width: 40%;
+
     @media (max-width: 1024px) {
       width: 100%;
       margin-bottom: 6rem;
@@ -124,10 +125,14 @@ onMounted(() => {
       width: 100%;
       height: auto;
     }
+
+    h2 {
+      font-size: 1.5rem;
+    }
   }
 
   .top-posts-container {
-    width: 50%;
+    width: 55%;
     @media (max-width: 1024px) {
       width: 100%;
     }
@@ -149,6 +154,10 @@ onMounted(() => {
 
       .top-post__content {
         width: 58%;
+
+        h2 {
+          font-size: 1.5rem;
+        }
       }
     }
   }
