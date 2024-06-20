@@ -1,9 +1,10 @@
 <script setup lang="ts">
 import { Swiper, SwiperSlide } from 'swiper/vue';
-import { Pagination } from 'swiper/modules';
+import { Pagination, Navigation } from 'swiper/modules';
 // Import Swiper styles
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/navigation';
 import {inject, onMounted, ref} from "vue";
 import {useUserStore} from "@/stores/user-store";
 import {useRouter} from "vue-router";
@@ -12,7 +13,7 @@ import {referencesApi} from "@/lib/apiHelpers";
 import {backend_url} from "@/lib/constants";
 import {formatUrl} from "../../lib/utils";
 
-const modules = [Pagination];
+const modules = [Pagination, Navigation];
 
 const loading = ref<boolean>(false)
 const user = useUserStore()
@@ -48,9 +49,9 @@ onMounted(() => {
         v-else
         :modules="modules"
         :pagination="{ clickable: true }"
+        :navigation="true"
         :slides-per-view="1"
     >
-
       <swiper-slide v-for="reference in references" key="reference.id">
         <div class="reference">
           <img :src="backend_url + reference.image" alt="reference.name"/>
@@ -101,5 +102,11 @@ onMounted(() => {
 }
 .swiper-pagination-bullet-active {
   background-color: var(--orange);
+}
+.swiper-button-prev, .swiper-button-next {
+  color: var(--primary);
+}
+.swiper-button-prev:hover, .swiper-button-next:hover {
+  color: var(--orange);
 }
 </style>

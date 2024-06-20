@@ -13,6 +13,10 @@ import { BulletList, ListItem } from '@tiptap/extension-bullet-list';
 import { TextAlign } from '@tiptap/extension-text-align';
 //@ts-ignore
 import { Image } from '@tiptap/extension-image';
+// @ts-ignore
+import { TextStyle } from "@tiptap/extension-text-style";
+// @ts-ignore
+import { Color } from '@tiptap/extension-color';
 import {postsApi} from "@/lib/apiHelpers";
 import {useUserStore} from "@/stores/user-store";
 import {useRouter} from "vue-router";
@@ -30,6 +34,8 @@ const editor = useEditor({
     Heading,
     BulletList,
     Image,
+    TextStyle,
+    Color,
     Link.configure({
       HTMLAttributes: {
         // Change rel to different value
@@ -78,6 +84,15 @@ const addLinkToEditor = (editor: any) => {
     return
   }
   editor.chain().focus().extendMarkRange('link').setLink({ href: url }).run()
+}
+
+const toggleOrangeTextColor = (editor: any) => {
+  const currentColor = editor.getAttributes('textStyle').color
+  if (currentColor === 'rgb(209, 119, 61)') {
+    editor.chain().focus().unsetColor().run()
+  } else {
+    editor.chain().focus().setColor('rgb(209, 119, 61)').run()
+  }
 }
 
 const submitPost = async () => {
@@ -196,6 +211,12 @@ const submitPost = async () => {
                 @click="editor.chain().focus().toggleItalic().run()" :disabled="!editor.can().chain().focus().toggleItalic().run()" :class="{ 'is-active': editor.isActive('italic') }"
             >
               <i>i</i>
+            </button>
+            <button
+                type="button"
+                @click="toggleOrangeTextColor(editor)" :class="{ 'is-active': editor.isActive({ color: 'rgb(209, 119, 61)' }) }"
+            >
+               <b><span style="color: rgb(209, 119, 61)">A</span></b>
             </button>
 
             <div></div>
