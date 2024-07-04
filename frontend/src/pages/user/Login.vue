@@ -91,6 +91,7 @@ input, select, textarea, .tiptap {
   border: 1px solid var(--tertiary);
   font-size: 0.9rem;
   background-color: var(--background);
+  font-family: inherit;
 }
 input:invalid, select:invalid, textarea:invalid, .tiptap:invalid {
   border: 1px solid #ff453a;

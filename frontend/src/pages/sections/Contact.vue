@@ -1,4 +1,44 @@
 <script setup lang="ts">
+import {inject, ref} from "vue";
+
+const notificationStore: any = inject('notificationStore')
+const name = ref<string>("");
+const email = ref<string>("");
+const message = ref<string>("");
+const captcha = ref<string>("");
+
+const submitForm = async () => {
+  if (captcha.value !== "42" || !name.value || !email.value || !message.value) {
+    notificationStore.addNotification({type: "error", message: "Please fill in all fields."});
+    return;
+  }
+  try {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        access_key: "912b2c5d-9ef9-4142-a482-acb6be43a720",
+        name: name.value,
+        email: email.value,
+        message: message.value,
+      }),
+    });
+    const result = await response.json();
+    if (result.success) {
+      notificationStore.addNotification({type: "success", message: "Message sent successfully."});
+      name.value = "";
+      email.value = "";
+      message.value = "";
+      captcha.value = "";
+    }
+  } catch (error: any) {
+    notificationStore.addNotification({type: "error", message: "Failed to send message: " + error.response.data.detail});
+  }
+};
+
 </script>
 
 <template>
@@ -9,11 +49,42 @@
     >
       <!--style="background-image: url('src/assets/images/logos/logo.png')"-->
       <div class="section-contact__content">
-        <h2>
-          Chcete originální prodejní texty,<br/>
-          než řeknu š-š-švec?
-        </h2>
-        <p>Napište mi na <a href="mailto:ko@kocopywriter.cz">ko@kocopywriter.cz</a></p>
+        <div class="section-contact__text">
+          <h2>
+            Chcete originální prodejní texty,<br/>
+            než řeknu š-š-švec?
+          </h2>
+          <p>Napište mi.</p>
+        </div>
+        <div class="section-contact__form">
+          <form @submit.prevent="submitForm">
+            <input
+              type="text"
+              name="name"
+              placeholder="Vaše jméno?"
+              v-model="name"
+            />
+            <input
+              type="email"
+              name="email"
+              placeholder="Váš e-mail?"
+              v-model="email"
+            />
+            <textarea
+              name="message"
+              placeholder="Vaše přání?"
+              v-model="message"
+            ></textarea>
+            <input
+              type="text"
+              name="captcha"
+              id="captcha"
+              v-model="captcha"
+              placeholder="27+15 = ?"
+            />
+            <button class="button" type="submit">Odeslat zprávu</button>
+          </form>
+        </div>
       </div>
       <!--
       <div class="section-contact__background">
@@ -45,7 +116,7 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  opacity: 0.2;
+  opacity: 0.1;
 }
 .section-contact {
   overflow-x: hidden;
@@ -61,15 +132,33 @@
 }
 .section-contact__content {
   display: flex;
-  flex-direction: column;
   min-height: 100vh;
   height: auto;
   gap: 2rem;
-  width: 50%;
+  width: 100%;
   margin-left: 0;
   text-align: left;
-  justify-content: center;
+  justify-content: space-between;
   margin-bottom: 0;
+  flex-wrap: wrap;
+
+  .section-contact__text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 40%;
+    @media (max-width: 1024px) {
+      width: 100%;
+    }
+  }
+  .section-contact__form {
+    width: 50%;
+    margin: auto;
+    @media (max-width: 1024px) {
+      width: 100%;
+      margin: 0;
+    }
+  }
 }
 .contact-wallpaper {
   img {
