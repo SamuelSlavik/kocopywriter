@@ -21,6 +21,7 @@ const submitForm = async () => {
       },
       body: JSON.stringify({
         access_key: "912b2c5d-9ef9-4142-a482-acb6be43a720",
+        subject: `${name.value} (kocopywriter.cz)`,
         name: name.value,
         email: email.value,
         message: message.value,
