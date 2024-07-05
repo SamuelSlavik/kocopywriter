@@ -5,7 +5,7 @@ import type {
   Image,
   NewPost,
   NewPriceListItem, Post,
-  PriceListItem, Reference,
+  PriceListItem, Project, Reference,
   Token,
   User
 } from "@/lib/models";
@@ -212,6 +212,42 @@ export class referencesApi {
   static async deleteReference(id: string): Promise<AxiosResponse<Reference, any>> {
     return await axios.delete(
       Endpoints.deleteReference(id),
+      getHeaders()
+    )
+  }
+}
+
+// PROJECTS ------------------------------------------------------------------------------------
+export class projectsApi {
+  static async getProjects(): Promise<AxiosResponse<Project[], any>> {
+    return await axios.get(
+      Endpoints.getProjects,
+      getHeaders()
+    )
+  }
+  static async getProject(id: string): Promise<AxiosResponse<Project, any>> {
+    return await axios.get(
+      Endpoints.getProject(id),
+      getHeaders()
+    )
+  }
+  static async createProject(formData: FormData): Promise<AxiosResponse<Project, any>> {
+    return axios.post(
+      Endpoints.createProject,
+      formData,
+      getHeadersWithFile()
+    );
+  }
+  static async updateProject(id: string, formData: FormData): Promise<AxiosResponse<Project, any>> {
+    return await axios.put(
+      Endpoints.updateProject(id),
+      formData,
+      getHeadersWithFile()
+    )
+  }
+  static async deleteProject(id: string): Promise<AxiosResponse<Project, any>> {
+    return await axios.delete(
+      Endpoints.deleteProject(id),
       getHeaders()
     )
   }

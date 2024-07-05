@@ -30,6 +30,11 @@ import DetailReference from '@/pages/user/admin/DetailReference.vue';
 import DetailPost from '@/pages/user/admin/DetailPost.vue';
 import Post from '@/pages/blog/Post.vue';
 import ErrorPage from '@/pages/404.vue';
+import Projects from "@/pages/projects/Projects.vue";
+import ManageProjects from "@/pages/user/admin/ManageProjects.vue";
+import CreateProject from "@/pages/user/admin/CreateProject.vue";
+import EditProject from "@/pages/user/admin/EditProject.vue";
+import DetailProject from "@/pages/user/admin/DetailProject.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -77,13 +82,13 @@ const router = createRouter({
           path: "profile/edit",
           component: EditProfile
         },
-        // HEADLINE
+        // HEADLINE ----------------------------------------------------------------------
         {
           path: 'headline/edit',
           component: EditHeadline
         },
 
-        // IMAGES
+        // IMAGES ----------------------------------------------------------------------
         {
           path: "images",
           component: ManageImages
@@ -101,7 +106,7 @@ const router = createRouter({
           component: DetailImage
         },
 
-        // BRAND
+        // BRAND ----------------------------------------------------------------------
         {
           path: "brands",
           component: ManageBrands
@@ -118,7 +123,7 @@ const router = createRouter({
           path: "brands/detail/:id",
           component: DetailBrand
         },
-        // PRICE LIST ITEMS
+        // PRICE LIST ITEMS ----------------------------------------------------------------------
         {
           path: "pricing",
           component: ManagePriceListItems
@@ -135,7 +140,7 @@ const router = createRouter({
           path: "pricing/detail/:id",
           component: DetailPriceListItem
         },
-        // REFERENCES
+        // REFERENCES ----------------------------------------------------------------------
         {
           path: "references",
           component: ManageReferences
@@ -152,7 +157,24 @@ const router = createRouter({
           path: "references/detail/:id",
           component: DetailReference
         },
-        // POSTS
+        // Projects ----------------------------------------------------------------------
+        {
+          path: "projects",
+          component: ManageProjects
+        },
+        {
+          path: "projects/create",
+          component: CreateProject
+        },
+        {
+          path: "projects/edit/:id",
+          component: EditProject
+        },
+        {
+          path: "projects/detail/:id",
+          component: DetailProject
+        },
+        // POSTS ----------------------------------------------------------------------
         {
           path: "posts",
           component: ManagePosts
@@ -174,6 +196,10 @@ const router = createRouter({
     {
       path: "/pricing",
       component: Pricing
+    },
+    {
+      path: "/projects",
+      component: Projects
     },
     {
       path: "/blog",

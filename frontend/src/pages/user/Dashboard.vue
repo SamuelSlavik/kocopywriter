@@ -46,6 +46,9 @@ const logout = () => {
         <p><router-link to="/admin/references">Manage references</router-link></p>
         <p><router-link to="/admin/references/create">Create new reference</router-link></p>
         <br/>
+        <p><router-link to="/admin/projects">Manage projects</router-link></p>
+        <p><router-link to="/admin/projects/create">Create new project</router-link></p>
+        <br/>
         <p><router-link to="/admin/posts">Manage posts</router-link></p>
         <p><router-link to="/admin/posts/create">Create new post</router-link></p>
       </div>

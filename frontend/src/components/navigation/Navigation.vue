@@ -77,6 +77,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <router-link to="/#section-references">Reference</router-link>
         <router-link to="/#section-blog">Blog</router-link>
         <router-link to="/#section-contact">Kokontakt</router-link>
+        <router-link to="/projects">Ukázky prací</router-link>
         <router-link v-if="user.id" to="/admin">Profil</router-link>
       </div>
 
@@ -90,6 +91,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
       <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>
       <router-link to="/#section-contact" :onclick="toggleMenu">Kokontakt</router-link>
+      <router-link to="/projects">Ukázky prací</router-link>
       <router-link v-if="user.id" to="/admin" :onclick="toggleMenu">Profil</router-link>
     </div>
   </div>

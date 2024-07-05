@@ -93,3 +93,22 @@ export type NewBrand = {
   name: string
   image: any
 }
+
+// Projects -----------------------------------------------------------------------
+export type Project = {
+  id: string
+  order: number
+  name: string
+  url?: string
+  task: string
+  description: string
+  image: any
+}
+export type NewProject = {
+  order: number
+  name: string
+  url?: string
+  task: string
+  description: string
+  image: any
+}

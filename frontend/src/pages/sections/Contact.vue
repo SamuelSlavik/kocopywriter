@@ -5,7 +5,7 @@ const notificationStore: any = inject('notificationStore')
 const name = ref<string>("");
 const email = ref<string>("");
 const message = ref<string>("");
-const captcha = ref<string>("");
+const captcha = ref<string>("42"); // INPUT FOR CAPTCHA TEMPORARILY HIDDEN
 
 const submitForm = async () => {
   if (captcha.value !== "42" || !name.value || !email.value || !message.value) {
@@ -34,7 +34,7 @@ const submitForm = async () => {
       name.value = "";
       email.value = "";
       message.value = "";
-      captcha.value = "";
+      captcha.value = "42"; // INPUT FOR CAPTCHA TEMPORARILY HIDDEN
     }
   } catch (error: any) {
     notificationStore.addNotification({type: "error", message: "Failed to send message: " + error.response.data.detail});
@@ -77,6 +77,7 @@ const submitForm = async () => {
               placeholder="Vaše přání?"
               v-model="message"
             ></textarea>
+            <!--
             <input
               type="text"
               name="captcha"
@@ -84,6 +85,7 @@ const submitForm = async () => {
               v-model="captcha"
               placeholder="27+15 = ?"
             />
+            -->
             <button class="button" type="submit">Odeslat zprávu</button>
           </form>
         </div>

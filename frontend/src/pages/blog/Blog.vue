@@ -40,7 +40,7 @@ onMounted(() => {
     <div class="hr"></div>
     <Loader v-if="loading"/>
     <div v-else class="blog">
-      <article class="blog-post" v-for="(post, index) in posts" key="post.id">
+      <article class="blog-post" v-for="(post, index) in posts" :key="post.id">
         <div class="blog-post__image">
           <router-link :to="'/blog/' + post.id">
             <img v-if="post.image" :src="post.image" alt="thumbnail"/>

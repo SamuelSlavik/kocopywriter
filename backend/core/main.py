@@ -13,6 +13,7 @@ from .routes.references import references_route
 from .routes.user import user_route
 from .routes.headline import headline_route
 from .routes.posts import posts_route
+from .routes.projects import projects_route
 
 app = FastAPI()
 
@@ -23,6 +24,7 @@ app.include_router(pricing_route, prefix="/api/pricing")
 app.include_router(brands_route, prefix="/api/brands")
 app.include_router(posts_route, prefix="/api/posts")
 app.include_router(references_route, prefix="/api/references")
+app.include_router(projects_route, prefix="/api/projects")
 
 app.mount("/images", StaticFiles(directory=config.IMAGES_DIR), name="images")
 

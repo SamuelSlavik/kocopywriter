@@ -59,6 +59,17 @@ class Reference(Base):
     image = Column(String(255), nullable=False)
 
 
+class Project(Base):
+    __tablename__ = "projects_table"
+    id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
+    order = Column(Integer, nullable=False)
+    name = Column(String(255), nullable=False)
+    url = Column(String, nullable=False)
+    task = Column(String(255), nullable=False)
+    description = Column(String, nullable=False)
+    image = Column(String, nullable=False)
+
+
 class Post(Base):
     __tablename__ = "posts"
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)

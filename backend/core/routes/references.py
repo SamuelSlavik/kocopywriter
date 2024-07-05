@@ -55,7 +55,7 @@ async def create_reference(
         )
         uploaded_image = db_create_reference(new_reference, session)
     except Exception as e:
-        raise HTTPException(status_code=500, detail=f"Failed to create reference: {str(e)}")
+        raise HTTPException(status_code=400, detail=f"Failed to create reference: {str(e)}")
 
     return uploaded_image
 
@@ -76,8 +76,8 @@ async def update_reference(
         try:
             file_location = cloudinary.uploader.upload(image.file)
             file_location = file_location["secure_url"]
-        except:
-            raise HTTPException(status_code=400, detail="Could not retrieve image")
+        except Exception as e:
+            raise HTTPException(status_code=400, detail=f"Could not retrieve image: {str(e)}")
     else:
         existing_reference = db_get_reference(reference_id, session)
         file_location = os.path.join(existing_reference.image)

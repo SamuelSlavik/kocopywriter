@@ -123,4 +123,21 @@ export class Endpoints {
   static deleteBrand(id: string): string {
     return `${Endpoints.baseUrl}/brands/delete/${id}`;
   }
+
+  // Projects -----------------------------------------------------------
+  static get getProjects(): string {
+    return `${Endpoints.baseUrl}/projects`;
+  }
+  static getProject(id: string): string {
+    return `${Endpoints.baseUrl}/projects/${id}`;
+  }
+  static get createProject(): string {
+    return `${Endpoints.baseUrl}/projects/create`;
+  }
+  static updateProject(id: string): string {
+    return `${Endpoints.baseUrl}/projects/update/${id}`;
+  }
+  static deleteProject(id: string): string {
+    return `${Endpoints.baseUrl}/projects/delete/${id}`;
+  }
 }

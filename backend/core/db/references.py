@@ -42,7 +42,7 @@ def db_create_reference(reference: Reference, db: Session):
     return new_reference
 
 
-def db_update_reference(reference_id: int,reference: Reference, db: Session):
+def db_update_reference(reference_id: int, reference: Reference, db: Session):
     existing_reference = db.query(models.Reference).filter(models.Reference.id == reference_id).first()
     old_order = existing_reference.order
 
