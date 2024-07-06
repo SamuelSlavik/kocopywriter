@@ -41,9 +41,9 @@ onMounted(() => {
     <div v-else class="projects-wrapper">
       <div v-for="(project, index) in projects">
         <div class="project" :key="project.id">
-          <Heading>{{project.name}}</Heading>
-          <p class="project__task">{{project.task}}</p>
-          <p class="project__description">{{project.description}}</p>
+          <Heading><b>Kdo? </b>{{project.name}}</Heading>
+          <p class="project__task"><b>Co? </b>{{project.task}}</p>
+          <p class="project__description"><b>Jak & proč? </b>{{project.description}}</p>
           <img
               v-for="(image, index) in project.images"
               :key="index"
@@ -77,6 +77,7 @@ onMounted(() => {
   }
   .project__description {
     color: var(--secondary);
+    white-space: pre-line;
   }
   img {
     width: 80%;
