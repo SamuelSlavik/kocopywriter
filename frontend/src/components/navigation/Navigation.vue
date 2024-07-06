@@ -75,10 +75,10 @@ document.addEventListener('DOMContentLoaded', function () {
         <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-about">O mně</router-link>
         <router-link to="/#section-references">Reference</router-link>
+        <router-link class="outer-link" to="/projects">Ukázky prací</router-link>
         <router-link to="/#section-blog">Blog</router-link>
         <router-link to="/#section-contact">Kokontakt</router-link>
-        <router-link to="/projects">Ukázky prací</router-link>
-        <router-link v-if="user.id" to="/admin">Profil</router-link>
+        <router-link class="outer-link" v-if="user.id" to="/admin">Profil</router-link>
       </div>
 
       <a class="navigation__icon" :onclick="toggleMenu" v-if="!displayMenu"><MenuIcon :size="32"/></a>
@@ -89,9 +89,9 @@ document.addEventListener('DOMContentLoaded', function () {
       <router-link to="/#section-offer" :onclick="toggleMenu">Služby</router-link>
       <router-link to="/#section-about" :onclick="toggleMenu">O mně</router-link>
       <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
+      <router-link to="/projects" :onclick="toggleMenu">Ukázky prací</router-link>
       <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>
       <router-link to="/#section-contact" :onclick="toggleMenu">Kokontakt</router-link>
-      <router-link to="/projects">Ukázky prací</router-link>
       <router-link v-if="user.id" to="/admin" :onclick="toggleMenu">Profil</router-link>
     </div>
   </div>
@@ -153,6 +153,18 @@ document.addEventListener('DOMContentLoaded', function () {
         color: var(--primary);
       }
       .active {
+        color: var(--primary);
+        &:after {
+          content: "";
+          position: absolute;
+          left: 50%;
+          transform: translateX(-50%);
+          bottom: -0.5rem;
+          width: 80%;
+          border-bottom: 2px solid var(--primary);
+        }
+      }
+      .router-link-exact-active .outer-link {
         color: var(--primary);
         &:after {
           content: "";
