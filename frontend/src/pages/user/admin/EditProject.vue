@@ -89,7 +89,6 @@ const addImage = () => {
   newProject.value.images.push("")
 }
 
-
 onMounted(() => {
   loadProjects()
   loadProject()
