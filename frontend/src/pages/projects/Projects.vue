@@ -62,6 +62,8 @@ onMounted(() => {
 .project {
   text-align: left;
   width: 100%;
+  display: flex;
+  flex-direction: column;
 
   heading {
     margin-bottom: 0;
