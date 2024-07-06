@@ -164,7 +164,7 @@ document.addEventListener('DOMContentLoaded', function () {
           border-bottom: 2px solid var(--primary);
         }
       }
-      .router-link-exact-active .outer-link {
+      .router-link-exact-active.outer-link {
         color: var(--primary);
         &:after {
           content: "";
