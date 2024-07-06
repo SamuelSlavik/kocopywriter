@@ -1,7 +1,7 @@
 from sqlalchemy.orm import relationship
 
 from .databases import Base
-from sqlalchemy import Column, String, Integer, TIMESTAMP, Boolean, UUID, LargeBinary, ForeignKey
+from sqlalchemy import Column, String, Integer, TIMESTAMP, Boolean, UUID, LargeBinary, ForeignKey, ARRAY
 
 
 class User(Base):
@@ -60,14 +60,14 @@ class Reference(Base):
 
 
 class Project(Base):
-    __tablename__ = "projects_table"
+    __tablename__ = "projects_table_test"
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     order = Column(Integer, nullable=False)
     name = Column(String(255), nullable=False)
     url = Column(String, nullable=False)
     task = Column(String(255), nullable=False)
     description = Column(String, nullable=False)
-    image = Column(String, nullable=False)
+    images = Column(ARRAY(String), nullable=False)
 
 
 class Post(Base):

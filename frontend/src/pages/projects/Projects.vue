@@ -35,7 +35,7 @@ onMounted(() => {
 
 <template>
   <Container :global="true">
-    <Header>Ukázky prací</Header>
+    <Heading>Ukázky prací</Heading>
     <div class="hr"></div>
     <Loader v-if="loading"/>
     <div class="projects-wrapper" v-else>

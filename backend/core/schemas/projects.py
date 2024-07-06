@@ -1,4 +1,4 @@
-from typing import Optional
+from typing import Optional, List
 
 from pydantic import BaseModel
 
@@ -9,7 +9,7 @@ class Project(BaseModel):
     url: Optional[str]
     task: str
     description: str
-    image: str
+    image: List[str]
 
 
 class ProjectInDB(Project):

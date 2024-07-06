@@ -1,5 +1,5 @@
 import os
-from typing import Optional
+from typing import Optional, List
 
 from cloudinary.uploader import cloudinary
 from fastapi import APIRouter, Depends, HTTPException, Form, UploadFile, File
@@ -37,19 +37,23 @@ async def create_project(
         url: Optional[str] = Form(None),
         task: str = Form(...),
         description: str = Form(...),
-        image: UploadFile = Form(...),
+        images: List[UploadFile] = Form(...),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user),
 ):
     try:
-        file_location = cloudinary.uploader.upload(image.file)
+        image_urls = []
+        for image in images:
+            upload_result = cloudinary.uploader.upload(image.file)
+            image_urls.append(upload_result["secure_url"])
+
         new_project = Project(
             order=order,
             name=name,
             url=url,
             task=task,
             description=description,
-            image=file_location["secure_url"],
+            image=image_urls,
         )
         uploaded_project = db_create_project(new_project, session)
     except Exception as e:
@@ -66,19 +70,21 @@ async def update_project(
         url: Optional[str] = Form(None),
         task: str = Form(...),
         description: str = Form(...),
-        image: Optional[UploadFile] = Form(None),
+        images: Optional[List[UploadFile]] = File(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user),
 ):
-    if image is not None:
+    if images is not None:
+        image_urls = []
         try:
-            file_location = cloudinary.uploader.upload(image.file)
-            file_location = file_location["secure_url"]
+            for image in images:
+                upload_result = cloudinary.uploader.upload(image.file)
+                image_urls.append(upload_result["secure_url"])
         except Exception as e:
             raise HTTPException(status_code=400, detail=f"Could not retrieve image: {str(e)}")
     else:
         existing_project = db_get_project(project_id, session)
-        file_location = os.path.join(existing_project.image)
+        image_urls = existing_project.image if existing_project else []
 
     new_project = Project(
         order=order,
@@ -86,7 +92,7 @@ async def update_project(
         url=url,
         task=task,
         description=description,
-        image=file_location,
+        image=image_urls,
     )
     updated_project = db_update_project(project_id, new_project, session)
     if not updated_project:

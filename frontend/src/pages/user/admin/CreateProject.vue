@@ -17,7 +17,7 @@ const newProject = ref<NewProject>({
   url: '',
   task: '',
   description: "",
-  image: ''
+  images: []
 })
 
 const loadProjects= async () => {
@@ -42,7 +42,9 @@ const submitProject = async () => {
   formData.append("url", newProject.value.url || "")
   formData.append("task", newProject.value.task)
   formData.append("description", newProject.value.description)
-  formData.append("image", newProject.value.image)
+  for (let i = 0; i < newProject.value.images.length; i++) {
+    formData.append("image", newProject.value.images[i]);
+  }
 
   try {
     const response = await projectsApi.createProject(formData)
@@ -57,6 +59,10 @@ const submitProject = async () => {
   } finally {
     loading.value = false
   }
+}
+
+const addImage = () => {
+  newProject.value.images.push("")
 }
 
 onMounted(() => {
@@ -120,16 +126,31 @@ onMounted(() => {
           ></textarea>
         </div>
         <div>
-          <label>Image</label>
-          <input
-              name="image"
-              type="file"
-              placeholder="Image"
-              accept="image/*"
-              @change="(event: any) => {newProject.image = event.target.files[0]}"
-              required
-          />
+          <label>Images</label>
+          <div class="file-input-wrapper" v-for="(image, index) in newProject.images">
+            <input
+                name="image"
+                type="file"
+                placeholder="Image"
+                accept="image/*"
+                @change="(event: any) => {newProject.images[index] = event.target.files[0]}"
+                required
+            />
+            <button
+                class="button"
+                type="button"
+                @click="() => newProject.images.splice(index, 1)"
+            >Remove Image</button>
+          </div>
         </div>
+        <button
+          class="button"
+          type="button"
+          @click="addImage"
+        >
+          Add new image
+        </button>
+        <br/>
         <button type="submit" class="button">Create new Project</button>
       </form>
     </div>

@@ -102,7 +102,7 @@ export type Project = {
   url?: string
   task: string
   description: string
-  image: any
+  images: any[]
 }
 export type NewProject = {
   order: number
@@ -110,5 +110,5 @@ export type NewProject = {
   url?: string
   task: string
   description: string
-  image: any
+  images: any[]
 }

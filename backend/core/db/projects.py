@@ -29,7 +29,7 @@ def db_create_project(project: Project, db: Session):
         url=project.url,
         task=project.task,
         description=project.description,
-        image=project.image,
+        images=project.images,
     )
 
     projects_to_update = db.query(models.Project).filter(
@@ -54,7 +54,7 @@ def db_update_project(project_id: int, project: Project, db: Session):
     existing_project.url = project.url
     existing_project.task = project.task
     existing_project.description = project.description
-    existing_project.image = project.image
+    existing_project.images = project.images
     db.commit()
     db.refresh(existing_project)
 
