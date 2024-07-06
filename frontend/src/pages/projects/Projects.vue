@@ -38,17 +38,19 @@ onMounted(() => {
     <Heading>Ukázky prací</Heading>
     <div class="hr"></div>
     <Loader v-if="loading"/>
-    <div class="projects-wrapper" v-else>
-      <div class="project" v-for="(project, index) in projects" :key="project.id">
-        <Heading>{{project.name}}</Heading>
-        <p class="project__task">{{project.task}}</p>
-        <p class="project__description">{{project.description}}</p>
-        <img
-            v-for="(image, index) in project.images"
-            :key="index"
-            :src="image"
-            alt="project image"
-        />
+    <div v-else class="projects-wrapper">
+      <div v-for="(project, index) in projects">
+        <div class="project" :key="project.id">
+          <Heading>{{project.name}}</Heading>
+          <p class="project__task">{{project.task}}</p>
+          <p class="project__description">{{project.description}}</p>
+          <img
+              v-for="(image, index) in project.images"
+              :key="index"
+              :src="image"
+              alt="project image"
+          />
+        </div>
         <div class="hr" v-if="index + 1 < projects.length"></div>
       </div>
     </div>
@@ -64,6 +66,7 @@ onMounted(() => {
   width: 100%;
   display: flex;
   flex-direction: column;
+  padding: 2rem 0;
 
   heading {
     margin-bottom: 0;
