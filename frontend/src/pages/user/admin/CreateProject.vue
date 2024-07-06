@@ -43,7 +43,7 @@ const submitProject = async () => {
   formData.append("task", newProject.value.task)
   formData.append("description", newProject.value.description)
   for (let i = 0; i < newProject.value.images.length; i++) {
-    formData.append("image", newProject.value.images[i]);
+    formData.append("images", newProject.value.images[i]);
   }
 
   try {
