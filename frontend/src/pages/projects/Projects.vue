@@ -42,8 +42,8 @@ onMounted(() => {
       <div v-for="(project, index) in projects">
         <div class="project" :key="project.id">
           <Heading><b>Kdo? </b>{{project.name}}</Heading>
-          <p class="project__task"><b>Co? </b>{{project.task}}</p>
-          <p class="project__description"><b>Jak & proč? </b>{{project.description}}</p>
+          <p class="project__task"><span><b>Co? </b></span>{{project.task}}</p>
+          <p class="project__description"><b>Jak & proč?</b><br>{{project.description}}</p>
           <img
               v-for="(image, index) in project.images"
               :key="index"
@@ -74,6 +74,9 @@ onMounted(() => {
   .project__task {
     color: var(--primary);
     margin-bottom: 1rem;
+    span {
+      color: var(--secondary);
+    }
   }
   .project__description {
     color: var(--secondary);
