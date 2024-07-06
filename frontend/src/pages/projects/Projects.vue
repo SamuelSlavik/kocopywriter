@@ -63,19 +63,20 @@ onMounted(() => {
   text-align: left;
   width: 100%;
 
-  h2 {
-    font-size: 1.5rem;
+  heading {
+    margin-bottom: 0;
   }
   .project__task {
     color: var(--primary);
+    margin-bottom: 1rem;
   }
   .project__description {
     color: var(--secondary);
   }
   img {
-    width: 100%;
+    width: 80%;
     height: auto;
-    margin: 1rem 0;
+    margin: 1rem auto;
   }
 }
 </style>
