@@ -1,5 +1,5 @@
 import os
-from typing import Optional, List
+from typing import Optional, List, Union
 
 from cloudinary.uploader import cloudinary
 from fastapi import APIRouter, Depends, HTTPException, Form, UploadFile, File
@@ -70,7 +70,7 @@ async def update_project(
         url: Optional[str] = Form(None),
         task: str = Form(...),
         description: str = Form(...),
-        images: Optional[List[UploadFile or str]] = File(None),
+        images: Optional[List[Union[UploadFile, str]]] = File(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user),
 ):
@@ -78,8 +78,8 @@ async def update_project(
         image_urls = []
         try:
             for image in images:
-                if image is str:
-                    image_urls.append(url)
+                if isinstance(image, str):
+                    image_urls.append(image)
                 else:
                     upload_result = cloudinary.uploader.upload(image.file)
                     image_urls.append(upload_result["secure_url"])
