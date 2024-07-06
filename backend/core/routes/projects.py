@@ -53,7 +53,7 @@ async def create_project(
             url=url,
             task=task,
             description=description,
-            image=image_urls,
+            images=image_urls,
         )
         uploaded_project = db_create_project(new_project, session)
     except Exception as e:
@@ -95,7 +95,7 @@ async def update_project(
         url=url,
         task=task,
         description=description,
-        image=image_urls,
+        images=image_urls,
     )
     updated_project = db_update_project(project_id, new_project, session)
     if not updated_project:

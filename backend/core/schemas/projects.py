@@ -9,7 +9,7 @@ class Project(BaseModel):
     url: Optional[str]
     task: str
     description: str
-    image: List[str]
+    images: List[str]
 
 
 class ProjectInDB(Project):
