@@ -22,7 +22,7 @@ const project = ref<Project>({
   url: "",
   task: "",
   description: "",
-  image: "",
+  images: [],
 })
 
 const loadProject = async () => {
@@ -77,7 +77,7 @@ onMounted(() => {
       <p><b>Task: </b>{{project.task}}</p>
       <p><b>Descriptions: </b></p>
       <p style="white-space: pre-line">{{project.description}}</p>
-      <img class="image-detail" :src="backend_url + project.image" alt="Current image"/>
+      <img class="image-detail" :src="backend_url + project.images" alt="Current image"/>
     </div>
   </Container>
 </template>

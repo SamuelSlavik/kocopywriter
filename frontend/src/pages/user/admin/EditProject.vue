@@ -20,7 +20,7 @@ const newProject = ref<NewProject>({
   url: '',
   task: '',
   description: "",
-  image: ''
+  images:[]
 })
 
 const loadProjects= async () => {
@@ -47,7 +47,7 @@ const loadProject = async () => {
     newProject.value.task = response.data.task
     newProject.value.order = response.data.order
     newProject.value.description = response.data.description
-    currentImageUrl.value = response.data.image
+    currentImageUrl.value = response.data.images
   } catch (e: any) {
     notificationStore.addNotification({
       type: 'error',
@@ -65,8 +65,8 @@ const submitProject = async () => {
   formData.append("url", newProject.value.url || "")
   formData.append("task", newProject.value.task)
   formData.append("description", newProject.value.description)
-  if (newProject.value.image) {
-    formData.append("image", newProject.value.image)
+  if (newProject.value.images) {
+    formData.append("image", newProject.value.images[0])
   }
 
   try {
@@ -152,7 +152,7 @@ onMounted(() => {
               type="file"
               placeholder="Image"
               accept="image/*"
-              @change="(event: any) => {newProject.image = event.target.files[0]}"
+              @change="(event: any) => {newProject.images = event.target.files[0]}"
               required
           />
         </div>
