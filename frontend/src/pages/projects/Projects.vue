@@ -40,12 +40,42 @@ onMounted(() => {
     <Loader v-if="loading"/>
     <div class="projects-wrapper" v-else>
       <div class="project" v-for="(project, index) in projects" :key="project.id">
-
+        <Heading>{{project.name}}</Heading>
+        <p class="project__task">{{project.task}}</p>
+        <p class="project__description">{{project.description}}</p>
+        <img
+            v-for="(image, index) in project.images"
+            :key="index"
+            :src="image"
+            alt="project image"
+        />
+        <div class="hr" v-if="index + 1 < projects.length"></div>
       </div>
     </div>
   </Container>
 </template>
 
 <style>
+.projects-wrapper {
+  width: 100%;
+}
+.project {
+  text-align: left;
+  width: 100%;
 
+  h2 {
+    font-size: 1.5rem;
+  }
+  .project__task {
+    color: var(--primary);
+  }
+  .project__description {
+    color: var(--secondary);
+  }
+  img {
+    width: 100%;
+    height: auto;
+    margin: 1rem 0;
+  }
+}
 </style>
