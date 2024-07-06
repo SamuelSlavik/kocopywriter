@@ -41,7 +41,7 @@ onMounted(() => {
     <div v-else class="projects-wrapper">
       <div v-for="(project, index) in projects">
         <div class="project" :key="project.id">
-          <Heading><b>Kdo? </b>{{project.name}}</Heading>
+          <Heading><b>Pro koho? </b>{{project.name}}</Heading>
           <p class="project__task"><span><b>Co? </b></span>{{project.task}}</p>
           <p class="project__description"><b>Jak & proč?</b><br>{{project.description}}</p>
           <img
