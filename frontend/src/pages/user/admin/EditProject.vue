@@ -12,7 +12,7 @@ const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 const projectId = ref<string>(router.currentRoute.value.params.id.toString() || "")
 
-const currentImageUrl = ref<string>("")
+const currentImageUrls = ref<string[]>([])
 const projects = ref<Project[]>([])
 const newProject = ref<NewProject>({
   order: 0,
@@ -47,7 +47,7 @@ const loadProject = async () => {
     newProject.value.task = response.data.task
     newProject.value.order = response.data.order
     newProject.value.description = response.data.description
-    currentImageUrl.value = response.data.images
+    currentImageUrls.value = response.data.images
   } catch (e: any) {
     notificationStore.addNotification({
       type: 'error',
