@@ -19,7 +19,6 @@ const project = ref<Project>({
   id: "",
   order: 0,
   name: "",
-  url: "",
   task: "",
   description: "",
   images: [],
@@ -73,11 +72,16 @@ onMounted(() => {
       </div>
       <div class="hr"></div>
       <p><b>Order: </b>{{project.order}}</p>
-      <p><b>Url: </b>{{project.url}}</p>
       <p><b>Task: </b>{{project.task}}</p>
       <p><b>Descriptions: </b></p>
       <p style="white-space: pre-line">{{project.description}}</p>
-      <img class="image-detail" :src="backend_url + project.images" alt="Current image"/>
+      <p><b>Images: </b></p>
+      <img
+          v-for="(image, index) in project.images"
+          class="image-detail"
+          :src="backend_url + image"
+          :alt="'Current image ' + index"
+      />
     </div>
   </Container>
 </template>

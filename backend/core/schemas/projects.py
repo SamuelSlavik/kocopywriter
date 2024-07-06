@@ -6,7 +6,6 @@ from pydantic import BaseModel
 class Project(BaseModel):
     order: int
     name: str
-    url: Optional[str]
     task: str
     description: str
     images: List[str]

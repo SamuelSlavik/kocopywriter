@@ -26,7 +26,6 @@ def db_create_project(project: Project, db: Session):
     new_project = models.Project(
         order=project.order,
         name=project.name,
-        url=project.url,
         task=project.task,
         description=project.description,
         images=project.images,
@@ -51,7 +50,6 @@ def db_update_project(project_id: int, project: Project, db: Session):
 
     existing_project.order = project.order
     existing_project.name = project.name
-    existing_project.url = project.url
     existing_project.task = project.task
     existing_project.description = project.description
     existing_project.images = project.images

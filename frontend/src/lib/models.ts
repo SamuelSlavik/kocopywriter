@@ -99,7 +99,6 @@ export type Project = {
   id: string
   order: number
   name: string
-  url?: string
   task: string
   description: string
   images: any[]
@@ -107,7 +106,6 @@ export type Project = {
 export type NewProject = {
   order: number
   name: string
-  url?: string
   task: string
   description: string
   images: any[]

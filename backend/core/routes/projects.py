@@ -34,7 +34,6 @@ async def get_project(project_id: int, session: Session = Depends(get_session)):
 async def create_project(
         order: int = Form(...),
         name: str = Form(...),
-        url: Optional[str] = Form(None),
         task: str = Form(...),
         description: str = Form(...),
         images: List[UploadFile] = Form(...),
@@ -50,7 +49,6 @@ async def create_project(
         new_project = Project(
             order=order,
             name=name,
-            url=url,
             task=task,
             description=description,
             images=image_urls,
@@ -67,7 +65,6 @@ async def update_project(
         project_id: int,
         order: int = Form(...),
         name: str = Form(...),
-        url: Optional[str] = Form(None),
         task: str = Form(...),
         description: str = Form(...),
         images: List[Union[UploadFile, str]] = File(...),
@@ -92,7 +89,6 @@ async def update_project(
     new_project = Project(
         order=order,
         name=name,
-        url=url,
         task=task,
         description=description,
         images=image_urls,

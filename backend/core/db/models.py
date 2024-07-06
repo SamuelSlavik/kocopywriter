@@ -60,11 +60,10 @@ class Reference(Base):
 
 
 class Project(Base):
-    __tablename__ = "projects_table_test"
+    __tablename__ = "projects_table_"
     id = Column(Integer, primary_key=True, nullable=False, autoincrement=True)
     order = Column(Integer, nullable=False)
     name = Column(String(255), nullable=False)
-    url = Column(String, nullable=False)
     task = Column(String(255), nullable=False)
     description = Column(String, nullable=False)
     images = Column(ARRAY(String), nullable=False)

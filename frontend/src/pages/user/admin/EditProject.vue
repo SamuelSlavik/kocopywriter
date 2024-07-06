@@ -17,7 +17,6 @@ const projects = ref<Project[]>([])
 const newProject = ref<NewProject>({
   order: 0,
   name: '',
-  url: '',
   task: '',
   description: "",
   images:[]
@@ -43,7 +42,6 @@ const loadProject = async () => {
     loading.value = true
     const response = await projectsApi.getProject(projectId.value)
     newProject.value.name = response.data.name
-    newProject.value.url = response.data.url
     newProject.value.task = response.data.task
     newProject.value.order = response.data.order
     newProject.value.description = response.data.description
@@ -63,7 +61,6 @@ const submitProject = async () => {
   const formData = new FormData()
   formData.append("order", newProject.value.order.toString())
   formData.append("name", newProject.value.name)
-  formData.append("url", newProject.value.url || "")
   formData.append("task", newProject.value.task)
   formData.append("description", newProject.value.description)
   for (let i = 0; i < newProject.value.images.length; i++) {
@@ -123,15 +120,6 @@ onMounted(() => {
           />
         </div>
         <div>
-          <label>Url</label>
-          <input
-              name="url"
-              type="text"
-              placeholder="Url"
-              v-model="newProject.url"
-          />
-        </div>
-        <div>
           <label>Task Description</label>
           <input
               name="task"
@@ -153,7 +141,7 @@ onMounted(() => {
         <div>
           <label>Current images</label>
           <div v-for="(image, index) in newProject.images">
-            <img v-if="image" :src="backend_url + image" :alt="'Current image' + index"/>
+            <img v-if="image" :src="backend_url + image" :alt="'Current image ' + index" class="image-detail"/>
             <div class="file-input-wrapper">
               <input
                   v-if="image"
@@ -202,7 +190,7 @@ onMounted(() => {
           />
         </div>
         -->
-        <button type="submit" class="button">Create new Project</button>
+        <button type="submit" class="button">Update Project</button>
       </form>
     </div>
   </Container>

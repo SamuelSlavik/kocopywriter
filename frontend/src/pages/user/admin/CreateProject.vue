@@ -14,7 +14,6 @@ const projects = ref<Project[]>([])
 const newProject = ref<NewProject>({
   order: 0,
   name: '',
-  url: '',
   task: '',
   description: "",
   images: []
@@ -39,7 +38,6 @@ const submitProject = async () => {
   const formData = new FormData()
   formData.append("order", newProject.value.order.toString())
   formData.append("name", newProject.value.name)
-  formData.append("url", newProject.value.url || "")
   formData.append("task", newProject.value.task)
   formData.append("description", newProject.value.description)
   for (let i = 0; i < newProject.value.images.length; i++) {
@@ -95,15 +93,6 @@ onMounted(() => {
               placeholder="Name"
               v-model="newProject.name"
               required
-          />
-        </div>
-        <div>
-          <label>Url</label>
-          <input
-              name="url"
-              type="text"
-              placeholder="Url"
-              v-model="newProject.url"
           />
         </div>
         <div>
