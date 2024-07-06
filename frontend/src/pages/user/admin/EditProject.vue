@@ -47,6 +47,7 @@ const loadProject = async () => {
     newProject.value.task = response.data.task
     newProject.value.order = response.data.order
     newProject.value.description = response.data.description
+    newProject.value.images = response.data.images
     currentImageUrls.value = response.data.images
   } catch (e: any) {
     notificationStore.addNotification({
@@ -65,8 +66,8 @@ const submitProject = async () => {
   formData.append("url", newProject.value.url || "")
   formData.append("task", newProject.value.task)
   formData.append("description", newProject.value.description)
-  if (newProject.value.images) {
-    formData.append("image", newProject.value.images[0])
+  for (let i = 0; i < newProject.value.images.length; i++) {
+    formData.append("image", newProject.value.images[i]);
   }
 
   try {
@@ -84,10 +85,16 @@ const submitProject = async () => {
   }
 }
 
+const addImage = () => {
+  newProject.value.images.push("")
+}
+
+
 onMounted(() => {
   loadProjects()
   loadProject()
 })
+
 </script>
 
 <template>
@@ -144,7 +151,46 @@ onMounted(() => {
               required
           ></textarea>
         </div>
-        <img :src="backend_url + currentImageUrl" alt="Current image" class="image-detail"/>
+        <div>
+          <label>Current images</label>
+          <div v-for="(image, index) in newProject.images">
+            <img v-if="image" :src="backend_url + image" :alt="'Current image' + index"/>
+            <div class="file-input-wrapper">
+              <input
+                  v-if="image"
+                  name="image"
+                  type="file"
+                  placeholder="Image"
+                  accept="image/*"
+                  @change="(event: any) => {newProject.images[index] = event.target.files[0]}"
+              />
+              <input
+                  v-else
+                  name="image"
+                  type="file"
+                  placeholder="Image"
+                  accept="image/*"
+                  @change="(event: any) => {newProject.images[index] = event.target.files[0]}"
+                  required
+              />
+              <button
+                  class="button"
+                  type="button"
+                  @click="() => newProject.images.splice(index, 1)"
+              >Remove Image</button>
+            </div>
+          </div>
+        </div>
+        <button
+            class="button"
+            type="button"
+            @click="addImage"
+        >
+          Add new image
+        </button>
+        <br/>
+        <!--
+        <img :src="backend_url + currentImageUrls" alt="Current image" class="image-detail"/>
         <div>
           <label>Upload new image if you want to change it</label>
           <input
@@ -156,6 +202,7 @@ onMounted(() => {
               required
           />
         </div>
+        -->
         <button type="submit" class="button">Create new Project</button>
       </form>
     </div>

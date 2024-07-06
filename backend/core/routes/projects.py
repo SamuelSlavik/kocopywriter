@@ -70,7 +70,7 @@ async def update_project(
         url: Optional[str] = Form(None),
         task: str = Form(...),
         description: str = Form(...),
-        images: Optional[List[UploadFile]] = File(None),
+        images: Optional[List[UploadFile or str]] = File(None),
         session: Session = Depends(get_session),
         user: User = Depends(get_current_user),
 ):
@@ -78,8 +78,11 @@ async def update_project(
         image_urls = []
         try:
             for image in images:
-                upload_result = cloudinary.uploader.upload(image.file)
-                image_urls.append(upload_result["secure_url"])
+                if image is str:
+                    image_urls.append(url)
+                else:
+                    upload_result = cloudinary.uploader.upload(image.file)
+                    image_urls.append(upload_result["secure_url"])
         except Exception as e:
             raise HTTPException(status_code=400, detail=f"Could not retrieve image: {str(e)}")
     else:
