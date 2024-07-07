@@ -58,7 +58,8 @@ const router = createRouter({
     {
       path: '/',
       name: 'home',
-      component: OnePage
+      component: OnePage,
+      meta: { KeepAlive: true }
     },
     {
       path: '/login',

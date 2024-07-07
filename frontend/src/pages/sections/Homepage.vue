@@ -28,6 +28,7 @@ const loadHeadline = async () => {
 
 onMounted(() => {
   loadHeadline()
+  console.log("mounting homepage")
 })
 
 </script>

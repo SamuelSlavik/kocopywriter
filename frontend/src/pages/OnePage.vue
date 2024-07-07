@@ -10,24 +10,12 @@ import BrandsSection from "@/pages/sections/BrandsSection.vue";
 </script>
 
 <template>
-  <KeepAlive>
-    <Homepage />
-  </KeepAlive>
-  <KeepAlive>
-    <BrandsSection />
-  </KeepAlive>
-  <KeepAlive>
-    <Offer />
-  </KeepAlive>
-  <KeepAlive>
-    <About />
-  </KeepAlive>
-  <KeepAlive>
-    <References />
-  </KeepAlive>
-  <KeepAlive>
-    <BlogSection />
-  </KeepAlive>
+  <Homepage />
+  <BrandsSection />
+  <Offer />
+  <About />
+  <References />
+  <BlogSection />
   <Contact />
 </template>
 

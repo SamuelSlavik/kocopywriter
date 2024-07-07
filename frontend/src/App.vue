@@ -70,7 +70,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <template>
   <Navigation/>
-  <RouterView></RouterView>
+    <RouterView v-slot="{ Component }">
+      <keep-alive>
+        <component :is="Component"/>
+      </keep-alive>
+    </RouterView>
   <Footer />
 
   <Notifications />
