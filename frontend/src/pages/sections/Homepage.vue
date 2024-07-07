@@ -13,7 +13,6 @@ const loading = ref<boolean>(false)
 const notificationStore: any = inject('notificationStore')
 
 const headline = ref<Headline>()
-const brands = ref<Brand[]>()
 
 const loadHeadline = async () => {
   try {
@@ -27,21 +26,8 @@ const loadHeadline = async () => {
   }
 }
 
-const loadBrands = async () => {
-  try {
-    loading.value = true
-    const response = await brandsApi.getBrands()
-    brands.value = response.data
-  } catch (error: any) {
-    notificationStore.addNotification({type: "error", message: "Failed to load brands: " + error.response.data.detail})
-  } finally {
-    loading.value = false
-  }
-}
-
 onMounted(() => {
   loadHeadline()
-  loadBrands()
 })
 
 </script>
