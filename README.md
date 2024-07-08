@@ -1,5 +1,7 @@
 # Kocopywriter Web App 
 
+<br/>
+
 ## PROJECT DESCRIPTION
 
 Minimalistic portfolio of stuttering czech copywriter Vojtěch Hulinský with its own custom developed content management system.<br/>
