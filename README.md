@@ -3,6 +3,8 @@
 Minimalistic portfolio of stuttering czech copywriter Vojtěch Hulinský with its own custom developed content management system.<br/>
 <a href="kocopywriter.cz">kocopywriter.cz</a>
 
+<br/>
+
 ## Technologies / Stack
 ### Frontend
 - Vue 3 Composition API, Typescript
@@ -16,8 +18,10 @@ Minimalistic portfolio of stuttering czech copywriter Vojtěch Hulinský with it
 ### Database
 - PostgreSQL
 
+<br/>
 
-# LOCAL SETUP
+
+## LOCAL SETUP
 ### Frontend
 1. Clone the repository and install dependencies in the /frontend.
 ```sh
@@ -44,8 +48,10 @@ pip install -r requirements.txt
 python3 run.py
 ```
 
+<br/>
 
-# DEVELOPMENT / CONTRIBUTION
+
+## DEVELOPMENT / CONTRIBUTION
 
 If you want to make changes, clone the repository and follow the setup instructions. <br/>
 **Then create your own branch and make pull request with your changes.**  <br/>
