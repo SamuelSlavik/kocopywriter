@@ -6,14 +6,11 @@ const props = defineProps<{
   initialIndex: number;
 }>();
 
-const isOpen = ref(true);
+defineEmits(['close']);
+
 const currentIndex = ref(props.initialIndex);
 
 const currentImage = computed(() => props.images[currentIndex.value]);
-
-const close = () => {
-  isOpen.value = false;
-};
 
 const next = () => {
   currentIndex.value = (currentIndex.value + 1) % props.images.length;
@@ -25,10 +22,10 @@ const prev = () => {
 </script>
 
 <template>
-  <div v-if="isOpen" class="image-slider">
-    <div class="image-slider__overlay" @click="close"></div>
+  <div class="image-slider">
+    <div class="image-slider__overlay" @click="$emit('close')"></div>
     <div class="image-slider__content">
-      <button class="image-slider__close" @click="close">&times;</button>
+      <button class="image-slider__close" @click="$emit('close')">&times;</button>
       <button class="image-slider__nav image-slider__nav--prev" @click="prev">&lt;</button>
       <img :src="currentImage" alt="Zoomed project image" class="image-slider__image" />
       <button class="image-slider__nav image-slider__nav--next" @click="next">&gt;</button>
@@ -46,7 +43,7 @@ const prev = () => {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 1000;
+  z-index: 20000;
 }
 
 .image-slider__overlay {
