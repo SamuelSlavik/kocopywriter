@@ -99,8 +99,8 @@ const closeImageSlider = () => {
     width: 1.5em;
     height: auto;
   }
-  heading {
-    margin-bottom: 0;
+  .heading {
+    margin-bottom: 1rem;
     position: relative;
   }
   .project__task {
