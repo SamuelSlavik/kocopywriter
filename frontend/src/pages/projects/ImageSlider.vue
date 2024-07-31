@@ -59,12 +59,14 @@ const prev = () => {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
+  z-index: 20001;
 }
 
 .image-slider__content {
   position: relative;
   max-width: calc(100% - 20% - 4rem);
   max-height: 90%;
+  z-index: 20002;
 }
 
 .image-slider__image {
@@ -81,7 +83,7 @@ const prev = () => {
   color: var(--background);
   font-size: 2rem;
   cursor: pointer;
-  z-index: 20001;
+  z-index: 20003;
   &:hover {
     color: var(--orange);
   }
