@@ -24,6 +24,7 @@ import LinkedIn from 'vue-material-design-icons/Linkedin.vue';
 import ArrowRight from 'vue-material-design-icons/ArrowRight.vue';
 // @ts-ignore
 import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue';
+// @ts-ignore
 import axios from "axios";
 
 
