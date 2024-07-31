@@ -25,7 +25,7 @@ const prev = () => {
   <div class="image-slider">
     <div class="image-slider__overlay" @click="$emit('close')"></div>
     <button class="image-slider__close" @click="$emit('close')">
-      <CloseIcon :size="32"/>
+      <Close :size="32"/>
     </button>
     <button class="image-slider__nav image-slider__nav--prev" @click="prev">
       <ArrowLeft :size="32"/>
@@ -63,7 +63,7 @@ const prev = () => {
 
 .image-slider__content {
   position: relative;
-  max-width: 80%;
+  max-width: calc(100% - 20% - 4rem);
   max-height: 90%;
 }
 
@@ -78,9 +78,13 @@ const prev = () => {
   position: absolute;
   background: none;
   border: none;
-  color: white;
+  color: var(--background);
   font-size: 2rem;
   cursor: pointer;
+  z-index: 20001;
+  &:hover {
+    color: var(--orange);
+  }
 }
 
 .image-slider__close {
