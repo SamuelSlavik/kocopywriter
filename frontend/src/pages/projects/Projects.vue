@@ -95,9 +95,10 @@ const closeImageSlider = () => {
 
   .project__logo {
     position: absolute;
-    left: -2em;
-    width: 1.5em;
+    left: -3em;
+    width: 1.8rem;
     height: auto;
+    margin-top: 0.3rem;
   }
   .heading {
     margin-bottom: 1rem;
