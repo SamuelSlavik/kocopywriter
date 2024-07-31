@@ -41,9 +41,9 @@ onMounted(() => {
     <div v-else class="projects-wrapper">
       <div v-for="(project, index) in projects">
         <div class="project" :key="project.id">
-          <Heading><b>Pro koho? </b>{{project.name}}</Heading>
-          <p class="project__task"><span><b>Co? </b></span>{{project.task}}</p>
-          <p class="project__description"><b>Jak & proč?</b><br>{{project.description}}</p>
+          <Heading>{{project.name}}</Heading>
+          <p class="project__task">{{project.task}}</p>
+          <p class="project__description">{{project.description}}</p>
           <div class="project__image-wrapper">
             <img
                 v-for="(image, index) in project.images"
@@ -89,14 +89,13 @@ onMounted(() => {
     width: 100%;
     display: flex;
     justify-content: left;
-    gap: 1rem;
+    gap: 3%;
     flex-wrap: wrap;
+    margin-top: 2rem;
 
     img {
-      min-width: 25%;
-      max-width: 50%;
       height: auto;
-      margin: 1rem auto;
+      width: 47%;
     }
   }
 }

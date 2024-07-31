@@ -52,7 +52,7 @@
 
 .section-offer {
   text-align: center;
-  width: 100%;
+  width: 60%;
   margin: auto;
   margin-top: 6rem;
   @media (max-width: 1024px) {
