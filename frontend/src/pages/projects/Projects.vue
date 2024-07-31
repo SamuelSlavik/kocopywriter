@@ -95,16 +95,18 @@ const closeImageSlider = () => {
 
   .project__logo {
     position: absolute;
-    left: -100%;
-    width: 1em;
+    left: -2em;
+    width: 1.5em;
     height: auto;
   }
   heading {
     margin-bottom: 0;
+    position: relative;
   }
   .project__task {
     color: var(--primary);
     margin-bottom: 1rem;
+    position: relative;
     span {
       color: var(--secondary);
     }
@@ -112,6 +114,7 @@ const closeImageSlider = () => {
   .project__description {
     color: var(--secondary);
     white-space: pre-line;
+    position: relative;
   }
   .project__image-wrapper {
     width: 100%;
