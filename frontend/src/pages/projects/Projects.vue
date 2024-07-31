@@ -130,6 +130,7 @@ const closeImageSlider = () => {
       width: 47%;
       object-fit: cover;
       object-position: left;
+      border: 1px solid var(--tertiary);
 
       &:hover {
         cursor: pointer;
