@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import ArrowRight from "vue-material-design-icons/ArrowRight.vue";
 
 const props = defineProps<{
   images: string[];
