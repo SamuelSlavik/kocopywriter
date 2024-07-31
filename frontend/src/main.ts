@@ -20,6 +20,10 @@ import MenuIcon from 'vue-material-design-icons/Menu.vue';
 import Close from 'vue-material-design-icons/Close.vue';
 // @ts-ignore
 import LinkedIn from 'vue-material-design-icons/Linkedin.vue';
+// @ts-ignore
+import ArrowRight from 'vue-material-design-icons/ArrowRight.vue';
+// @ts-ignore
+import ArrowLeft from 'vue-material-design-icons/ArrowLeft.vue';
 import axios from "axios";
 
 
@@ -40,6 +44,8 @@ app.component("Footer", Footer)
 app.component("MenuIcon", MenuIcon)
 app.component("Close", Close)
 app.component("LinkedIn", LinkedIn)
+app.component("ArrowRight", ArrowRight)
+app.component("ArrowLeft", ArrowLeft)
 
 app.mount('#app')
 

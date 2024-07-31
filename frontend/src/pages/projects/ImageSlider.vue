@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
+import ArrowRight from "vue-material-design-icons/ArrowRight.vue";
 
 const props = defineProps<{
   images: string[];
@@ -24,12 +25,18 @@ const prev = () => {
 <template>
   <div class="image-slider">
     <div class="image-slider__overlay" @click="$emit('close')"></div>
+    <button class="image-slider__close" @click="$emit('close')">
+      <CloseIcon :size="32"/>
+    </button>
+    <button class="image-slider__nav image-slider__nav--prev" @click="prev">
+      <ArrowLeft :size="32"/>
+    </button>
     <div class="image-slider__content">
-      <button class="image-slider__close" @click="$emit('close')">&times;</button>
-      <button class="image-slider__nav image-slider__nav--prev" @click="prev">&lt;</button>
       <img :src="currentImage" alt="Zoomed project image" class="image-slider__image" />
-      <button class="image-slider__nav image-slider__nav--next" @click="next">&gt;</button>
     </div>
+    <button class="image-slider__nav image-slider__nav--next" @click="next">
+      <ArrowRight :size="32"/>
+    </button>
   </div>
 </template>
 
@@ -78,8 +85,8 @@ const prev = () => {
 }
 
 .image-slider__close {
-  top: 10px;
-  right: 10px;
+  top: 2rem;
+  right: 2rem;
 }
 
 .image-slider__nav {
@@ -88,10 +95,10 @@ const prev = () => {
 }
 
 .image-slider__nav--prev {
-  left: -2rem;
+  left: 2rem;
 }
 
 .image-slider__nav--next {
-  right: -2rem;
+  right: 2rem;
 }
 </style>
