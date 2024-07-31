@@ -24,20 +24,18 @@ const prev = () => {
 <template>
   <div class="image-slider">
     <div class="image-slider__overlay" @click="$emit('close')"></div>
-    <div class="image-slider__controls">
-      <button class="image-slider__close" @click="$emit('close')">
-        <Close :size="32"/>
-      </button>
-      <button class="image-slider__nav image-slider__nav--prev" @click="prev">
-        <ArrowLeft :size="32"/>
-      </button>
-      <div class="image-slider__content">
-        <img :src="currentImage" alt="Zoomed project image" class="image-slider__image" />
-      </div>
-      <button class="image-slider__nav image-slider__nav--next" @click="next">
-        <ArrowRight :size="32"/>
-      </button>
+    <button class="image-slider__close" @click="$emit('close')">
+      <Close :size="32"/>
+    </button>
+    <button class="image-slider__nav image-slider__nav--prev" @click="prev">
+      <ArrowLeft :size="32"/>
+    </button>
+    <div class="image-slider__content">
+      <img :src="currentImage" alt="Zoomed project image" class="image-slider__image" />
     </div>
+    <button class="image-slider__nav image-slider__nav--next" @click="next">
+      <ArrowRight :size="32"/>
+    </button>
   </div>
 </template>
 
@@ -61,21 +59,11 @@ const prev = () => {
   width: 100%;
   height: 100%;
   background-color: rgba(0, 0, 0, 0.8);
-  z-index: 20001;
-}
-
-.image-slider__controls {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 20002;
 }
 
 .image-slider__content {
-  max-width: calc(100% - 20% - 4rem);
+  width: calc(100% - 6rem);
+  max-width: var(--breakpoint);
   max-height: 90%;
 }
 
