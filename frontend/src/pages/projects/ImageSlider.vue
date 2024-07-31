@@ -94,7 +94,7 @@ const prev = () => {
   top: 2rem;
   right: 2rem;
   @media (max-width: 1024px) {
-    left: 0.2rem;
+    top: 0.2rem;
     right: 0.2rem;
   }
 }
