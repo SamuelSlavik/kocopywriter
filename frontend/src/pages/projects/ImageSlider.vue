@@ -57,7 +57,7 @@ const prev = () => {
 
 .image-slider__content {
   position: relative;
-  max-width: 90%;
+  max-width: 80%;
   max-height: 90%;
 }
 
@@ -88,10 +88,10 @@ const prev = () => {
 }
 
 .image-slider__nav--prev {
-  left: 10px;
+  left: -2rem;
 }
 
 .image-slider__nav--next {
-  right: 10px;
+  right: -2rem;
 }
 </style>
