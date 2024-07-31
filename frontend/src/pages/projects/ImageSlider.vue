@@ -65,6 +65,10 @@ const prev = () => {
   width: calc(100% - 6rem);
   max-width: var(--breakpoint);
   max-height: 90%;
+  position: relative;
+  @media (max-width: 1024px) {
+    width: calc(100% - 5rem);
+  }
 }
 
 .image-slider__image {
@@ -89,6 +93,10 @@ const prev = () => {
 .image-slider__close {
   top: 2rem;
   right: 2rem;
+  @media (max-width: 1024px) {
+    left: 0.2rem;
+    right: 0.2rem;
+  }
 }
 
 .image-slider__nav {
@@ -98,9 +106,15 @@ const prev = () => {
 
 .image-slider__nav--prev {
   left: 2rem;
+  @media (max-width: 1024px) {
+    left: 0.2rem;
+  }
 }
 
 .image-slider__nav--next {
   right: 2rem;
+  @media (max-width: 1024px) {
+    left: 0.2rem;
+  }
 }
 </style>
