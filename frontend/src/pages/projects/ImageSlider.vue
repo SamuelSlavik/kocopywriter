@@ -114,7 +114,7 @@ const prev = () => {
 .image-slider__nav--next {
   right: 2rem;
   @media (max-width: 1024px) {
-    left: 0.2rem;
+    right: 0.2rem;
   }
 }
 </style>
