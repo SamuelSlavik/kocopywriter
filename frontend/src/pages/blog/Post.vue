@@ -82,6 +82,8 @@ onMounted(() => {
   }
   .post__content {
     text-align: left;
+    width: 60%;
+    margin: auto;
 
     img {
       width: 100%;
