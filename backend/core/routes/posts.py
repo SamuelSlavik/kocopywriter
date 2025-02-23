@@ -60,11 +60,9 @@ async def update_post(post_id: int, post: Post, session: Session = Depends(get_s
 
 
 @posts_route.delete("/delete/{post_id}")
-async def delete_post(post_id: int):
-    try:
-        result = db_delete_post(post_id)
-        return result
-    except Exception as e:
+async def delete_post(post_id: int, session: Session = Depends(get_session), user: User = Depends(get_current_user)):
+    if not db_delete_post(post_id, session):
         raise HTTPException(status_code=400, detail="Could not delete post")
+    return {"message": "Item deleted"}
 
 

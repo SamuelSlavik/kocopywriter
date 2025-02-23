@@ -3,17 +3,7 @@ services:
     image: postgres:latest
     restart: always
     environment:
-      - POSTGRES_USER=postgres
-      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_USER=kocopywriter
+      - POSTGRES_PASSWORD=kocopywriter
     ports:
       - '5432:5432'
-  #go:
-  #  build:
-  #    context: ./src/api
-  #    dockerfile: Dockerfile
-  #    target: dev
-  #  volumes:
-  #    - .:/api
-  #  ports:
-  #    - '8080:8080'
-  
