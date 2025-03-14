@@ -35,6 +35,7 @@ import ManageProjects from "@/pages/user/admin/ManageProjects.vue";
 import CreateProject from "@/pages/user/admin/CreateProject.vue";
 import EditProject from "@/pages/user/admin/EditProject.vue";
 import DetailProject from "@/pages/user/admin/DetailProject.vue";
+import CookieDetails from "@/pages/cookies/CookieDetails.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -209,6 +210,10 @@ const router = createRouter({
     {
       path: "/blog/:id",
       component: Post
+    },
+    {
+      path: "/cookies/details",
+      component: CookieDetails
     }
   ]
 })

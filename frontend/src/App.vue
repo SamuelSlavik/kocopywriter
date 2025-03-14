@@ -5,9 +5,12 @@ import {useUserStore} from "@/stores/user-store";
 import axios from "axios";
 import type {User} from "@/lib/models";
 import {Endpoints} from "@/lib/endpoints";
+import CookieBanner from "@/components/cookieBanner/CookieBanner.vue";
+import {useCookieConsentStore} from "@/stores/cookie-consent-store";
 
 const loading = ref<boolean>(false)
 const user = useUserStore()
+const cookies = useCookieConsentStore()
 const notificationStore: any = inject('notificationStore')
 
 const checkUser = async () => {
@@ -28,8 +31,29 @@ const checkUser = async () => {
   }
 }
 
-onMounted(() => {
-  checkUser()
+const loadCookiesConsent = async () => {
+  try {
+    const analytical = localStorage.getItem("cookieConsentAnalytical")
+    const technical = localStorage.getItem("cookieConsentTechnical")
+
+    console.log('analytical', analytical)
+    console.log('technical', technical)
+
+    if (!analytical && !technical) {
+      cookies.setSet(false)
+    } else {
+      cookies.setSet(true)
+      cookies.setTechnicalOnly(!!technical)
+      cookies.setAnalyticalOnly(!!analytical)
+    }
+  } catch (error) {
+    console.log(error)
+  }
+}
+
+onMounted(async () => {
+  await checkUser()
+  await loadCookiesConsent()
 })
 
 
@@ -76,6 +100,7 @@ document.addEventListener('DOMContentLoaded', function () {
       </keep-alive>
     </RouterView>
   <Footer />
+  <CookieBanner v-if="!cookies.set"/>
 
   <Notifications />
 </template>
