@@ -50,29 +50,6 @@ const handleAnalyticalChange = () => {
 
 <template>
   <Container :global="true">
-    <div class="cookies-options">
-      <h2>Nastavím si co je cajk</h2>
-      <br/>
-      <div class="cookies-details__row">
-        <input
-          type="checkbox"
-          id="technicalCookies"
-          v-model="technicalChecked"
-          @change="handleTechnicalChange"
-        />
-        <label for="technicalCookies">Technické cookies</label>
-      </div>
-      <div class="cookies-details__row">
-        <input
-            type="checkbox"
-            id="analyticalCookies"
-            v-model="analyticalChecked"
-            @change="handleAnalyticalChange"
-        />
-        <label for="analyticalCookies">Analytické cookies</label>
-      </div>
-    </div>
-
     <div class="cookies-details">
       <h2>Co jsou cookies?</h2>
       <br/>
@@ -83,14 +60,30 @@ const handleAnalyticalChange = () => {
         která mi je pomáhá průběžně vylepšovat. Zjistím také, s čím vás nemám otravovat. A nebudu.
       </p>
     </div>
-
-    <div class="cookies-details">
-      <h2>Jaké typy cookies používám?</h2>
+    <br/>
+    <div class="cookies-options">
+      <h2>Nastavím si co je cajk</h2>
       <br/>
-      <p><b>Tachnické</b> - aby můj web fungoval</p>
-      <p><b>Analytické</b> - abych viděl, jak je web uživatelsky přívětivý a mohl ho vylepšovat</p>
+      <div class="cookies-details__row">
+        <input
+          type="checkbox"
+          id="technicalCookies"
+          v-model="technicalChecked"
+          @change="handleTechnicalChange"
+        />
+        <label for="technicalCookies"><b>Tachnické</b> - aby můj web fungoval</label>
+      </div>
+      <div class="cookies-details__row">
+        <input
+            type="checkbox"
+            id="analyticalCookies"
+            v-model="analyticalChecked"
+            @change="handleAnalyticalChange"
+        />
+        <label for="analyticalCookies"><b>Analytické</b> - abych viděl, jak je web uživatelsky přívětivý a mohl ho vylepšovat</label>
+      </div>
     </div>
-
+    <br/>
     <div class="cookies-details">
       <h2>OOOZ aneb zasady ochrany osobnch udaju</h2>
       <br/>
