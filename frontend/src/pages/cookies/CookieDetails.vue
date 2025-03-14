@@ -90,6 +90,14 @@ const handleAnalyticalChange = () => {
       <p><b>Tachnické</b> - aby můj web fungoval</p>
       <p><b>Analytické</b> - abych viděl, jak je web uživatelsky přívětivý a mohl ho vylepšovat</p>
     </div>
+
+    <div class="cookies-details">
+      <h2>OOOZ aneb zasady ochrany osobnch udaju</h2>
+      <br/>
+      <a href="/src/assets/documents/prohlaseni.pdf" download="prohlaseni-o-ochrane-udaju.pdf" class="pdf-link">
+        Prohlášení o ochraně osobních údajů a souborech cookie
+      </a>
+    </div>
   </Container>
 </template>
 

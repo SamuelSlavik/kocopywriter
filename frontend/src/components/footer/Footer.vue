@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// @ts-ignore
+import Cookie from 'vue-material-design-icons/Cookie.vue';
 
 </script>
 
@@ -10,6 +12,15 @@
         <p>
           Mgr. Vojtěch Hulinský, Nebeského 1583/29, 470 01 Česká Lípa, IČ: 06849857.
           Jsem zapsaný v živnostenském rejstříku u Městského úřadu Česká Lípa.
+        </p>
+      </div>
+      <br/>
+      <div>
+        <router-link to="/cookies/details">
+          <Cookie />
+        </router-link>
+        <p>
+          Prohlášení o ochraně osobních údajů a souborech cookie
         </p>
       </div>
       <br/>
@@ -34,14 +45,20 @@
     max-width: var(--breakpoint);
     margin: 0 auto;
 
-    > div:nth-child(1) {
+    > div {
       width: 100%;
       display: flex;
       align-items: center;
       gap: 2rem;
+
+      * {
+        margin-top: auto;
+        margin-bottom: auto;
+      }
     }
 
     .footer__reference {
+      display: block;
       width: 100%;
       text-align: center;
     }
