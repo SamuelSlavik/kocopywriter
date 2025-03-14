@@ -85,7 +85,7 @@ const handleAnalyticalChange = () => {
     </div>
     <br/>
     <div class="cookies-details">
-      <h2>OOOZ aneb zasady ochrany osobnch udaju</h2>
+      <h2>OOOZ aneb zásady ochrany osobních údajů</h2>
       <br/>
       <a href="/prohlaseni.pdf" target="_blank">
         Prohlášení o ochraně osobních údajů a souborech cookie
