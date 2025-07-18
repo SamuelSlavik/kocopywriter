@@ -31,7 +31,8 @@
       <div>
         <h3>Za kolik?</h3>
         <p>
-          Každý projekt naceňuju individuálně na základě sazby 1515 Kč/hod.<br/>
+          Každý projekt naceňuju individuálně na základě sazby 1818 Kč/hod.<br/>
+          U dlouhodobé spolupráce nad 10 hodin měsíčně nabízím slevu 20 %.<br/>
           <router-link to="/pricing">Orientační ceník</router-link>
         </p>
       </div>

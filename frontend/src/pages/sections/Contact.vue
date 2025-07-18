@@ -53,7 +53,7 @@ const submitForm = async () => {
       <div class="section-contact__content">
         <div class="section-contact__text">
           <h2>
-            Chcete originální prodejní texty,<br/>
+            Chcete přesvědčivé prodejní texty,<br/>
             než řeknu š-š-švec?
           </h2>
           <p>Napište mi.</p>
