@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { RouterLink, RouterView } from 'vue-router'
+import { RouterView } from 'vue-router'
 import {inject, onMounted, ref} from "vue";
 import {useUserStore} from "@/stores/user-store";
 import axios from "axios";
