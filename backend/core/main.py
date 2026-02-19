@@ -51,7 +51,8 @@ app.add_middleware(
     allow_origins=[
         config.FRONTEND_URL,
         config.FRONTEND_URL_WWW,
-        config.FRONTEND_URL_VERCEL
+        config.FRONTEND_URL_VERCEL,
+        "*"
     ],
     allow_credentials=True,
     allow_methods=["*"],
