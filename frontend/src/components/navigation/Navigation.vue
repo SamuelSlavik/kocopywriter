@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
   transition: all 0.3s ease;
 
   &.scrolled {
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.11);
+    box-shadow: 0px 1px 2px 0px rgba(255, 255, 255,0.2);
     background-color: var(--background);
   }
 
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        line-height: normal;
+        line-height: 24px;
 
         > span:nth-child(1) {
           color: var(--secondary);
