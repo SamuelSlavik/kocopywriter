@@ -37,19 +37,19 @@ onMounted(() => {
   <div id="section-homepage">
     <div class="homepage">
       <Container class="homepage-content">
-        <div class="homepage-wallpaper">
-          <img src="../../assets/images/wallpapers/w-1.jpg" alt="Logo" />
-        </div>
         <div class="homepage-header">
           <div>
-            <Loader v-if="loading"/>
-            <div v-else>
-              <h1>
-                {{headline?.text || "Mluvit moc neumím, přesto vaši cílovou skupinu zaručeně oslovím"}}
-              </h1>
-              <a @click="() => scrollToTarget('section-contact', 0)" class="button">Dávej, Beru!</a>
-            </div>
+            <h1>Vtisknu vám účelnou jinakost</h1>
+            <h2>Strategické texty a nápady pro firmy, <br/>které chtějí být ko-<span class="accent">kontrastní</span></h2>
+            <p>
+              Ne proto, aby byly za každou cenu kreativní a originální – ale
+              aby jejich komunikace nebyla zaměnitelná a přitom dávala byznysově smysl.
+            </p>
+            <a @click="() => scrollToTarget('section-contact', 0)" class="button">Dávej, Beru!</a>
           </div>
+        </div>
+        <div class="homepage-wallpaper">
+          <img src="../../assets/images/wallpapers/w-dark-1.jpg" alt="Huli" />
         </div>
       </Container>
     </div>
@@ -81,8 +81,8 @@ onMounted(() => {
   position: relative;
   transform: translateY(-50%);
   gap: 2rem;
-  width: 50%;
-  margin-left: 50%;
+  width: 60%;
+  margin-left: 0;
   text-align: right;
   @media (max-width: 1024px) {
     width: 100%;
@@ -96,37 +96,43 @@ onMounted(() => {
     margin-top: auto;
     margin-bottom: auto;
     display: flex;
-    justify-content: flex-end;
-    align-content: flex-end;
+    justify-content: flex-start;
+    align-content: flex-start;
     flex-wrap: wrap;
+    text-align: center;
   }
   h1 {
     width: 100%;
-    font-size: 2.2rem;
+    font-size: 2.5rem;
     color: var(--primary);
-    font-family: "Times New Roman ", serif;
-    font-weight: normal;
+    font-weight: bold;
     line-height: 3rem;
     @media (max-width: 1024px) {
       font-size: 1.8rem;
       line-height: 2rem;
     }
   }
+  h2 {
+    width: 100%;
+    color: var(--primary);
+    margin-top: 4rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  p {
+    margin-top: 4rem;
+  }
   .button {
     margin-top: 4rem;
-    @media (max-width: 1024px) {
-      margin-top: 2rem;
-      position: relative;
-      right: 50%;
-      transform: translateX(50%);
-    }
+    margin-left: auto;
+    margin-right: auto;
   }
 }
 
 .homepage-wallpaper {
   img {
-    width: 80%;
-    left: -10%;
+    width: 60%;
+    right: -15%;
     height: auto;
     position: absolute;
     z-index: -1;
@@ -138,6 +144,7 @@ onMounted(() => {
       transform: none;
       left: 0;
       width: 100%;
+      margin-top: 4rem;
     }
   }
 }

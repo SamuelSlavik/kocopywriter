@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="logo">
         <router-link to="/#section-homepage" class="logo">
           <div>
-            <img alt="Logo" src="@/assets/images/logos/logo.png"/>
+            <img alt="Logo" src="@/assets/images/logos/logo-white.png"/>
             <div>
               <span>Koktající copywriter</span>
               <span>Vojtěch Hulinský</span>
@@ -75,7 +75,7 @@ document.addEventListener('DOMContentLoaded', function () {
         <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-about">O mně</router-link>
         <router-link to="/#section-references">Reference</router-link>
-        <router-link class="outer-link" to="/projects">Ukázky prací</router-link>
+        <!--<router-link class="outer-link" to="/projects">Ukázky prací</router-link>-->
         <router-link to="/#section-blog">Blog</router-link>
         <router-link to="/#section-contact">Kokontakt</router-link>
         <router-link class="outer-link" v-if="user.id" to="/admin">Profil</router-link>
@@ -89,7 +89,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <router-link to="/#section-offer" :onclick="toggleMenu">Služby</router-link>
       <router-link to="/#section-about" :onclick="toggleMenu">O mně</router-link>
       <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
-      <router-link to="/projects" :onclick="toggleMenu">Ukázky prací</router-link>
+      <!--<router-link to="/projects" :onclick="toggleMenu">Ukázky prací</router-link>-->
       <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>
       <router-link to="/#section-contact" :onclick="toggleMenu">Kokontakt</router-link>
       <router-link v-if="user.id" to="/admin" :onclick="toggleMenu">Profil</router-link>

@@ -107,13 +107,25 @@ document.addEventListener('DOMContentLoaded', function () {
 
 <style>
 :root {
-  --orange: rgb(209, 119, 61);
-  --primary: rgb(85, 85, 85);
-  --secondary: rgba(85, 85, 85, 0.8);
-  --tertiary: rgba(85, 85, 85, 0.2);
-  --background: rgb(255, 255, 255);
-  --secondary-background: rgb(0, 0, 0);
+  //--orange: rgb(209, 119, 61);
+  //--primary: rgb(85, 85, 85);
+  //--secondary: rgba(85, 85, 85, 0.8);
+  //--tertiary: rgba(85, 85, 85, 0.2);
+  //--background: rgb(255, 255, 255);
+  //--secondary-background: rgb(0, 0, 0);
+  //--breakpoint: 1200px;
+
+  --orange: #cfff04;
+  --orange-transparent: rgba(207, 255, 4, 0.8);
+  --primary: rgb(255, 255, 255);
+  --secondary: rgba(179, 179, 179, 0.8);
+  --tertiary: rgba(179, 179, 179, 0.2);
+  --background: rgb(0, 0, 0);
+  --secondary-background: rgb(255, 255, 255);
   --breakpoint: 1200px;
+
+  --font-primary: "Ubuntu", sans-serif;
+  --font-secondary: "Montserrat", sans-serif;
 }
 
 *,
@@ -122,14 +134,14 @@ document.addEventListener('DOMContentLoaded', function () {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  transition: all 0.5s ease;
+  transition: all 0.3s ease;
   scroll-behavior: smooth;
 }
 body {
   min-height: 100vh;
   color: rgb(85, 85, 85);
-  background-color: white;
-  font-family: "Open Sans", sans-serif;
+  background-color: var(--background);
+  font-family: var(--font-primary);
   scroll-behavior: smooth;
   line-height: 2rem;
 }
@@ -143,7 +155,7 @@ svg, i {
 .button {
   display: block;
   padding: 0.7rem 1.3rem;
-  box-shadow: 5px 5px 0px 0px rgba(0,0,0,0.08);
+  box-shadow: 5px 5px 0px 0px rgba(255, 255, 255, 0.3);
   border: 1px solid var(--primary);
   background-color: var(--background);
   text-transform: uppercase;
@@ -152,9 +164,9 @@ svg, i {
   letter-spacing: 2px;
 
   &:hover {
-    background-color: var(--secondary-background);
     cursor: pointer;
-    box-shadow: -5px -5px 0px 0px rgba(0,0,0,0.08);
+    box-shadow: -5px -5px 0px 0px var(--orange-transparent);
+    color: var(--orange);
   }
 }
 .button-group {
@@ -162,17 +174,17 @@ svg, i {
   gap: 1rem;
 }
 h1 {
-  font-family: "Times New Roman ", serif;
+  font-family: var(--font-secondary);
   font-size: 3rem;
   font-weight: normal;
 }
 h2 {
-  font-family: "Times New Roman ", serif;
+  font-family: var(--font-secondary);
   font-size: 2rem;
   font-weight: normal;
 }
 h3 {
-  font-family: "Times New Roman ", serif;
+  font-family: var(--font-secondary);
   font-size: 1.5rem;
   font-weight: normal;
 }
@@ -195,6 +207,9 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+}
+.accent {
+  color: var(--orange);
 }
 
 
