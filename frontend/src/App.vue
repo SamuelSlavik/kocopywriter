@@ -119,8 +119,9 @@ document.addEventListener('DOMContentLoaded', function () {
   --orange-transparent: rgba(207, 255, 4, 0.8);
   --primary: rgb(255, 255, 255);
   --secondary: rgba(179, 179, 179, 0.8);
-  --tertiary: rgba(179, 179, 179, 0.2);
+  --tertiary: rgba(179, 179, 179, 0.4);
   --background: rgb(0, 0, 0);
+  --background-light: rgb(32, 32, 32);
   --secondary-background: rgb(255, 255, 255);
   --breakpoint: 1200px;
 
@@ -139,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function () {
 }
 body {
   min-height: 100vh;
-  color: rgb(85, 85, 85);
+  color: var(--primary);
   background-color: var(--background);
   font-family: var(--font-primary);
   scroll-behavior: smooth;
@@ -176,17 +177,17 @@ svg, i {
 h1 {
   font-family: var(--font-secondary);
   font-size: 3rem;
-  font-weight: normal;
+  font-weight: bold;
 }
 h2 {
   font-family: var(--font-secondary);
   font-size: 2rem;
-  font-weight: normal;
+  font-weight: bold;
 }
 h3 {
   font-family: var(--font-secondary);
   font-size: 1.5rem;
-  font-weight: normal;
+  font-weight: bold;
 }
 p {
   color: var(--secondary);

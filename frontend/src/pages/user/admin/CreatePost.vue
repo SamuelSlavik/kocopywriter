@@ -88,10 +88,10 @@ const addLinkToEditor = (editor: any) => {
 
 const toggleOrangeTextColor = (editor: any) => {
   const currentColor = editor.getAttributes('textStyle').color
-  if (currentColor === 'rgb(209, 119, 61)') {
+  if (currentColor === '#cfff04') {
     editor.chain().focus().unsetColor().run()
   } else {
-    editor.chain().focus().setColor('rgb(209, 119, 61)').run()
+    editor.chain().focus().setColor('#cfff04').run()
   }
 }
 
@@ -214,9 +214,9 @@ const submitPost = async () => {
             </button>
             <button
                 type="button"
-                @click="toggleOrangeTextColor(editor)" :class="{ 'is-active': editor.isActive({ color: 'rgb(209, 119, 61)' }) }"
+                @click="toggleOrangeTextColor(editor)" :class="{ 'is-active': editor.isActive({ color: '#cfff04' }) }"
             >
-               <b><span style="color: rgb(209, 119, 61)">A</span></b>
+               <b><span style="color: #cfff04">A</span></b>
             </button>
 
             <div></div>
