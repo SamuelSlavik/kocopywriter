@@ -56,9 +56,9 @@ const closeImageSlider = () => {
     <div v-else class="projects-wrapper">
       <div v-for="(project, index) in projects">
         <div class="project" :key="project.id">
-          <Heading><img class="project__logo" alt="logo" src="@/assets/images/logos/logo.png"/> {{ project.name }}</Heading>
-          <p class="project__task"><img class="project__logo" alt="logo" src="@/assets/images/logos/logo.png"/> {{ project.task }}</p>
-          <p class="project__description"><img class="project__logo" alt="logo" src="@/assets/images/logos/logo.png"/> {{ project.description }}</p>
+          <Heading><img class="project__logo" alt="logo" src="@/assets/images/logos/logo-white.png"/> {{ project.name }}</Heading>
+          <p class="project__task"><img class="project__logo" alt="logo" src="@/assets/images/logos/logo-white.png"/> {{ project.task }}</p>
+          <p class="project__description"><img class="project__logo" alt="logo" src="@/assets/images/logos/logo-white.png"/> {{ project.description }}</p>
           <div class="project__image-wrapper">
             <img
                 v-for="(image, imageIndex) in project.images"

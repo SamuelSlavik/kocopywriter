@@ -195,10 +195,10 @@ const router = createRouter({
         },
       ]
     },
-    {
-      path: "/pricing",
-      component: Pricing
-    },
+    // {
+    //   path: "/pricing",
+    //   component: Pricing
+    // },
     {
       path: "/projects",
       component: Projects

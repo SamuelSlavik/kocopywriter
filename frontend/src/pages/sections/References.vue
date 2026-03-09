@@ -72,6 +72,9 @@ onMounted(() => {
 </template>
 
 <style>
+#section-references {
+  padding: 5rem 1rem;
+}
 .reference {
   width: 100%;
   display: flex;
