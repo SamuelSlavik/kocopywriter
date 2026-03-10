@@ -28,8 +28,8 @@ const cookies = useCookieConsentStore()
   right: 0;
   left: 0;
   width: 100%;
-  background-color: var(--background);
-  box-shadow: 0px 1px 2px 0px rgba(255, 255, 255,0.2);
+  background-color: rgb(16, 16, 16);
+  box-shadow: 1px 0px 0px 2px rgba(255, 255, 255,0.2);
   padding: 2rem 1rem;
 
   .cookie-banner__content {
