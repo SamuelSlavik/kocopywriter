@@ -98,6 +98,10 @@ onMounted(() => {
   @media (max-width: 1024px) {
     margin-top: 6rem;
   }
+
+  a {
+    color: var(--primary)
+  }
 }
 .section-blog__heading {
   margin-bottom: 4rem;

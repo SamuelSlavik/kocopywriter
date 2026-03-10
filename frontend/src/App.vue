@@ -122,6 +122,7 @@ document.addEventListener('DOMContentLoaded', function () {
   --tertiary: rgba(179, 179, 179, 0.4);
   --background: rgb(0, 0, 0);
   --background-light: rgb(32, 32, 32);
+  --background-tertiary: rgb(16, 16, 16);
   --secondary-background: rgb(255, 255, 255);
   --breakpoint: 1200px;
 
@@ -213,5 +214,14 @@ img {
   color: var(--orange);
 }
 
+span[style="color: rgb(209, 119, 61);"] {
+  color: var(--orange) !important;
+}
+span[style="color: rgb(0, 0, 0);"] {
+  color: var(--primary) !important;
+}
+span[style="color: rgba(0, 0, 0, 0.9);"] {
+  color: var(--primary) !important;
+}
 
 </style>
