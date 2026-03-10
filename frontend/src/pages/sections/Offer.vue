@@ -11,7 +11,7 @@
       <br/>
 
       <div>
-        <h3>Idea making a business storytelling</h3>
+        <h3><span class="accent">1.</span> Idea making a business storytelling</h3>
         <p>
           Vymýšlení příběhů, komunikačních konceptů a insighty podložených nápadů, které vašemu produktu,
           službě nebo celé značce dají neotřelý úhel pohledu.
@@ -21,7 +21,7 @@
       </div>
 
       <div>
-        <h3>Copywriting</h3>
+        <h3><span class="accent">2.</span> Copywriting</h3>
         <p>
           Textace webů, psaní blogových a PR článků, tvorba sloganů, příprava newsletterů a obsahu na LinkedIn či pro online kampaně.
           Prostě vše, co potřebujete sdělit slovem – srozumitelně a s lehkostí.
@@ -29,7 +29,7 @@
       </div>
 
       <div>
-        <h3>Automatizace tvorby obsahu</h3>
+        <h3><span class="accent">3.</span> Automatizace tvorby obsahu</h3>
         <p>
           Příprava AI aplikace pro generování textů ve vašem autorském stylu. NEJDE o běžný odkaz do ChatGPT,
           ale o komplexní nástroj s pokročilým nastavením v pozadí,

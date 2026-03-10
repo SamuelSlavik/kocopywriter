@@ -79,7 +79,7 @@ onMounted(() => {
 <style>
 .table {
   width: 100%;
-  background-color: rgb(246, 246, 247);
+  background-color: var(--background-tertiary);
   border-radius: 5px;
   margin: 2rem 0;
   padding: 1rem;

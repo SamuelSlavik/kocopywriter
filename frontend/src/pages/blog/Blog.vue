@@ -61,6 +61,12 @@ onMounted(() => {
   width: 80%;
   margin: auto;
 
+  .heading {
+    a {
+      color: var(--primary)
+    }
+  }
+
   article {
     width: 100%;
     text-align: left;

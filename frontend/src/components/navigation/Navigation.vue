@@ -72,12 +72,12 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="navigation__content">
-        <router-link to="/#section-about">O mně</router-link>
+        <router-link to="/#section-about">Modus operandi</router-link>
         <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-references">Reference</router-link>
         <router-link class="outer-link" to="/projects">Ukázky prací</router-link>
         <router-link to="/#section-blog">Blog</router-link>
-        <router-link to="/#section-contact">Kokontakt</router-link>
+        <router-link to="/#section-contact">Ko-kontakt</router-link>
         <router-link class="outer-link" v-if="user.id" to="/admin">Profil</router-link>
       </div>
 
@@ -86,12 +86,12 @@ document.addEventListener('DOMContentLoaded', function () {
     </nav>
 
     <div v-if="displayMenu" class="menu">
-      <router-link to="/#section-about" :onclick="toggleMenu">O mně</router-link>
+      <router-link to="/#section-about" :onclick="toggleMenu">Modus operandi</router-link>
       <router-link to="/#section-offer" :onclick="toggleMenu">Služby</router-link>
       <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
       <router-link to="/projects" :onclick="toggleMenu">Ukázky prací</router-link>
       <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>
-      <router-link to="/#section-contact" :onclick="toggleMenu">Kokontakt</router-link>
+      <router-link to="/#section-contact" :onclick="toggleMenu">Ko-kontakt</router-link>
       <router-link v-if="user.id" to="/admin" :onclick="toggleMenu">Profil</router-link>
     </div>
   </div>

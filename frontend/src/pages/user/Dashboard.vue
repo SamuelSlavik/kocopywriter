@@ -62,11 +62,11 @@ const logout = () => {
 
 <style>
 .dashboard {
-  background-color: rgb(246, 246, 247);
   width: calc((100% - (1280px - 64px)) / 2 + 350px - 32px);
   min-width: 350px;
   height: auto;
   min-height: 100vh;
+  border-right: 1px solid var(--tertiary);
 
   .dashboard__content {
     width: 350px;
