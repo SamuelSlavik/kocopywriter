@@ -16,7 +16,7 @@ const user = useUserStore()
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 
-const brandId = router.currentRoute.value.params.id.toString() || ""
+const brandId = router?.currentRoute?.value?.params?.id?.toString() || ""
 
 const brand = ref<Brand>(
     {

@@ -27,7 +27,7 @@ const project = ref<Project>({
 const loadProject = async () => {
   try {
     loading.value = true
-    const response = await projectsApi.getProject(router.currentRoute.value.params.id.toString())
+    const response = await projectsApi.getProject(router?.currentRoute?.value?.params?.id?.toString() || '')
     project.value = response.data
   } catch (e: any) {
     notificationStore.addNotification({

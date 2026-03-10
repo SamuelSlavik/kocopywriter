@@ -10,7 +10,7 @@ const loading = ref<boolean>(false)
 const user = useUserStore()
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
-const projectId = ref<string>(router.currentRoute.value.params.id.toString() || "")
+const projectId = ref<string>(router?.currentRoute?.value?.params?.id?.toString() || "")
 
 const currentImageUrls = ref<string[]>([])
 const projects = ref<Project[]>([])
