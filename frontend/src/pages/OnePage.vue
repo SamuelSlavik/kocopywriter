@@ -11,7 +11,7 @@ import BrandsSection from "@/pages/sections/BrandsSection.vue";
 
 <template>
   <Homepage />
-  <!--  <BrandsSection />-->
+  <BrandsSection />
   <About />
   <!-- Tu pojde nova sekcia s ukazkami praci -->
   <Offer />

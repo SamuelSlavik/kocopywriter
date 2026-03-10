@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function () {
   --orange: #cfff04;
   --orange-transparent: rgba(207, 255, 4, 0.8);
   --primary: rgb(255, 255, 255);
-  --secondary: rgba(179, 179, 179, 0.8);
+  --secondary: rgba(200, 200, 200, 0.8);
   --tertiary: rgba(179, 179, 179, 0.4);
   --background: rgb(0, 0, 0);
   --background-light: rgb(32, 32, 32);
