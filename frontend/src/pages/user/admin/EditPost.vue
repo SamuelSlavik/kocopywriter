@@ -21,7 +21,7 @@ const user = useUserStore()
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 
-const postId = router.currentRoute.value.params.id.toString() || ""
+const postId = router?.currentRoute?.value?.params?.id?.toString() || ""
 
 const newPost = ref<NewPost>(
     {

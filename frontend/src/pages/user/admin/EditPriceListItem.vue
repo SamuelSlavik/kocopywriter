@@ -9,7 +9,7 @@ const router = useRouter()
 const loading = ref<boolean>(false)
 const notificationStore: any = inject('notificationStore')
 
-const item_id = ref<string>(router.currentRoute.value.params.id.toString()) || ""
+const item_id = ref<string>(router?.currentRoute?.value?.params?.id?.toString() || '') || ""
 
 const newPriceListItem = ref<NewPriceListItem>({
   title: "",

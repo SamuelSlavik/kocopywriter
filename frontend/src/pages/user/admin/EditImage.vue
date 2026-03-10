@@ -11,7 +11,7 @@ const user = useUserStore()
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 
-const imageId = router.currentRoute.value.params.id.toString() || ""
+const imageId = router?.currentRoute?.value?.params?.id?.toString() || ""
 
 const imageUrl = ref<string>("")
 const newImage = ref<NewImage>(
