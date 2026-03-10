@@ -31,6 +31,7 @@ const cookies = useCookieConsentStore()
   background-color: rgb(16, 16, 16);
   box-shadow: 1px 0px 0px 2px rgba(255, 255, 255,0.2);
   padding: 2rem 1rem;
+  z-index: 100;
 
   .cookie-banner__content {
     max-width: var(--breakpoint);
