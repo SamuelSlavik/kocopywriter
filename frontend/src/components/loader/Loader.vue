@@ -11,7 +11,7 @@ const props = defineProps<NotificationProps>();
 
 const {
   type = 'spinner',
-  primaryColor = '#000000',
+  primaryColor = '#ffffff',
   secondaryColor = '#ffffff',
   tertiaryColor = '#ecf0f1',
   position = '',
