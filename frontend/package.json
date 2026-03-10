@@ -1,6 +1,6 @@
 {
   "name": "frontend",
-  "version": "0.0.0",
+  "version": "2.0.0",
   "private": true,
   "type": "module",
   "scripts": {
@@ -22,30 +22,30 @@
     "@tiptap/pm": "^2.2.4",
     "@tiptap/starter-kit": "^2.2.4",
     "@tiptap/vue-3": "^2.2.4",
-    "axios": "^1.6.7",
+    "axios": "^1.13.5",
     "loader-quark": "^1.0.1",
     "notification-quark": "^1.0.1",
-    "pinia": "^2.1.7",
+    "pinia": "^3.0.4",
     "swiper": "^11.1.1",
-    "vue": "^3.4.15",
-    "vue-material-design-icons": "^5.3.0",
-    "vue-router": "^4.2.5"
+    "vue": "^3.5.28",
+    "vue-material-design-icons": "^5.3.1",
+    "vue-router": "^5.0.3"
   },
   "devDependencies": {
     "@rushstack/eslint-patch": "^1.3.3",
-    "@tsconfig/node20": "^20.1.2",
-    "@types/node": "^20.11.10",
-    "@vitejs/plugin-vue": "^5.0.3",
-    "@vitejs/plugin-vue-jsx": "^3.1.0",
+    "@tsconfig/node20": "^20.1.9",
+    "@types/node": "^25.3.0",
+    "@vitejs/plugin-vue": "^6.0.4",
+    "@vitejs/plugin-vue-jsx": "^5.1.4",
     "@vue/eslint-config-prettier": "^8.0.0",
     "@vue/eslint-config-typescript": "^12.0.0",
-    "@vue/tsconfig": "^0.5.1",
+    "@vue/tsconfig": "^0.8.1",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "npm-run-all2": "^6.1.1",
-    "prettier": "^3.0.3",
-    "typescript": "~5.3.0",
-    "vite": "^5.0.11",
-    "vue-tsc": "^1.8.27"
+    "prettier": "^3.8.1",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vue-tsc": "^3.2.4"
   }
 }

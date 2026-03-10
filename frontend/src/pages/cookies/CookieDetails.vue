@@ -71,7 +71,7 @@ const handleAnalyticalChange = () => {
           v-model="technicalChecked"
           @change="handleTechnicalChange"
         />
-        <label for="technicalCookies"><b>Tachnické</b> - aby můj web fungoval</label>
+        <label for="technicalCookies"><b>Technické</b> - aby můj web fungoval</label>
       </div>
       <div class="cookies-details__row">
         <input

@@ -43,11 +43,12 @@ onMounted(() => {
 <style>
 .brands {
   width: 100%;
-  background-color: var(--background);
+  background-color: var(--secondary-background);
   height: 3rem;
   position: relative;
   bottom: 0;
   padding: .2rem 3rem;
+  margin-bottom: 5rem;
   @media (max-width: 1024px) {
     display: none;
   }

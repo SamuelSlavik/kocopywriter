@@ -90,8 +90,9 @@ input, select, textarea, .tiptap {
   outline: none;
   border: 1px solid var(--tertiary);
   font-size: 0.9rem;
-  background-color: var(--background);
+  background-color: var(--background-light);
   font-family: inherit;
+  color: var(--primary);
 }
 input:invalid, select:invalid, textarea:invalid, .tiptap:invalid {
   border: 1px solid #ff453a;

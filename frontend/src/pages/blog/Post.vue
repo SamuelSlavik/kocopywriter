@@ -55,9 +55,9 @@ onMounted(() => {
         <div class="hr"></div>
         <div v-html="post.content" class="post__content"></div>
         <div class="post__signature">
-          <img alt="logo" src="@/assets/images/logos/logo.png"/>
-          <img alt="logo" src="@/assets/images/logos/logo.png"/>
-          <img alt="logo" src="@/assets/images/logos/logo.png"/>
+          <img alt="logo" src="@/assets/images/logos/logo-white.png"/>
+          <img alt="logo" src="@/assets/images/logos/logo-white.png"/>
+          <img alt="logo" src="@/assets/images/logos/logo-white.png"/>
         </div>
         <p>
           Líbil se vám článek? Sledujte mě na
@@ -81,11 +81,22 @@ onMounted(() => {
     margin: auto;
   }
   .post__content {
+    color: var(--secondary);
     text-align: left;
     width: 60%;
     margin: auto;
 
-    img {
+    span {
+      color: var(--primary) !important;
+    }
+    span[style="color: rgb(209, 119, 61);"] {
+      color: var(--orange) !important;
+    }
+    span[style="color: rgb(0, 0, 0);"] {
+      color: var(--primary) !important;
+    }
+
+      img {
       width: 100%;
       height: auto;
     }

@@ -53,8 +53,7 @@ const submitForm = async () => {
       <div class="section-contact__content">
         <div class="section-contact__text">
           <h2>
-            Chcete přesvědčivé prodejní texty,<br/>
-            než řeknu š-š-švec?
+            Buďte kontrastní. <br/>Buďte vidět. <br/>Buďte první volbou.
           </h2>
           <p>Napište mi.</p>
         </div>
@@ -151,6 +150,7 @@ const submitForm = async () => {
     flex-direction: column;
     justify-content: center;
     width: 40%;
+    gap: 2rem;
     @media (max-width: 1024px) {
       width: 100%;
     }

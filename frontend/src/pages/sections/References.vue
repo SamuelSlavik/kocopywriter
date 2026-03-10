@@ -57,7 +57,8 @@ onMounted(() => {
           <img :src="backend_url + reference.image" alt="reference.name"/>
           <div class="reference__heading">
             <p><b>{{reference.name}}</b> - {{reference.position}}</p>
-            <p><a target="_blank" :href="reference.url">{{formatUrl(reference.url)}}</a></p>
+<!--            TODO: remove in the backend and database-->
+<!--            <p><a target="_blank" :href="reference.url">{{formatUrl(reference.url)}}</a></p>-->
           </div>
           <div class="reference__content">
             <p>{{reference.description}}</p>
@@ -71,6 +72,9 @@ onMounted(() => {
 </template>
 
 <style>
+#section-references {
+  padding: 5rem 1rem;
+}
 .reference {
   width: 100%;
   display: flex;
@@ -88,6 +92,10 @@ onMounted(() => {
     margin-top: 2rem;
     text-align: center;
     width: 60%;
+
+    b {
+      color: var(--primary);
+    }
   }
 
   .reference__content {
@@ -99,6 +107,9 @@ onMounted(() => {
 .swiper-pagination {
   position: relative;
   margin-top: 2rem;
+}
+.swiper-pagination-bullet {
+  background-color: var(--primary);
 }
 .swiper-pagination-bullet-active {
   background-color: var(--orange);

@@ -4,28 +4,57 @@
 
 <template>
   <Container id="section-about" class="section-about">
-    <div class="about-wallpaper">
-      <img src="../../assets/images/wallpapers/w-2.jpg" alt="Logo" />
-    </div>
     <div class="section-about__content">
       <div>
         <h2>
-          Čau-čau
+          Účelnou jinakostí řeším problémy už odmala
         </h2>
         <br/>
         <p>
-          Jsem kreativec, balbutik a člověk, který se nebere vážně.
-          A postavil na tom byznys. Blbě mluvím, ale i díky tomu výborně píšu.
-          Moje HLPčko najdete třeba v <a target="_blank" href="https://www.finmag.cz/inspirace/439170-koktam-no-a-co-copywriter-si-na-nedostatku-postavil-uspesnou-karieru">rozhovoru</a> pro časopis Finmag, takže zde ho vynechám.
+          Kvůli vadě řeči jsem zvyklý hledat alternativní cesty tam, kde ty standardní nefungují. A díky kreativitě a drzosti je vždycky najdu.
         </p>
         <br/>
         <p>
-          Miluju černobílé filmy, brakovou literaturu, čínské psy a americký fotbal. Ve volném čase provozuju smažákovou turistiku, buduju #kokotbrand na
-          <a href="https://www.linkedin.com/in/vojtechhulinsky/" target="_blank">LinkedInu</a> a vyhlížím comeback Oasis.
+          <b><span class="accent">✶</span> Když mi na vejšce učitel odmítl udělit zápočet, dokud mu nezodpovím všechny otázky bez jediného zadrhnutí…</b>
         </p>
         <br/>
-        <p>Jo a od roku 2017 jsem svými (dů)vtipnými texty obohatil už více než 100 klientů. Přidejte se k nim.</p>
+        <p>
+          …sehnal jsem kontakt na jeho platonickou lásku – známou herečku – domluvil se s ní a při dalším zkoušení mu ji dal k telefonu.
+          Aby poznal, jaké to je, když toho máte hodně na srdci, ale nemůžete se vymáčknout.
+          A hned po nervózním doblekotání v sobě jako zázrakem objevil kousek empatie.
+        </p>
+        <br/>
+        <p>
+          <b>
+            <span class="accent">✶</span> Když jsem při náboru k policii měl tetování, která by v uniformě byla vidět…
+          </b>
+        </p>
+        <br/>
+        <p>
+          …zakryl jsem je make-upem a schválně si vzal triko s krátkým rukávem, aby byla vidět všechna místa, kde tetování mám.
+          Náborářky si jich celý den nevšimly. Tím jsem jim ukázal, že kérky mě nijak
+          nediskvalifikují – i když předpisy zakazují „mít v uniformě viditelná tetování“.
+        </p>
+        <br/>
+        <p>
+          <b>
+            Problém <span class="accent">→</span> netradiční řešení <span class="accent">→</span> výsledek
+          </b>
+        </p>
+        <br/>
+        <p>
+          Tuhle rovnici uplatňuju pořád.
+        </p>
+        <br/>
+        <p>
+          Za posledních <b>9 let</b> jsem tomu dal těch pověstných <b>10 000 hodin</b>.
+          A z talentu vybrousil byznysově použitelný skill, který obohatil už více než <b>150 klientů</b>.
+          Nyní má cenovku <b>1 818 Kč/hod</b>.
+        </p>
       </div>
+    </div>
+    <div class="about-wallpaper">
+      <img src="../../assets/images/wallpapers/w-dark-2.jpg" alt="Logo" />
     </div>
   </Container>
 </template>
@@ -43,19 +72,24 @@
     flex-direction: column;
     min-height: 100vh;
     gap: 2rem;
-    width: 50%;
-    margin-left: 0;
+    width: 60%;
+    margin-left: 40%;
     text-align: center;
     justify-content: center;
     @media (max-width: 1024px) {
       width: 100%;
       min-height: auto;
+      margin-left: auto;
+    }
+
+    b {
+      color: var(--primary);
     }
   }
   .about-wallpaper {
     img {
-      width: 100%;
-      left: 25%;
+      width: 45%;
+      left: -5%;
       height: auto;
       position: absolute;
       z-index: -1;

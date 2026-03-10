@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
       <div class="logo">
         <router-link to="/#section-homepage" class="logo">
           <div>
-            <img alt="Logo" src="@/assets/images/logos/logo.png"/>
+            <img alt="Logo" src="@/assets/images/logos/logo-white.png"/>
             <div>
               <span>Koktající copywriter</span>
               <span>Vojtěch Hulinský</span>
@@ -72,8 +72,8 @@ document.addEventListener('DOMContentLoaded', function () {
       </div>
 
       <div class="navigation__content">
-        <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-about">O mně</router-link>
+        <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-references">Reference</router-link>
         <router-link class="outer-link" to="/projects">Ukázky prací</router-link>
         <router-link to="/#section-blog">Blog</router-link>
@@ -86,8 +86,8 @@ document.addEventListener('DOMContentLoaded', function () {
     </nav>
 
     <div v-if="displayMenu" class="menu">
-      <router-link to="/#section-offer" :onclick="toggleMenu">Služby</router-link>
       <router-link to="/#section-about" :onclick="toggleMenu">O mně</router-link>
+      <router-link to="/#section-offer" :onclick="toggleMenu">Služby</router-link>
       <router-link to="/#section-references" :onclick="toggleMenu">Reference</router-link>
       <router-link to="/projects" :onclick="toggleMenu">Ukázky prací</router-link>
       <router-link to="/#section-blog" :onclick="toggleMenu">Blog</router-link>
@@ -106,7 +106,7 @@ document.addEventListener('DOMContentLoaded', function () {
   transition: all 0.3s ease;
 
   &.scrolled {
-    box-shadow: 0px 1px 2px 0px rgba(0,0,0,0.11);
+    box-shadow: 0px 1px 2px 0px rgba(255, 255, 255,0.2);
     background-color: var(--background);
   }
 
@@ -205,7 +205,7 @@ document.addEventListener('DOMContentLoaded', function () {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
-        line-height: normal;
+        line-height: 24px;
 
         > span:nth-child(1) {
           color: var(--secondary);
