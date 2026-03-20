@@ -4,6 +4,8 @@ import {EffectCoverflow, Navigation} from "swiper/modules";
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
+import { ref } from 'vue'
+import VuePdfEmbed from 'vue-pdf-embed'
 
 import softli from '@/assets/images/projectLogos/softli.png'
 import krstatic from '@/assets/images/projectLogos/KRStatic.jpg'
@@ -14,6 +16,15 @@ import realmstav from '@/assets/images/projectLogos/realmstav.png'
 import domyKrizkovyUjezdec from '@/assets/images/projectLogos/domy-krizkovy-ujezdec.png'
 import meopta from '@/assets/images/projectLogos/Meopta.jpg'
 
+import softliPdf from '@/assets/pdfs/projectPdfs/softli.pdf'
+import krstaticPdf from '@/assets/pdfs/projectPdfs/KRStatic.pdf'
+import abladoPdf from '@/assets/pdfs/projectPdfs/ablado.pdf'
+import accelappsPdf from '@/assets/pdfs/projectPdfs/accelapps.pdf'
+import zahradyGreenPdf from '@/assets/pdfs/projectPdfs/zahrady-green.pdf'
+import realmstavPdf from '@/assets/pdfs/projectPdfs/REALMstav.pdf'
+import domyKrizkovyUjezdecPdf from '@/assets/pdfs/projectPdfs/domy-krizkovy-ujezdec.pdf'
+import meoptaPdf from '@/assets/pdfs/projectPdfs/Meopta.pdf'
+
 const modules = [ Navigation, EffectCoverflow ];
 
 const data = [
@@ -22,58 +33,68 @@ const data = [
     name: 'SoftLi',
     segment: 'Tech SaaS | B2B',
     logo: softli,
-    pdf: ''
+    pdf: softliPdf
   },
   {
     id: 1,
     name: 'KRStatic',
     segment: 'Civil Engineering | B2B',
     logo: krstatic,
-    pdf: ''
+    pdf: krstaticPdf
   },
   {
     id: 2,
     name: 'Ablado',
     segment: 'Edu | B2C',
     logo: ablado,
-    pdf: ''
+    pdf: abladoPdf
   },
   {
     id: 3,
     name: 'Accelapps',
     segment: 'Business IT | B2B',
     logo: accelapps,
-    pdf: ''
+    pdf: accelappsPdf
   },
   {
     id: 4,
     name: 'Záhrady Green',
     segment: 'Landscape Architecture | B2C',
     logo: zahradyGreen,
-    pdf: ''
+    pdf: zahradyGreenPdf
   },
   {
     id: 5,
     name: 'REALMstav',
     segment: 'Real Estate | B2C/B2B',
     logo: realmstav,
-    pdf: ''
+    pdf: realmstavPdf
   },
   {
     id: 6,
     name: 'Domy Křížkový Újezdec',
     segment: 'Real Estate | B2C',
     logo: domyKrizkovyUjezdec,
-    pdf: ''
+    pdf: domyKrizkovyUjezdecPdf
   },
   {
     id: 7,
     name: 'Meopta',
     segment: 'High-Tech | B2B',
     logo: meopta,
-    pdf: ''
+    pdf: meoptaPdf
   },
 ]
+
+const selectedPdf = ref<string | null>(null)
+
+const openModal = (pdf: string) => {
+  selectedPdf.value = pdf
+}
+
+const closeModal = () => {
+  selectedPdf.value = null
+}
 
 </script>
 
@@ -83,8 +104,9 @@ const data = [
       <swiper
         :modules="modules"
         :loop="true"
-        :grabCursor="true"
+        :grabCursor="false"
         :centeredSlides="true"
+        :navigation="true"
         :effect="'coverflow'"
         :coverflowEffect="{
           rotate: 0,
@@ -97,16 +119,13 @@ const data = [
           640: {
             slidesPerView: 1,
           },
-          768: {
-            slidesPerView: 2,
-          },
           1024: {
             slidesPerView: 3,
           },
         }"
       >
         <swiper-slide v-for="project in data" class="section-projects__slide" :key="project.id">
-          <div  class="section-projects__slide-content">
+          <div @click="openModal(project.pdf)"  class="section-projects__slide-content">
             <div class="section-projects__image-container">
               <img :src="project.logo" :alt="project.name" />
             </div>
@@ -117,6 +136,18 @@ const data = [
           </div>
         </swiper-slide>
       </swiper>
+      <transition name="modal-fade">
+        <div v-if="selectedPdf" class="modal-overlay" @click.self="closeModal">
+          <div class="modal-content">
+            <button class="modal-close" @click="closeModal">✕</button>
+            <VuePdfEmbed
+                v-if="selectedPdf"
+                :source="selectedPdf"
+                class="pdf-viewer"
+            />
+          </div>
+        </div>
+      </transition>
     </Container>
   </div>
 </template>
@@ -124,6 +155,10 @@ const data = [
 <style>
 .section-projects {
   padding: 5rem 5rem 15rem 5rem;
+
+  @media (max-width: 640px) {
+    padding: 5rem 0 15rem 0;
+  }
 
   .section-projects__slide-content {
     width: 80%;
@@ -133,6 +168,11 @@ const data = [
     padding: 2rem 2rem;
     background-color: var(--background-light);
     border-radius: 10px;
+    cursor: pointer;
+
+    @media (max-width: 1024px) {
+      width: 60%;
+    }
   }
 
   .section-projects__image-container {
@@ -152,6 +192,86 @@ const data = [
 
   .section-projects__slide-text {
     margin-top: 2rem;
+  }
+
+  .swiper,
+  .swiper-wrapper {
+    pointer-events: none;
+  }
+
+  .swiper-slide,
+  .swiper-button-prev,
+  .swiper-button-next,
+  .section-projects__slide-content {
+    pointer-events: auto;
+  }
+
+  .swiper-button-prev,
+  .swiper-button-next {
+    z-index: 10;
+
+    @media (min-width: 1024px) {
+      display: none;
+    }
+  }
+
+  .modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 99999;
+  }
+
+  .modal-content {
+    width: 80%;
+    height: 80%;
+    background: white;
+    border-radius: 10px;
+    overflow: auto;
+    position: relative;
+  }
+
+  .modal-close {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
+
+  .modal-fade-enter-active,
+  .modal-fade-leave-active {
+    transition: opacity 0.35s ease;
+  }
+
+  .modal-fade-enter-from,
+  .modal-fade-leave-to {
+    opacity: 0;
+  }
+
+  /* Content scale animation */
+  .modal-fade-enter-active .modal-content,
+  .modal-fade-leave-active .modal-content {
+    transition: transform 0.35s ease, opacity 0.35s ease;
+  }
+
+  .modal-fade-enter-from .modal-content {
+    transform: scale(0.85);
+    opacity: 0;
+  }
+
+  .modal-fade-leave-to .modal-content {
+    transform: scale(0.85);
+    opacity: 0;
   }
 }
 </style>

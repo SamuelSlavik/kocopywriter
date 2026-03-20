@@ -63,6 +63,7 @@
     z-index: -1;
     top: 50%;
     transform: translateY(-50%);
+    overflow-x: hidden;
     @media (max-width: 1024px) {
       display: none;
     }
