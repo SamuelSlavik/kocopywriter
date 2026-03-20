@@ -8,6 +8,17 @@ import {inject, onMounted, ref} from "vue";
 import type {Brand, Headline} from "@/lib/models";
 import {backend_url} from "@/lib/constants";
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
+// REMOVE THIS FROM BACKEND AND DATABASE, WONT BE USED ANYMORE
+//
+// DELETE COMPONENT IN NEXT VERSION
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+
+
 const user = useUserStore()
 const loading = ref<boolean>(false)
 const notificationStore: any = inject('notificationStore')

@@ -6,6 +6,14 @@ import {postsApi} from "@/lib/apiHelpers";
 import type {Post} from "@/lib/models";
 import {formatDate} from "@/lib/utils";
 
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
+// DELETE COMPONENT IN NEXT VERSION
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+
 const loading = ref<boolean>(false)
 const user = useUserStore()
 const router = useRouter()

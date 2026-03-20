@@ -28,7 +28,6 @@ const loadHeadline = async () => {
 
 onMounted(() => {
   loadHeadline()
-  console.log("mounting homepage")
 })
 
 </script>
@@ -83,7 +82,8 @@ onMounted(() => {
   gap: 2rem;
   width: 60%;
   margin-left: 0;
-  text-align: right;
+  text-align: left;
+
   @media (max-width: 1024px) {
     width: 100%;
     transform: none;
@@ -99,8 +99,8 @@ onMounted(() => {
     justify-content: flex-start;
     align-content: flex-start;
     flex-wrap: wrap;
-    text-align: center;
   }
+
   h1 {
     width: 100%;
     font-size: 2.5rem;
@@ -112,6 +112,7 @@ onMounted(() => {
       line-height: 2rem;
     }
   }
+
   h2 {
     width: 100%;
     color: var(--primary);
@@ -119,13 +120,19 @@ onMounted(() => {
     font-size: 1.5rem;
     font-weight: bold;
   }
+
   p {
     margin-top: 4rem;
   }
+
   .button {
     margin-top: 4rem;
-    margin-left: auto;
+    margin-left: 0;
     margin-right: auto;
+
+    @media (max-width: 1024px) {
+      margin-left: auto;
+    }
   }
 }
 
