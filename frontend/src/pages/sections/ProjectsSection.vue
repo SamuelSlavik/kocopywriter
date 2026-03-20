@@ -123,7 +123,7 @@ const data = [
 
 <style>
 .section-projects {
-  padding: 5rem;
+  padding: 5rem 5rem 15rem 5rem;
 
   .section-projects__slide-content {
     width: 80%;
