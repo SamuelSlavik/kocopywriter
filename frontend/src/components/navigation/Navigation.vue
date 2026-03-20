@@ -75,8 +75,8 @@ document.addEventListener('DOMContentLoaded', function () {
         <router-link to="/#section-about">Modus operandi</router-link>
         <router-link to="/#section-offer">Služby</router-link>
         <router-link to="/#section-references">Reference</router-link>
-        <router-link class="outer-link" to="/projects">Ukázky prací</router-link>
-        <router-link to="/blog">Blog</router-link>
+        <router-link to="/#projects">Ukázky prací</router-link>
+        <router-link class="outer-link" to="/blog">Blog</router-link>
         <router-link to="/#section-contact">Ko-kontakt</router-link>
         <router-link class="outer-link" v-if="user.id" to="/admin">Profil</router-link>
       </div>

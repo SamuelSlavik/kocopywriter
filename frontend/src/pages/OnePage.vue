@@ -4,17 +4,16 @@ import Offer from "@/pages/sections/Offer.vue";
 import About from "@/pages/sections/About.vue";
 import References from "@/pages/sections/References.vue";
 import Contact from "@/pages/sections/Contact.vue";
+import ProjectsSection from "@/pages/sections/ProjectsSection.vue";
 
 </script>
 
 <template>
   <Homepage />
-  <!--  <BrandsSection />-->
   <About />
-  <!-- Tu pojde nova sekcia s ukazkami praci -->
+  <ProjectsSection />
   <Offer />
   <References />
-<!--  <BlogSection />-->
   <Contact />
 </template>
 

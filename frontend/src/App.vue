@@ -146,6 +146,7 @@ body {
   font-family: var(--font-primary);
   scroll-behavior: smooth;
   line-height: 2rem;
+  overflow-x: hidden;
 }
 a {
   text-decoration: none;
