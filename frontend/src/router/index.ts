@@ -1,12 +1,10 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import Homepage from '@/pages/sections/Homepage.vue';
 import OnePage from '@/pages/OnePage.vue';
 import Login from '@/pages/user/Login.vue';
 import Profile from '@/pages/user/Profile.vue';
 import EditHeadline from '@/pages/user/admin/EditHeadline.vue';
 import Admin from '@/pages/user/Admin.vue';
 import Blog from '@/pages/blog/Blog.vue';
-import Pricing from '@/pages/pricing/Pricing.vue';
 import CreatePost from '@/pages/user/admin/CreatePost.vue';
 import CreatePriceListItem from '@/pages/user/admin/CreatePriceListItem.vue';
 import EditProfile from '@/pages/user/admin/EditProfile.vue';
@@ -35,7 +33,6 @@ import ManageProjects from "@/pages/user/admin/ManageProjects.vue";
 import CreateProject from "@/pages/user/admin/CreateProject.vue";
 import EditProject from "@/pages/user/admin/EditProject.vue";
 import DetailProject from "@/pages/user/admin/DetailProject.vue";
-import CookieDetails from "@/pages/cookies/CookieDetails.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -195,14 +192,6 @@ const router = createRouter({
         },
       ]
     },
-    // {
-    //   path: "/pricing",
-    //   component: Pricing
-    // },
-    {
-      path: "/projects",
-      component: Projects
-    },
     {
       path: "/blog",
       component: Blog
@@ -210,10 +199,6 @@ const router = createRouter({
     {
       path: "/blog/:id",
       component: Post
-    },
-    {
-      path: "/cookies/details",
-      component: CookieDetails
     }
   ]
 })

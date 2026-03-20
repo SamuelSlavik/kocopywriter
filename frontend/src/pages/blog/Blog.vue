@@ -1,14 +1,10 @@
 <script setup lang="ts">
 import {inject, onMounted, ref} from "vue";
-import {useUserStore} from "@/stores/user-store";
-import {useRouter} from "vue-router";
 import type {Post} from "@/lib/models";
 import {postsApi} from "@/lib/apiHelpers";
 import {formatDate} from "@/lib/utils";
 
 const loading = ref<boolean>(false)
-const user = useUserStore()
-const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 
 const posts = ref<Post[]>([])

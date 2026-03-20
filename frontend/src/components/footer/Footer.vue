@@ -15,15 +15,6 @@ import Cookie from 'vue-material-design-icons/Cookie.vue';
         </p>
       </div>
       <br/>
-<!--      <div>-->
-<!--        <router-link to="/cookies/details">-->
-<!--          <Cookie />-->
-<!--        </router-link>-->
-<!--&lt;!&ndash;        <p>&ndash;&gt;-->
-<!--&lt;!&ndash;          Prohlášení o ochraně osobních údajů a souborech cookie&ndash;&gt;-->
-<!--&lt;!&ndash;        </p>&ndash;&gt;-->
-<!--      </div>-->
-      <br/>
       <div class="footer__reference">
         <p>
           Powered by blood, sweat, tears &

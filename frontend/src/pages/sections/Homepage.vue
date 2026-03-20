@@ -2,13 +2,10 @@
 
 import Container from "@/components/Container.vue";
 import {scrollToTarget} from "@/lib/utils.js";
-import {useUserStore} from "@/stores/user-store";
-import {brandsApi, headlineApi} from "@/lib/apiHelpers";
+import {headlineApi} from "@/lib/apiHelpers";
 import {inject, onMounted, ref} from "vue";
-import type {Brand, Headline} from "@/lib/models";
-import {backend_url} from "@/lib/constants";
+import type {Headline} from "@/lib/models";
 
-const user = useUserStore()
 const loading = ref<boolean>(false)
 const notificationStore: any = inject('notificationStore')
 
