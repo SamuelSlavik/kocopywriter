@@ -7,11 +7,11 @@ import 'swiper/css/pagination';
 import { ref } from 'vue'
 import VuePdfEmbed from 'vue-pdf-embed'
 
-import softli from '@/assets/images/projectLogos/softli.png'
+import softli from '@/assets/images/projectLogos/softli.svg'
 import krstatic from '@/assets/images/projectLogos/KRStatic.jpg'
 import ablado from '@/assets/images/projectLogos/ablado.png'
-import accelapps from '@/assets/images/projectLogos/accelapps.jpg'
-import zahradyGreen from '@/assets/images/projectLogos/zahrady-green.png'
+import accelapps from '@/assets/images/projectLogos/accelapps.png'
+import zahradyGreen from '@/assets/images/projectLogos/zahrady-green.svg'
 import realmstav from '@/assets/images/projectLogos/realmstav.png'
 import domyKrizkovyUjezdec from '@/assets/images/projectLogos/domy-krizkovy-ujezdec.png'
 import meopta from '@/assets/images/projectLogos/Meopta.jpg'
@@ -166,7 +166,7 @@ const closeModal = () => {
     height: auto;
     text-align: center;
     padding: 2rem 2rem;
-    background-color: var(--background-light);
+    background-color: var(--background);
     border-radius: 10px;
     cursor: pointer;
 
