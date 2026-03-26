@@ -37,52 +37,52 @@ const data = [
   },
   {
     id: 1,
-    name: 'KRStatic',
-    segment: 'Civil Engineering | B2B',
-    logo: krstatic,
-    pdf: krstaticPdf
-  },
-  {
-    id: 2,
     name: 'Ablado',
     segment: 'Edu | B2C',
     logo: ablado,
     pdf: abladoPdf
   },
   {
-    id: 3,
+    id: 2,
     name: 'Accelapps',
     segment: 'Business IT | B2B',
     logo: accelapps,
     pdf: accelappsPdf
   },
   {
-    id: 4,
-    name: 'Záhrady Green',
+    id: 3,
+    name: 'Zahrady Green',
     segment: 'Landscape Architecture | B2C',
     logo: zahradyGreen,
     pdf: zahradyGreenPdf
   },
   {
-    id: 5,
+    id: 4,
     name: 'REALMstav',
     segment: 'Real Estate | B2C/B2B',
     logo: realmstav,
     pdf: realmstavPdf
   },
   {
-    id: 6,
+    id: 5,
     name: 'Domy Křížkový Újezdec',
     segment: 'Real Estate | B2C',
     logo: domyKrizkovyUjezdec,
     pdf: domyKrizkovyUjezdecPdf
   },
   {
-    id: 7,
+    id: 6,
     name: 'Meopta',
     segment: 'High-Tech | B2B',
     logo: meopta,
     pdf: meoptaPdf
+  },
+  {
+    id: 7,
+    name: 'KRStatic',
+    segment: 'Civil Engineering | B2B',
+    logo: krstatic,
+    pdf: krstaticPdf
   },
 ]
 
@@ -100,6 +100,7 @@ const closeModal = () => {
 
 <template>
   <div class="section-projects" id="section-projects">
+    <h2 class="section-projects__heading">Takhle vypadá účelná jinakost u klientů</h2>
     <Container>
       <swiper
         :modules="modules"
@@ -158,6 +159,11 @@ const closeModal = () => {
 
   @media (max-width: 640px) {
     padding: 5rem 0 15rem 0;
+  }
+
+  .section-projects__heading {
+    text-align: center;
+    margin-bottom: 3rem;
   }
 
   .section-projects__slide-content {
