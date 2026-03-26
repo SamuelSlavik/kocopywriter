@@ -14,7 +14,7 @@ import accelapps from '@/assets/images/projectLogos/accelapps.png'
 import zahradyGreen from '@/assets/images/projectLogos/zahrady-green.svg'
 import realmstav from '@/assets/images/projectLogos/realmstav.png'
 import domyKrizkovyUjezdec from '@/assets/images/projectLogos/domy-krizkovy-ujezdec.png'
-import meopta from '@/assets/images/projectLogos/Meopta.jpg'
+import meopta from '@/assets/images/projectLogos/meopta.png'
 
 import softliPdf from '@/assets/pdfs/projectPdfs/softli.pdf'
 import krstaticPdf from '@/assets/pdfs/projectPdfs/KRStatic.pdf'
@@ -213,6 +213,18 @@ const closeModal = () => {
     @media (min-width: 1024px) {
       display: none;
     }
+  }
+
+  .swiper-slide:not(.swiper-slide-active) .section-projects__slide-content {
+    opacity: 0.72;
+    filter: brightness(0.85);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .swiper-slide-active .section-projects__slide-content {
+    opacity: 1;
+    filter: brightness(1);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.08);
   }
 
   .modal-overlay {
