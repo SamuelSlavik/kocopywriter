@@ -155,15 +155,21 @@ const closeModal = () => {
 
 <style>
 .section-projects {
-  padding: 5rem 5rem 15rem 5rem;
+  padding: 10rem 5rem 15rem 5rem;
 
   @media (max-width: 640px) {
-    padding: 5rem 0 15rem 0;
+    padding: 5rem 0 5rem 0;
   }
 
   .section-projects__heading {
     text-align: center;
     margin-bottom: 3rem;
+
+    @media (max-width: 1024px) {
+      font-size: 1.7rem;
+      margin-bottom: 0;
+      padding: 0 1rem;
+    }
   }
 
   .section-projects__slide-content {

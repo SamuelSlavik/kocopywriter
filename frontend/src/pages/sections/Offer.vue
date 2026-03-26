@@ -77,6 +77,9 @@
   margin-top: 6rem;
   @media (max-width: 1024px) {
     margin-top: 0;
+    width: 100%;
+    margin-left: 0;
+    padding: 0 1rem;
   }
 
   > div {
