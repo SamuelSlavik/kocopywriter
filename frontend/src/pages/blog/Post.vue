@@ -7,7 +7,6 @@ import {postsApi} from "@/lib/apiHelpers";
 import {formatDate} from "@/lib/utils";
 
 const loading = ref<boolean>(false)
-const user = useUserStore()
 const router = useRouter()
 const notificationStore: any = inject('notificationStore')
 

@@ -15,18 +15,9 @@ import Cookie from 'vue-material-design-icons/Cookie.vue';
         </p>
       </div>
       <br/>
-      <div>
-        <router-link to="/cookies/details">
-          <Cookie />
-        </router-link>
-        <p>
-          Prohlášení o ochraně osobních údajů a souborech cookie
-        </p>
-      </div>
-      <br/>
       <div class="footer__reference">
         <p>
-          A vo-vo-vod koho to je?
+          Powered by blood, sweat, tears &
           <a target="_blank" href="https://www.linkedin.com/in/samuel-sl%C3%A1vik-93404316a/">Samuel Slávik</a>
         </p>
       </div>

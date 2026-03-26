@@ -11,7 +11,6 @@ import {useRouter} from "vue-router";
 import type {Reference} from "@/lib/models";
 import {referencesApi} from "@/lib/apiHelpers";
 import {backend_url} from "@/lib/constants";
-import {formatUrl} from "../../lib/utils";
 
 const modules = [Pagination, Navigation];
 

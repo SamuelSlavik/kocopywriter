@@ -6,6 +6,15 @@ import type {Project} from "@/lib/models";
 import {projectsApi} from "@/lib/apiHelpers";
 import ImageSlider from "@/pages/projects/ImageSlider.vue";
 
+
+///////////////////////////////////////////////////////////////////////////////////////////////
+//
+// TODO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+//
+// DELETE COMPONENT IN NEXT VERSION
+//
+///////////////////////////////////////////////////////////////////////////////////////////////
+
 const loading = ref<boolean>(false)
 const user = useUserStore()
 const router = useRouter()
