@@ -99,7 +99,7 @@ const closeModal = () => {
 </script>
 
 <template>
-  <div class="section-projects" id="section-offer">
+  <div class="section-projects" id="section-projects">
     <Container>
       <swiper
         :modules="modules"
