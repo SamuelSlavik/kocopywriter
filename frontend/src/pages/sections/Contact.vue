@@ -8,7 +8,11 @@
       <div class="section-contact__content">
         <div class="section-contact__text">
           <h2>
-            Buďte kontrastní <br/><br/>Buďte vidět <br/><br/>Buďte první volbou
+            Buďte účelně jinačí
+            <br/><br/>
+            Buďte ko-kontrastní
+            <br/><br/>
+            Buďte nepřehlédnutelní
           </h2>
           <div class="section-contact__email">
             <a href="mailto:ko@kocopywriter.cz">
@@ -66,14 +70,21 @@
     text-align: left;
     width: fit-content;
     gap: 2rem;
+    width: 100%;
     @media (max-width: 1024px) {
       width: 100%;
+    }
+
+    h2 {
+      font-size: 1.3rem;
     }
   }
   .section-contact__email {
     display: flex;
     gap: 1rem;
     margin-top: 2rem;
+    font-size: 1.6rem;
+    font-weight: 600;
 
     * {
       margin-top: auto;
@@ -81,7 +92,7 @@
     }
   }
   .section-contact__logo {
-    height: 24px;
+    height: 40px;
     width: auto;
   }
 }

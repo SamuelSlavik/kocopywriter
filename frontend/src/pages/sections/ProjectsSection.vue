@@ -134,6 +134,9 @@ const closeModal = () => {
               <h2>{{project.name}}</h2>
               <p>{{project.segment}}</p>
             </div>
+            <span class="section-projects__slide-arrow" aria-hidden="true">
+              <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 -960 960 960" width="24px" fill="#e3e3e3"><path d="m256-240-56-56 384-384H240v-80h480v480h-80v-344L256-240Z"/></svg>
+            </span>
           </div>
         </swiper-slide>
       </swiper>
@@ -199,11 +202,23 @@ const closeModal = () => {
       width: 100%;
       height: 100%;
       object-fit: contain;
+      filter: brightness(80%);
     }
   }
 
   .section-projects__slide-text {
     margin-top: 2rem;
+  }
+
+  .section-projects__slide-arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--tertiary);
+    transition: color 0.25s ease, transform 0.25s ease;
+
+    svg {
+      fill: var(--tertiary);
+    }
   }
 
   .swiper,
@@ -231,6 +246,21 @@ const closeModal = () => {
     opacity: 0.72;
     filter: brightness(0.85);
     box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  }
+
+  .swiper-slide.swiper-slide-active .section-projects__slide-content {
+    &:hover .section-projects__slide-arrow {
+      color: var(--orange);
+      transform: translate(2px, -2px);
+
+      svg {
+        fill: var(--orange);
+      }
+    }
+
+    &:hover img {
+      filter: none;
+    }
   }
 
   .swiper-slide-active .section-projects__slide-content {
