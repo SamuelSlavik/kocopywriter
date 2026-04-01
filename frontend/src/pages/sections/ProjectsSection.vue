@@ -219,6 +219,12 @@ const closeModal = () => {
     svg {
       fill: var(--tertiary);
     }
+
+    @media (max-width: 640px) {
+      svg {
+        fill: var(--orange);
+      }
+    }
   }
 
   .swiper,
