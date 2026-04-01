@@ -70,20 +70,16 @@
     text-align: left;
     width: fit-content;
     gap: 2rem;
-    width: 100%;
     @media (max-width: 1024px) {
       width: 100%;
     }
 
-    h2 {
-      font-size: 1.3rem;
-    }
   }
   .section-contact__email {
     display: flex;
     gap: 1rem;
-    margin-top: 2rem;
-    font-size: 1.6rem;
+    margin-top: 3rem;
+    font-size: 2rem;
     font-weight: 600;
 
     * {
