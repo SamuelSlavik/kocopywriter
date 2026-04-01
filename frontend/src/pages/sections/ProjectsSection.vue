@@ -232,6 +232,10 @@ const closeModal = () => {
     pointer-events: none;
   }
 
+  .swiper-wrapper {
+    width: calc(100% - 60px);
+  }
+
   .swiper-slide,
   .swiper-button-prev,
   .swiper-button-next,
@@ -242,10 +246,20 @@ const closeModal = () => {
   .swiper-button-prev,
   .swiper-button-next {
     z-index: 10;
+    background-color: var(--background);
+    height: 100%;
+    top: 0 !important;
+    width: fit-content;
+  }
 
-    @media (min-width: 1024px) {
-      display: none;
-    }
+  .swiper-button-prev {
+    left: 0 !important;
+    padding-right: 1rem;
+  }
+
+  .swiper-button-next {
+    right: 0 !important;
+    padding-left: 1rem;
   }
 
   .swiper-slide:not(.swiper-slide-active) .section-projects__slide-content {
